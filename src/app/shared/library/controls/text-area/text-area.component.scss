@@ -1,0 +1,16 @@
+@import "../../../../../styles.scss";
+
+.app-input {
+  height: 136px;
+  padding: 10px;
+}
+
+:host-context(.form-field_error) {
+  textarea {
+    border: 1px solid $error;
+  }
+}
+
+textarea {
+  resize: none;
+}

@@ -1,0 +1,47 @@
+@import "../../../styles.scss";
+
+.header {
+  height: 80px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $primary;
+  border-top: 1px solid $primary;
+  margin-bottom: 50px;
+  background-color: #d6e9c6;
+  align-items: center;
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  &__navigation {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .app-a {
+    font-size: large;
+  }
+
+  .signOut {
+    display: flex;
+    align-items: center;
+
+    .app-a {
+      margin-right: 10px;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

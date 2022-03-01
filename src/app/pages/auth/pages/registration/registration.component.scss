@@ -1,0 +1,17 @@
+@import "../../../../../styles.scss";
+
+.app-page {
+  max-width: 500px;
+  height: fit-content;
+}
+
+h2 {
+  font-weight: bold;
+  color: $primary;
+}
+
+a {
+  color: #bbbbbb !important;
+  font-weight: 200 !important;
+  font-size: smaller;
+}

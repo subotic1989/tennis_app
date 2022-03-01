@@ -1,0 +1,17 @@
+@import "../../../../../styles.scss";
+
+.app-button-primary {
+  padding: 8px 20px;
+  border: 2px solid $primary;
+  background: $primary;
+  color: $on-primary;
+  border-radius: 25px;
+  transition: 0.25s;
+  margin: 0 4px;
+
+  &:hover {
+    background: transparent;
+    color: $primary;
+    border: 2px solid $primary;
+  }
+}
