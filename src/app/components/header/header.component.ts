@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { signOutAction } from '@app/pages/auth/store/auth.actions';
-import {
-  errorAuthSelector,
-  getUser,
-} from '@app/pages/auth/store/auth.selectors';
+import { isLoggedInAuthSelector } from '@app/pages/auth/store/auth.selectors';
+
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -22,7 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   initValues() {
-    // this.isLoggedIn$ = this.store.pipe(select(errorAuthSelector));
+    this.isLoggedIn$ = this.store.pipe(select(isLoggedInAuthSelector));
   }
 
   signOut() {

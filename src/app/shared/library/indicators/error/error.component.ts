@@ -20,9 +20,6 @@ export class ErrorComponent implements OnInit {
 
   initValues() {
     this.errorMsg = errorOutputTransformFunction(this.errorInput.code);
-    setTimeout(() => {
-      this.isOpen = false;
-    }, 3000);
   }
 
   closeWindow() {

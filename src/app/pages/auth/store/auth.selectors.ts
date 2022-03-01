@@ -14,10 +14,10 @@ export const loadingAuthSelector = createSelector(
   (state) => state.loading
 );
 
-// export const isLoggedInAuthSelector = createSelector(
-//   authFeatureSelector,
-//   (state) => state.isLoggedIn
-// );
+export const isLoggedInAuthSelector = createSelector(
+  authFeatureSelector,
+  (state) => state.isLoggedIn
+);
 
 export const errorAuthSelector = createSelector(
   authFeatureSelector,

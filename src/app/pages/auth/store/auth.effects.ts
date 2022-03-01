@@ -11,6 +11,7 @@ import { catchError, from, map, of, switchMap, tap } from 'rxjs';
 import { AuthService } from './auth.services';
 
 import * as actions from './auth.actions';
+
 import { environment } from '../../../../environments/environment';
 
 @Injectable()
@@ -18,8 +19,7 @@ export class AuthEffect {
   constructor(
     private actions$: Actions,
     private router: Router,
-    private authService: AuthService,
-    private afAuth: AngularFireAuth
+    private authService: AuthService
   ) {}
 
   registerUser$ = createEffect(() =>
@@ -28,14 +28,14 @@ export class AuthEffect {
       switchMap(({ request }) => {
         console.log('request');
         return from(this.authService.registerUser(request)).pipe(
-          // tap(() => {
-          //   const auth = getAuth();
-          //   sendEmailVerification(
-          //     auth.currentUser,
-          //     environment.firebase.actionCodeSettings
-          //   );
-          //   this.router.navigate(['/home']);
-          // }),
+          tap(() => {
+            const auth = getAuth();
+            sendEmailVerification(
+              auth.currentUser,
+              environment.firebase.actionCodeSettings
+            );
+            this.router.navigate(['/home']);
+          }),
           map((data: any) => {
             const uid = data.user.uid;
             return actions.registerSuccessAction({ response: uid });
@@ -69,31 +69,4 @@ export class AuthEffect {
       })
     )
   );
-
-  signOutUser$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(actions.signOutAction),
-      switchMap(() =>
-        from(this.afAuth.signOut()).pipe(
-          map(() => actions.signOutSuccessAction()),
-          catchError((err) => of(actions.signOutErrorAction({ error: err })))
-        )
-      )
-    )
-  );
-
-  // signOutUser$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(actions.signOutAction),
-  //     switchMap(() =>
-  //       from(this.authService.signOutUser()).pipe(
-  //         map(() => actions.signOutSuccessAction()),
-  //         catchError((err) => {
-  //           console.log(err);
-  //           return of(actions.signOutErrorAction({ error: err }));
-  //         })
-  //       )
-  //     )
-  //   )
-  // );
 }
