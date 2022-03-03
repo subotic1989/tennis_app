@@ -15,3 +15,14 @@ a {
   font-weight: 200 !important;
   font-size: smaller;
 }
+
+.error {
+  opacity: 0;
+  font-size: 12px;
+  color: $error;
+  padding: 4px 0 16px 0;
+
+  &_active {
+    opacity: 1;
+  }
+}

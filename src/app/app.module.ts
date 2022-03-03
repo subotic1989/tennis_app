@@ -1,26 +1,24 @@
 import { NgModule } from '@angular/core';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { StoreModule } from '@ngrx/store';
+import { environment } from './../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterModule } from './components/footer/footer.module';
 import { HeaderModule } from './components/header/header.module';
-import { StoreModule } from '@ngrx/store';
+
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { AuthEffect } from './pages/auth/store/auth.effects';
 import { effects, reducers } from './pages/auth/store';
 
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
+import { HotToastModule } from '@ngneat/hot-toast';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -29,26 +27,28 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     HeaderModule,
     FooterModule,
 
+    HotToastModule.forRoot({
+      position: 'bottom-center',
+    }),
+
     StoreModule.forRoot(reducers, {
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true,
       },
     }),
-    // StoreModule.forRoot({}, {}),
+
     EffectsModule.forRoot(effects),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    // provideFirebaseApp(() => initializeApp(environment.firebase.config)),
-    // provideFirestore(() => getFirestore()),
 
     AngularFireModule.initializeApp(environment.firebase.config),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    AngularFireStorageModule,
-    AngularFireDatabaseModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase.config)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent],

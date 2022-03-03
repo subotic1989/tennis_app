@@ -19,9 +19,19 @@
     <div class="app-page__content">
       <app-form-field
         [required]="false"
+        [control]="form.controls?.['displayName']"
+        [isInline]="false"
+      >
+        <app-input
+          formControlName="displayName"
+          [placeholder]="'Name'"
+        ></app-input>
+      </app-form-field>
+
+      <app-form-field
+        [required]="false"
         [control]="form.controls?.['email']"
         [isInline]="false"
-        [patternError]="regexErrors.email"
       >
         <app-input formControlName="email" [placeholder]="'Email'"></app-input>
       </app-form-field>
@@ -36,17 +46,22 @@
           [placeholder]="'Password'"
         ></app-password>
       </app-form-field>
-      <!-- 
+
       <app-form-field
         [required]="false"
-        [control]="form.controls?.['password']"
+        [control]="form.controls?.['passwordsDontMatch']"
         [isInline]="false"
       >
         <app-password
           formControlName="passwordRepeat"
           [placeholder]="'Password Repeat'"
         ></app-password>
-      </app-form-field> -->
+      </app-form-field>
+
+      <div class="error" [class.error_active]="form.hasError('repeat')">
+        Entered passwords don't match
+      </div>
+
       <br />
       <div class="button-container">
         <app-button-primary [type]="'submit'">Sign Up</app-button-primary>

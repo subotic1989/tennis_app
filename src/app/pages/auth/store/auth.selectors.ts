@@ -14,9 +14,9 @@ export const loadingAuthSelector = createSelector(
   (state) => state.loading
 );
 
-export const isLoggedInAuthSelector = createSelector(
+export const isAuthSelector = createSelector(
   authFeatureSelector,
-  (state) => state.isLoggedIn
+  (state) => !!state.uid
 );
 
 export const errorAuthSelector = createSelector(

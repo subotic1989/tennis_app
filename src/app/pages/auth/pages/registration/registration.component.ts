@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { markFormGroupTouched } from '@app/shared/utils/form';
-import { regex, regexErrors } from '@app/shared/utils/regex';
+import { passwordsMatchValidator } from '@app/shared/utils/passwordMatch';
+import { regexErrors } from '@app/shared/utils/regex';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { registerAction } from '../../store/auth.actions';
@@ -36,37 +37,52 @@ export class RegistrationComponent implements OnInit {
   }
 
   initForm() {
-    this.form = this.fb.group({
-      email: [
-        null,
-        {
-          updateOn: 'blur',
-          validators: [
-            Validators.required,
-            Validators.maxLength(128),
-            Validators.pattern(regex.email),
-          ],
-        },
-      ],
-      password: [
-        null,
-        {
-          updateOn: 'change',
-          validators: [Validators.required],
-        },
-      ],
-      // passwordRepeat: [null, Validators.required],
-    });
+    this.form = this.fb.group(
+      {
+        displayName: [
+          null,
+          {
+            updateOn: 'blur',
+            validators: [Validators.required, Validators.maxLength(128)],
+          },
+        ],
+        email: [
+          null,
+          {
+            updateOn: 'blur',
+            validators: [Validators.required, Validators.maxLength(128)],
+          },
+        ],
+        password: [
+          null,
+          {
+            updateOn: 'blur',
+            validators: [Validators.required],
+          },
+        ],
+        passwordRepeat: [
+          null,
+          {
+            updateOn: 'blur',
+            validators: [Validators.required],
+          },
+        ],
+      },
+      { validators: passwordsMatchValidator }
+    );
   }
 
   onSubmit() {
+    console.log(this.form);
     if (this.form.valid) {
-      const request = {
-        email: this.form.value.email,
-        password: this.form.value.password,
-      };
-      this.store.dispatch(registerAction({ request }));
-      this.form.reset();
+      const { email, password, displayName } = this.form.value;
+      this.store.dispatch(
+        registerAction({
+          email: email,
+          password: password,
+          displayName: displayName,
+        })
+      );
     } else {
       markFormGroupTouched(this.form);
     }
