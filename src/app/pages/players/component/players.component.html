@@ -1,0 +1,18 @@
+<app-loading-tennis *ngIf="loading$ | async"></app-loading-tennis>
+
+<div class="players">
+  <!-- sidenav -->
+  <div class="players__side">
+    <app-player-sidenav
+      *ngFor="let player of players$ | async"
+      [playerName]="player.name"
+      [playerImage]="player.image"
+      [routerLink]="[player.name]"
+      routerLinkActive="active"
+    ></app-player-sidenav>
+  </div>
+  <!-- dashboard -->
+  <div class="players__dashboard">
+    <router-outlet></router-outlet>
+  </div>
+</div>

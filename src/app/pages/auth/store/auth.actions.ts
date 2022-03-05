@@ -6,11 +6,11 @@ import { UserInterface } from './types/user.interface';
 
 export const registerAction = createAction(
   '[AUTH] Register with email: Start',
-  props<{ email: string; password: string; displayName: string }>()
+  props<{ email: string; password: string }>()
 );
 export const registerSuccessAction = createAction(
   '[AUTH] Register with email: Success',
-  props<{ response: string }>()
+  props<{ response: any }>()
 );
 export const registerErrorAction = createAction(
   '[AUTH] Register with email: Error',

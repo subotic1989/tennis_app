@@ -1,10 +1,5 @@
 <app-loading *ngIf="loading$ | async"></app-loading>
 
-<app-error
-  *ngIf="errorMsg$ | async"
-  [errorInput]="errorMsg$ | async"
-></app-error>
-
 <div class="app-page">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="app-page__header">

@@ -1,0 +1,15 @@
+@import "styles.scss";
+
+.players {
+  display: flex;
+  height: 100%;
+
+  &__side {
+    flex: 1;
+  }
+
+  &__dashboard {
+    flex: 3;
+    background-color: #ada;
+  }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { signOutAction } from '@app/pages/auth/store/auth.actions';
 import { isAuthSelector } from '@app/pages/auth/store/auth.selectors';
 
@@ -13,7 +14,7 @@ import { Observable } from 'rxjs';
 export class HeaderComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.initValues();

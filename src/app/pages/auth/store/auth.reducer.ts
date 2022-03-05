@@ -6,7 +6,7 @@ export interface AuthStateInterface {
   loading: boolean | null;
   user: UserInterface | null;
   error: string | null;
-  uid: string | null;
+  uid: any | null;
 }
 
 export const initState: AuthStateInterface = {
@@ -25,6 +25,7 @@ const authReducer = createReducer(
     (state): AuthStateInterface => ({
       ...state,
       loading: true,
+      error: null,
     })
   ),
 
@@ -88,7 +89,7 @@ const authReducer = createReducer(
   on(
     actions.signOutSuccessAction,
     (state): AuthStateInterface => ({
-      ...state,
+      ...initState,
     })
   ),
 

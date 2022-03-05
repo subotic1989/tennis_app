@@ -1,0 +1,3 @@
+<app-loading-tennis *ngIf="loading$ | async"></app-loading-tennis>
+
+<h1>{{ (player$ | async)?.name }}</h1>

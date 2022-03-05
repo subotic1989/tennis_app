@@ -1,0 +1,42 @@
+@import "styles.scss";
+
+.player {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid $primary;
+  transition-duration: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary;
+    color: #fff;
+    transition-duration: 0.5s;
+  }
+
+  &:hover img {
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+  }
+
+  &__name {
+    flex: 2;
+  }
+
+  &__photo {
+    flex: 1;
+  }
+
+  img {
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    transition-duration: 0.5s;
+  }
+}
+
+.active {
+  background-color: $primary;
+  color: white;
+  transition-duration: 0.5s;
+}

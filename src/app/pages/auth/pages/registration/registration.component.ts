@@ -73,14 +73,12 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form);
     if (this.form.valid) {
-      const { email, password, displayName } = this.form.value;
+      const { email, password } = this.form.value;
       this.store.dispatch(
         registerAction({
           email: email,
           password: password,
-          displayName: displayName,
         })
       );
     } else {

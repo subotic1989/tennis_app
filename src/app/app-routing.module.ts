@@ -23,6 +23,12 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'players',
+    loadChildren: () =>
+      import('./pages/players/players.module').then((m) => m.PlayersModule),
+  },
+  { path: 'player-dashboard', loadChildren: () => import('./pages/players/component/player-dashboard/player-dashboard.module').then(m => m.PlayerDashboardModule) },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: '/static/home',

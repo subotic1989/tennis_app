@@ -1,13 +1,19 @@
 <div class="header">
+  <!-- Logo Header Starts -->
   <div class="header__logo">
     <img
-      src="../../../assets/image/tennis_logo.svg"
+      src="./assets/image/tennis_logo.svg"
       alt="tennis_logo"
-      [routerLink]="['/']"
+      [routerLink]="['home']"
     />
   </div>
-  <div *ngIf="!(isLoggedIn$ | async)">
-    <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['/']"
+
+  <!-- LoggedOut User -->
+  <div *ngIf="isLoggedIn$ | async">
+    <a
+      class="app-a"
+      routerLinkActive="app-a_active"
+      [routerLink]="['static/home']"
       >Home</a
     >
     <a
@@ -25,8 +31,12 @@
     </a>
   </div>
 
-  <div *ngIf="isLoggedIn$ | async">
-    <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['/']"
+  <!-- LoggedIn User -->
+  <div *ngIf="!(isLoggedIn$ | async)">
+    <a
+      class="app-a"
+      routerLinkActive="app-a_active"
+      [routerLink]="['static/home']"
       >Home</a
     >
     <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['players']"
@@ -40,14 +50,9 @@
     >
   </div>
 
-  <div class="signOut" *ngIf="true">
+  <div class="signOut" *ngIf="isLoggedIn$ | async">
     <a class="app-a" routerLinkActive="app-a_active" (click)="signOut()">
       Sign Out
     </a>
-    <img
-      class="app-a"
-      src="../../../assets/image/logout-svgrepo-com.svg"
-      alt="logout"
-    />
   </div>
 </div>

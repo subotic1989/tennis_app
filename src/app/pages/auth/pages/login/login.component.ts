@@ -64,8 +64,8 @@ export class LoginComponent implements OnInit {
         email: this.form.value.email,
         password: this.form.value.password,
       };
+
       this.store.dispatch(loginAction({ request: request }));
-      this.form.reset();
     } else {
       markFormGroupTouched(this.form);
     }
