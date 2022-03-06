@@ -1,3 +1,18 @@
 .app-page {
   border: none;
+  position: absolute;
+  top: 80px;
+  background-color: transparent;
+  width: 50%;
+  font-size: larger;
+}
+
+.overlay {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../../../assets/image/welcome.jpg");
+  height: 100%;
+  width: 100%;
+  // filter: opacity(80%);
 }

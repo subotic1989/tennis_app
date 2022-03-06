@@ -1,4 +1,5 @@
 export const environment = {
+  countryFlagUrl: 'https://flagcdn.com/w2560/za.png',
   production: true,
   firebase: {
     config: {

@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  countryFlagUrl: 'https://flagcdn.com/w2560/za.png',
   production: false,
   firebase: {
     config: {

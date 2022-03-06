@@ -1,3 +1,84 @@
+<!-- loading -->
 <app-loading-tennis *ngIf="loading$ | async"></app-loading-tennis>
 
-<h1>{{ (player$ | async)?.name }}</h1>
+<!-- left -->
+<div
+  class="overlay"
+  [ngStyle]="{
+    'background-image':
+      'url(https://flagcdn.com/w2560/' + player?.country + '.png)'
+  }"
+></div>
+
+<!-- right -->
+<div class="player">
+  <div class="player__img">
+    <img src="{{ player?.image }}" alt="" />
+  </div>
+
+  <div class="player__details">
+    <h2>{{ player?.name }}</h2>
+
+    <span class="about">
+      <img src="../../../../../assets/image/email.svg" alt="email" />
+      {{ player?.email }}
+    </span>
+    <span class="about">
+      <img src="../../../../../assets/image/mobile-phone.svg" alt="phone" />
+      {{ player?.phone }}
+    </span>
+    <span class="about">
+      <img
+        src="../../../../../assets/image/body-weight-scales.svg"
+        alt="weight"
+      />
+      {{ player?.weight }}kg
+    </span>
+    <span class="about">
+      <img src="../../../../../assets/image/height.svg" alt="height" />
+      {{ player?.height }}cm
+    </span>
+    <span class="about">
+      <img
+        src="../../../../../assets/image/map-pin-point.svg"
+        alt="birthplace"
+      />
+      {{ player?.birthplace }}
+    </span>
+    <span class="about" *ngIf="player?.sponsors">
+      <img src="../../../../../assets/image/hand-shake.svg" alt="sponsors" />
+      {{ player?.sponsors }}
+    </span>
+
+    <div class="networks">
+      <ul>
+        <li>
+          <a href="https://www.instagram.com/instagram/"
+            ><img src="../../../../../assets/image/black-instagram.svg" alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/"
+            ><img
+              src="../../../../../assets/image/facebook-round-line.svg"
+              alt=""
+          /></a>
+        </li>
+        <li>
+          <a
+            href="https://www.google.at/webhp?gfe_rd=cr&dcr=0&ei=JgG4WukUj8Re7_yN2Ac"
+            ><img
+              src="../../../../../assets/image/internet-web-browser.svg"
+              alt=""
+          /></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- bottom -->
+  <div class="player__bio">
+    <h3>Biography:</h3>
+    <span>{{ player?.bio }}</span>
+  </div>
+</div>

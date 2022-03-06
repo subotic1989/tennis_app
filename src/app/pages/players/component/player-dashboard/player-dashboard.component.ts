@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getPlayerAction } from '../../store/players.actions';
 import {
   getPlayerSelector,
   loadingGetPlayersSelector,
@@ -15,8 +14,10 @@ import { PlayerResponseInterface } from '../../store/types/playerResponse.interf
   styleUrls: ['./player-dashboard.component.scss'],
 })
 export class PlayerDashboardComponent implements OnInit {
-  player$: Observable<PlayerResponseInterface>;
+  player: PlayerResponseInterface;
   loading$: Observable<boolean>;
+
+  countryFlag: string = 'https://flagcdn.com/w2560/ba.png';
 
   constructor(private route: ActivatedRoute, private store: Store) {}
 
@@ -25,10 +26,11 @@ export class PlayerDashboardComponent implements OnInit {
   }
 
   initValues() {
-    this.route.params.subscribe((params: Params) => {
-      const query = params['player'];
-      this.store.dispatch(getPlayerAction({ request: query }));
-      this.player$ = this.store.pipe(select(getPlayerSelector));
+    this.route.params.subscribe(() => {
+      this.store
+        .pipe(select(getPlayerSelector))
+        .subscribe((data: PlayerResponseInterface) => (this.player = data));
+
       this.loading$ = this.store.pipe(select(loadingGetPlayersSelector));
     });
   }
