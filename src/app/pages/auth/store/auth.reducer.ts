@@ -19,6 +19,33 @@ export const initState: AuthStateInterface = {
 const authReducer = createReducer(
   initState,
 
+  //init
+  on(
+    actions.initAction,
+    (state): AuthStateInterface => ({
+      ...state,
+      loading: true,
+      error: null,
+    })
+  ),
+
+  on(
+    actions.initSuccessAction,
+    (state, action): AuthStateInterface => ({
+      ...state,
+      loading: false,
+      uid: action.uid,
+    })
+  ),
+
+  on(
+    actions.initErrorAction,
+    (state, action): AuthStateInterface => ({
+      ...state,
+      loading: false,
+      error: action.error,
+    })
+  ),
   //register
   on(
     actions.registerAction,
@@ -62,7 +89,6 @@ const authReducer = createReducer(
     (state, action): AuthStateInterface => ({
       ...state,
       loading: false,
-      user: action.user,
       uid: action.uid,
     })
   ),

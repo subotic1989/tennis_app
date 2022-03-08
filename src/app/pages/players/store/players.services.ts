@@ -10,6 +10,7 @@ export class GetPlayersService {
   }
 
   getPlayer(query: string) {
+    this.afs.doc;
     return this.afs
       .collection('players', (ref) => ref.where('name', '==', query))
       .valueChanges();

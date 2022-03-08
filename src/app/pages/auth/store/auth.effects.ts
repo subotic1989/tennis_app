@@ -16,9 +16,11 @@ import * as actions from './auth.actions';
 
 import { environment } from '../../../../environments/environment';
 
-import { HotToastService } from '@ngneat/hot-toast';
-
-import { errorOutputTransformFunction } from '@app/shared/utils/errorOutputTransform';
+import { errorOutputTransformFunction } from '@app/shared/utils/errorOutputTransform.service';
+import { NotificationService } from '@app/shared/library/indicators/snack-bar/notification.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { LocalStorageService } from '@app/shared/utils/localStorage.service';
 
 @Injectable()
 export class AuthEffect {
@@ -26,8 +28,28 @@ export class AuthEffect {
     private actions$: Actions,
     private router: Router,
     private authService: AuthService,
-    private toast: HotToastService
+    private notification: NotificationService,
+    private afs: AngularFirestore,
+    private afAuth: AngularFireAuth,
+    private localStorageService: LocalStorageService
   ) {}
+
+  initUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.initAction),
+      switchMap(() => {
+        return of(this.localStorageService.get('uid')).pipe(
+          map((uid) => {
+            return actions.initSuccessAction({ uid: uid });
+          }),
+          catchError((err) => {
+            this.notification.error(errorOutputTransformFunction(err.code));
+            return of(actions.initErrorAction({ error: err }));
+          })
+        );
+      })
+    )
+  );
 
   registerUser$ = createEffect(() =>
     this.actions$.pipe(
@@ -36,14 +58,7 @@ export class AuthEffect {
         const { email, password } = data;
 
         return this.authService.registerUser(email, password).pipe(
-          this.toast.observe({
-            success: 'Congrats! You are all signed up',
-            loading: 'Signing up...',
-            error: ({ message }) => `${errorOutputTransformFunction(message)}`,
-          }),
-
           tap((test) => {
-            console.log(test);
             const auth = getAuth();
             sendEmailVerification(
               auth.currentUser,
@@ -52,11 +67,13 @@ export class AuthEffect {
             this.router.navigate(['/home']);
           }),
           map((data: any) => {
+            this.notification.success('Register Success!');
+            this.localStorageService.set('uid', data?.user.uid);
             const uid = data?.user.uid;
             return actions.registerSuccessAction({ response: uid });
           }),
           catchError((err) => {
-            console.log(err);
+            this.notification.error(errorOutputTransformFunction(err.code));
             return of(actions.registerErrorAction({ error: err }));
           })
         );
@@ -71,22 +88,19 @@ export class AuthEffect {
         const { email, password } = data.request;
 
         return from(this.authService.loginUser(email, password)).pipe(
-          this.toast.observe({
-            success: 'Congrats! You are all signed up',
-            loading: 'Signing up...',
-            error: ({ message }) => errorOutputTransformFunction(message),
-          }),
-
           tap(() => this.router.navigate(['/home'])),
           map((data) => {
-            console.log(data.user);
+            console.log(data);
+            this.notification.success('Login Success!');
+            // this.afAuth.authState.subscribe((data) => console.log(data));
+            this.localStorageService.set('uid', data?.user.uid);
 
             return actions.loginSuccessAction({
               uid: data.user.uid,
-              user: data.user.providerData[0],
             });
           }),
           catchError((err) => {
+            this.notification.error(errorOutputTransformFunction(err.code));
             return of(actions.loginErrorAction({ error: err }));
           })
         );
@@ -99,12 +113,9 @@ export class AuthEffect {
       ofType(actions.signOutAction),
       switchMap(() => {
         return from(this.authService.signOutUser()).pipe(
-          this.toast.observe({
-            success: 'Signing out',
-            loading: 'Signing out...',
-            error: ({ message }) => errorOutputTransformFunction(message),
-          }),
           map(() => {
+            localStorage.removeItem('uid');
+            this.notification.success('Signing out!');
             this.router.navigate(['/auth/login']);
             return actions.signOutSuccessAction();
           }),

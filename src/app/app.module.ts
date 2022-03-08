@@ -19,6 +19,8 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 
 import { HotToastModule } from '@ngneat/hot-toast';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationModule } from './shared/library/indicators/snack-bar/notification.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -49,6 +51,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
+    BrowserAnimationsModule,
+    NotificationModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

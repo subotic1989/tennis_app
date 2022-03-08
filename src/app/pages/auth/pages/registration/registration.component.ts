@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { markFormGroupTouched } from '@app/shared/utils/form';
-import { passwordsMatchValidator } from '@app/shared/utils/passwordMatch';
+import { IsFormSavedInterfaceGourd } from '@app/guards/is-form-saved.guard';
+import { markFormGroupTouched } from '@app/shared/utils/form.service';
+import { passwordsMatchValidator } from '@app/shared/utils/passwordMatch.service';
 import { regexErrors } from '@app/shared/utils/regex';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -16,19 +17,23 @@ import {
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent
+  implements OnInit, IsFormSavedInterfaceGourd
+{
   form: FormGroup;
 
   loading$: Observable<boolean>;
   errorMsg$: Observable<string>;
 
   regexErrors = regexErrors;
+  isFormSubmitted: boolean = false;
 
   constructor(private fb: FormBuilder, private store: Store) {}
 
   ngOnInit(): void {
     this.initForm();
     this.initValues();
+    console.log(this.form);
   }
 
   initValues() {
@@ -81,8 +86,11 @@ export class RegistrationComponent implements OnInit {
           password: password,
         })
       );
+      this.isFormSubmitted = true;
     } else {
       markFormGroupTouched(this.form);
     }
   }
+
+  canDeactivate = () => !this.form?.dirty || this.isFormSubmitted;
 }

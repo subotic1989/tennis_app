@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -26,8 +27,8 @@ const routes: Routes = [
     path: 'players',
     loadChildren: () =>
       import('./pages/players/players.module').then((m) => m.PlayersModule),
+    canLoad: [AuthGuard],
   },
-  { path: 'player-dashboard', loadChildren: () => import('./pages/players/component/player-dashboard/player-dashboard.module').then(m => m.PlayerDashboardModule) },
   {
     path: '**',
     pathMatch: 'full',

@@ -8,7 +8,7 @@
     />
   </div>
 
-  <!-- LoggedOut User -->
+  <!-- Auth User -->
   <div *ngIf="!(isLoggedIn$ | async)">
     <a
       class="app-a"
@@ -31,7 +31,7 @@
     </a>
   </div>
 
-  <!-- LoggedIn User -->
+  <!-- UnAuth User -->
   <div *ngIf="isLoggedIn$ | async">
     <a
       class="app-a"
@@ -49,6 +49,8 @@
       >Locations</a
     >
   </div>
+
+  <!-- Sign Out User -->
 
   <div class="signOut" *ngIf="isLoggedIn$ | async">
     <a class="app-a" routerLinkActive="app-a_active" (click)="signOut()">

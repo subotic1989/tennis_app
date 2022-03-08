@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ButtonPrimaryModule } from '@app/shared/library/buttons/button-primary/button-primary.module';
 
-import { ButtonPrimaryModule } from '@app/shared';
 import { FormFieldModule } from '@app/shared/library/controls/form-field/form-field.module';
 import { InputModule } from '@app/shared/library/controls/input/input.module';
 import { PasswordModule } from '@app/shared/library/controls/password/password.module';

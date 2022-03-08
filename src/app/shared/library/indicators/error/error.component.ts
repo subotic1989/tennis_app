@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { errorOutputTransformFunction } from '@app/shared/utils/errorOutputTransform';
+import { errorOutputTransformFunction } from '@app/shared/utils/errorOutputTransform.service';
 import { Store } from '@ngrx/store';
 
 @Component({

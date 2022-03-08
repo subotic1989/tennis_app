@@ -2,6 +2,18 @@ import { createAction, props } from '@ngrx/store';
 import { AuthRegisterRequest } from './types/authRegisterRequest.interface';
 import { UserInterface } from './types/user.interface';
 
+//init
+
+export const initAction = createAction('[INIT] Init user: Start');
+export const initSuccessAction = createAction(
+  '[INIT] Init user: Success',
+  props<{ uid: string }>()
+);
+export const initErrorAction = createAction(
+  '[INIT] Init user: Error',
+  props<{ error: string }>()
+);
+
 //register
 
 export const registerAction = createAction(
@@ -25,7 +37,7 @@ export const loginAction = createAction(
 );
 export const loginSuccessAction = createAction(
   '[AUTH] Login with email: Success',
-  props<{ user: any; uid: string }>()
+  props<{ uid: string }>()
 );
 export const loginErrorAction = createAction(
   '[AUTH] Login with email: Error',

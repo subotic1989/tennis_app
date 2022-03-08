@@ -18,6 +18,9 @@ export const errorOutputTransformFunction = (error: string) => {
     case 'auth/wrong-password':
       errorMsg = 'Wrong password!';
       break;
+    case 'auth/user-not-found':
+      errorMsg = 'User not found!';
+      break;
   }
 
   return errorMsg;
