@@ -1,5 +1,4 @@
 <app-loading-tennis *ngIf="loading$ | async"></app-loading-tennis>
-
 <div class="players">
   <!-- sidenav -->
   <div class="players__side">
@@ -8,11 +7,12 @@
       [playerName]="player.name"
       [playerImage]="player.image"
       [routerLink]="[player.name]"
-      routerLinkActive="active"
+      (click)="onSendActiveUser(player.name)"
     ></app-player-sidenav>
   </div>
   <!-- dashboard -->
   <div class="players__dashboard">
+    <app-choose-player *ngIf="isChoose"></app-choose-player>
     <router-outlet></router-outlet>
   </div>
 </div>

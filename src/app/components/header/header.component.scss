@@ -1,17 +1,29 @@
-@import "../../../styles.scss";
+@import "styles.scss";
 
 .header {
-  height: 80px;
+  height: 100px;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid $primary;
   border-top: 1px solid $primary;
-  background-color: #d6e9c6;
   align-items: center;
+  background-image: linear-gradient(315deg, #c4f6d5 0%, #7ad181 74%);
 
   .app-a {
-    font-size: large;
+    font-size: x-large;
+    font-family: Fredoka-Bold;
+    color: $primary;
+    transition-duration: 0.3s;
+
+    &:hover {
+      color: antiquewhite;
+      transition-duration: 0.3s;
+    }
+
+    &_active {
+      color: antiquewhite;
+    }
   }
 
   &__logo {
@@ -20,8 +32,8 @@
     cursor: pointer;
 
     img {
-      width: 56px;
-      height: 56px;
+      width: 66px;
+      height: 66px;
     }
   }
 }

@@ -30,6 +30,19 @@ const routes: Routes = [
     canLoad: [AuthGuard],
   },
   {
+    path: 'gallery',
+    loadChildren: () =>
+      import('./pages/gallery/gallery.module').then((m) => m.GalleryModule),
+  },
+  {
+    path: 'locations',
+    loadChildren: () =>
+      import('./pages/locations/locations.module').then(
+        (m) => m.LocationsModule
+      ),
+  },
+
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: '/static/home',

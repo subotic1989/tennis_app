@@ -1,5 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import "styles/main";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family: Fredoka-Bold;
+  src: url(assets/fonts/Fredoka-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Fredoka-Regular;
+  src: url(assets/fonts/Fredoka-Regular.ttf) format("truetype");
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Pacifico;
+}
+body {
+  margin: 0;
+  font-family: Fredoka-Regular;
+
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,46 @@
+<section>
+  <input type="radio" id="graz" value="1" name="tractor" checked="checked" />
+  <input type="radio" id="karlovac" value="2" name="tractor" />
+  <input type="radio" id="posusje" value="3" name="tractor" />
+  <input type="radio" id="gradiska" value="4" name="tractor" />
+  <input type="radio" id="zagreb" value="5" name="tractor" />
+
+  <nav>
+    <label for="graz">
+      <img src="../../../../assets/image/AUT_Graz_COA.svg" alt="graz" />
+    </label>
+    <label for="karlovac">
+      <img src="../../../../assets/image/karlovac.png" alt="kar" />
+    </label>
+    <label for="posusje">
+      <img src="../../../../assets/image/Posusje_grb.jpg" alt="kar" />
+    </label>
+    <label for="gradiska">
+      <img src="../../../../assets/image/gradiska.png" alt="kar" />
+    </label>
+    <label for="zagreb">
+      <img src="../../../../assets/image/zagreb.png" alt="kar" />
+    </label>
+  </nav>
+
+  <article class="one">
+    <app-city-dashboard [cityQuery]="'graz'"></app-city-dashboard>
+    <app-google-maps [cord]="{ lon: 15.45, lat: 47.0667 }"></app-google-maps>
+  </article>
+
+  <article class="two">
+    <app-city-dashboard [cityQuery]="'karlovac'"></app-city-dashboard>
+  </article>
+
+  <article class="three">
+    <app-city-dashboard [cityQuery]="'posušje'"></app-city-dashboard>
+  </article>
+
+  <article class="four">
+    <app-city-dashboard [cityQuery]="'gradiska'"></app-city-dashboard>
+  </article>
+
+  <article class="five">
+    <app-city-dashboard [cityQuery]="'zagreb'"></app-city-dashboard>
+  </article>
+</section>

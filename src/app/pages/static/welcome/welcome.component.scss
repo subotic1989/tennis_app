@@ -11,7 +11,18 @@
   position: relative;
   background-size: cover;
   background-position: center;
-  background-image: url("../../../../assets/image/welcome.jpg");
+  background-image: url("https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fb8251d4c-83a5-11e8-b7ab-42d55e61ad8f.jpg?crop=2596%2C1461%2C339%2C60");
   height: 100%;
   width: 100%;
+}
+
+h1 {
+  font-size: xx-large;
+  color: antiquewhite;
+}
+
+p {
+  font-family: Fredoka-Regular;
+  font-size: larger;
+  color: antiquewhite;
 }

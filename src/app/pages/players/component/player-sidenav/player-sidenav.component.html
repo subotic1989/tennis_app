@@ -1,4 +1,8 @@
-<div class="player" (click)="getPlayer(playerName)">
+<div
+  class="player"
+  (click)="onGetPlayer(playerName)"
+  [ngClass]="{ active: playerName == activeUser }"
+>
   <div class="player__name">{{ playerName }}</div>
   <div class="player__photo">
     <img src="{{ playerImage }}" alt="{{ playerName }}" />

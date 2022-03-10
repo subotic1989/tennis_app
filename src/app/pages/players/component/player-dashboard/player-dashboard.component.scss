@@ -21,6 +21,15 @@
     "img det"
     "bio bio";
 
+  &__bio {
+    grid-area: bio;
+    overflow: auto;
+    height: 300px !important;
+    padding-bottom: 100px !important;
+    background-color: rgba(255, 255, 255, 0.178) !important;
+    @include card;
+  }
+
   &__img {
     grid-area: img;
 
@@ -41,15 +50,6 @@
       font-weight: 600;
       margin-top: 0;
     }
-  }
-
-  &__bio {
-    grid-area: bio;
-    overflow: auto;
-    height: 300px !important;
-    padding-bottom: 100px !important;
-    background-color: rgba(255, 255, 255, 0.178) !important;
-    @include card;
   }
 }
 

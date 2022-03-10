@@ -4,6 +4,10 @@
 
 export const environment = {
   countryFlagUrl: 'https://flagcdn.com/w2560/za.png',
+  API_KEY_WEATHER: '529bef30b983a0e311e55beab472b924',
+  openWeatherUrl: 'https://api.openweathermap.org/data/2.5/weather?q=',
+  API_KEY_GOOGLE: 'AIzaSyDp8wiItsPsn93yq58P-OfSb0KUKaeLj40',
+
   production: false,
   firebase: {
     config: {

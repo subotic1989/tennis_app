@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { GetPlayersEffect } from './store/players.effects';
 import { RouterModule } from '@angular/router';
 import { LoadingTennisModule } from '@app/shared/library/indicators/loading-tennis/loading-tennis.module';
+import { ChoosePlayerModule } from './component/choose-player/choose-player.module';
 
 @NgModule({
   declarations: [PlayersComponent],
@@ -19,6 +20,7 @@ import { LoadingTennisModule } from '@app/shared/library/indicators/loading-tenn
     PlayerSidenavModule,
     RouterModule,
     LoadingTennisModule,
+    ChoosePlayerModule,
     StoreModule.forFeature('players', reducerGetPlayers),
     EffectsModule.forFeature([GetPlayersEffect]),
   ],

@@ -1,0 +1,21 @@
+<div class="divWeatherMain" [ngClass]="{ day: WeatherData?.isDay }">
+  <div class="weatherWidgetRow">
+    <img src="{{ iconWeather }}" alt="" />
+  </div>
+
+  <div class="weatherWidgetRow" style="font-size: 32px; margin-top: 5px">
+    {{ WeatherData?.temp_celcius }}°
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 12px">
+    max: {{ WeatherData?.temp_min }}° / min: {{ WeatherData?.temp_max }}°
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 12px">
+    Feels Like: {{ WeatherData?.temp_feels_like }}°
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 25px; margin-top: 10px">
+    {{ WeatherData?.name }}
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 12px">
+    Humidity: {{ WeatherData?.main?.humidity }}%
+  </div>
+</div>
