@@ -9,7 +9,12 @@ footer {
   width: 100%;
   border-top: 1px solid $primary;
   text-align: center;
-  background-image: linear-gradient(315deg, #c4f6d5 0%, #7ad181 74%);
+  background-image: linear-gradient(
+    180deg,
+    #166d3b 5%,
+    #4aa571 50%,
+    #166d3b 95%
+  );
 }
 
 .container {

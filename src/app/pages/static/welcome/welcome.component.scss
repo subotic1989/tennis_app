@@ -1,28 +1,34 @@
 .app-page {
   border: none;
-  position: absolute;
-  top: 80px;
   background-color: transparent;
-  width: 50%;
-  font-size: larger;
+  display: flex;
+  background-color: #cf5;
+
+  &__left {
+    flex-grow: 2;
+  }
+  &__right {
+  }
 }
 
 .overlay {
-  position: relative;
+  position: absolute;
   background-size: cover;
   background-position: center;
-  background-image: url("https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fb8251d4c-83a5-11e8-b7ab-42d55e61ad8f.jpg?crop=2596%2C1461%2C339%2C60");
+  background-image: linear-gradient(147deg, #5ed893 0%, #166d3b 74%);
   height: 100%;
   width: 100%;
-}
-
-h1 {
-  font-size: xx-large;
-  color: antiquewhite;
 }
 
 p {
   font-family: Fredoka-Regular;
   font-size: larger;
   color: antiquewhite;
+  text-align: justify;
+  width: 50%;
+}
+
+.player-img {
+  width: 700px;
+  height: 600px;
 }

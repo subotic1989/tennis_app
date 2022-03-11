@@ -17,6 +17,6 @@ export class AppComponent implements OnInit {
 
   initApp() {
     this.store.dispatch(initAction());
-    this.router.navigate(['/locations']);
+    this.router.navigate(['/home']);
   }
 }

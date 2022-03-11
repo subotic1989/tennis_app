@@ -9,14 +9,14 @@
   cursor: pointer;
 
   &:hover {
-    background-color: $primary;
+    background: #2a8b54;
     color: #fff;
     transition-duration: 0.5s;
   }
 
   &:hover img {
     transition-duration: 0.5s;
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 
   &__name {
@@ -38,7 +38,7 @@
 }
 
 .active {
-  background-color: $primary;
+  background: #2a8b54;
   color: white;
   transition-duration: 0.5s;
 }

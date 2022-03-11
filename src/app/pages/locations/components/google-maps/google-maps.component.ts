@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
 import { environment } from '../../../../../environments/environment';
 
@@ -9,6 +9,9 @@ import { environment } from '../../../../../environments/environment';
 })
 export class GoogleMapsComponent implements OnInit {
   @Input() cord: any;
+
+  @ViewChild('test', { static: true }) test: ElementRef;
+
   private map: google.maps.Map;
 
   constructor() {}
@@ -25,7 +28,7 @@ export class GoogleMapsComponent implements OnInit {
     loader.load().then(() => {
       const location = { lat: this.cord.lat, lng: this.cord.lon };
 
-      this.map = new google.maps.Map(document.getElementById('map'), {
+      this.map = new google.maps.Map(this.test.nativeElement, {
         center: location,
         zoom: 6,
       });

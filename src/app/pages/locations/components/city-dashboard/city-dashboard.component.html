@@ -1,1 +1,12 @@
-<app-weather-widget [cityQuery]="cityQuery"></app-weather-widget>
+<div class="city">
+  <div class="city__left"></div>
+
+  <div class="city__right">
+    <app-weather-widget
+      [cityQuery]="cityQuery"
+      class="weather"
+    ></app-weather-widget>
+
+    <app-google-maps [cord]="{ lon: 15.45, lat: 47.0667 }"></app-google-maps>
+  </div>
+</div>

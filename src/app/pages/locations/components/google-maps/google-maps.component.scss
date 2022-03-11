@@ -1,4 +1,8 @@
+@import "styles/mixins";
+
 .full {
   width: 40vw;
   height: 40vh;
+  border-radius: 5px;
+  @include shadow;
 }
