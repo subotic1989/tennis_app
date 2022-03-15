@@ -1,22 +1,16 @@
 @import "styles/mixins";
 
-.overlay {
+.player {
+  grid-gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   position: relative;
   background-size: cover;
   background-position: center;
-  height: 100%;
-  width: 100%;
-  filter: opacity(30%);
-}
+  padding: 20px;
+  height: 100vh;
+  // filter: opacity(30%);
 
-.player {
-  position: absolute;
-  top: 80px;
-  padding: 30px;
-
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 30px;
   grid-template-areas:
     "img det"
     "bio bio";
@@ -34,8 +28,8 @@
     grid-area: img;
 
     img {
-      height: 360px;
-      width: 300px;
+      height: 260px;
+      width: 200px;
       border-radius: 5px;
       border-top-left-radius: 50px;
       @include shadow;

@@ -1,17 +1,20 @@
 <!-- loading -->
 <app-loading-tennis *ngIf="loading$ | async"></app-loading-tennis>
 
-<!-- left -->
+<!-- right -->
 <div
-  class="overlay"
+  class="player"
   [ngStyle]="{
     'background-image':
-      'url(https://flagcdn.com/w2560/' + player?.country + '.png)'
+      'linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(https://flagcdn.com/w2560/' +
+      player?.country +
+      '.png)'
   }"
-></div>
-
-<!-- right -->
-<div class="player">
+>
+  <!-- [ngStyle]="{
+    'background-image':
+      'url(https://flagcdn.com/w2560/' + player?.country + '.png)'
+  }" -->
   <div class="player__img">
     <img src="{{ player?.image }}" alt="" />
   </div>

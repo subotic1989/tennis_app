@@ -3,6 +3,8 @@
 .players {
   display: flex;
   height: 100%;
+  max-width: 900px;
+  margin: auto;
 
   &__side {
     flex: 1;

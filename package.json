@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.1.1",
-    "@angular/cli": "~13.1.1",
+    "@angular/cli": "~13.2.1",
     "@angular/compiler-cli": "~13.1.0",
     "@types/googlemaps": "^3.43.3",
     "@types/jasmine": "~3.10.0",

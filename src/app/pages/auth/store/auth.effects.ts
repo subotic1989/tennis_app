@@ -59,11 +59,11 @@ export class AuthEffect {
 
         return this.authService.registerUser(email, password).pipe(
           tap((test) => {
-            const auth = getAuth();
-            sendEmailVerification(
-              auth.currentUser,
-              environment.firebase.actionCodeSettings
-            );
+            // const auth = getAuth();
+            // sendEmailVerification(
+            //   auth.currentUser,
+            //   environment.firebase.actionCodeSettings
+            // );
             this.router.navigate(['/home']);
           }),
           map((data: any) => {

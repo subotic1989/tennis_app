@@ -33,7 +33,6 @@ export class WeatherWidgetComponent implements OnInit {
         map((data) => {
           this.iconWeather = `http://openweathermap.org/img/wn/${data['weather'][0].icon}@2x.png`;
           this.setWeatherData(data);
-          console.log(data);
         })
       )
       .subscribe();
