@@ -11,10 +11,6 @@
       '.png)'
   }"
 >
-  <!-- [ngStyle]="{
-    'background-image':
-      'url(https://flagcdn.com/w2560/' + player?.country + '.png)'
-  }" -->
   <div class="player__img">
     <img src="{{ player?.image }}" alt="" />
   </div>
@@ -84,4 +80,6 @@
     <h3>Biography:</h3>
     <span>{{ player?.bio }}</span>
   </div>
+
+  <app-button-primary class="btn-edit" *ngIf="true">Edit</app-button-primary>
 </div>

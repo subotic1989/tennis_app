@@ -1,13 +1,13 @@
+import { act } from '@ngrx/effects';
 import { createReducer, on, Action } from '@ngrx/store';
 import * as actions from './auth.actions';
-import { UserRolesInterface } from './types/usersRols.interface';
 
 export interface AuthStateInterface {
   loading: boolean | null;
   user: string | null;
   error: string | null;
   uid: string | null;
-  // userRoles: any | null;
+  isAdmin: boolean | null;
 }
 
 export const initState: AuthStateInterface = {
@@ -15,7 +15,7 @@ export const initState: AuthStateInterface = {
   user: null,
   error: null,
   uid: null,
-  // userRoles: null,
+  isAdmin: null,
 };
 
 const authReducer = createReducer(
@@ -37,7 +37,6 @@ const authReducer = createReducer(
       ...state,
       loading: false,
       uid: action.uid,
-      // userRoles: action.userRoles,
     })
   ),
 
@@ -64,7 +63,7 @@ const authReducer = createReducer(
     (state, action): AuthStateInterface => ({
       ...state,
       loading: false,
-      user: action.response,
+      uid: action.response,
     })
   ),
 
@@ -92,7 +91,7 @@ const authReducer = createReducer(
     (state, action): AuthStateInterface => ({
       ...state,
       loading: false,
-      user: action.uid,
+      uid: action.uid,
     })
   ),
 
@@ -124,10 +123,19 @@ const authReducer = createReducer(
 
   on(
     actions.signOutErrorAction,
-    (state, action): AuthStateInterface => ({
+    (state): AuthStateInterface => ({
       ...state,
       loading: false,
-      error: action.error,
+    })
+  ),
+
+  // isAdmin
+
+  on(
+    actions.isAdmin,
+    (state, action): AuthStateInterface => ({
+      ...state,
+      isAdmin: action.isAdmin,
     })
   )
 );

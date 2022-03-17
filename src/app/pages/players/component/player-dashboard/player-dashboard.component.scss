@@ -9,7 +9,7 @@
   background-position: center;
   padding: 20px;
   height: 100vh;
-  // filter: opacity(30%);
+  position: relative;
 
   grid-template-areas:
     "img det"
@@ -81,4 +81,10 @@
     height: 33px;
     margin-right: 30px;
   }
+}
+
+.btn-edit {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }

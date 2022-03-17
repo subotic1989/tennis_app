@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CityDashboardComponent implements OnInit {
   @Input() cityQuery: string;
+  @Input() time: string;
   constructor() {}
 
   ngOnInit(): void {}

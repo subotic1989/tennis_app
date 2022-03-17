@@ -5,6 +5,7 @@ import { LocationsRoutingModule } from './locations-routing.module';
 import { CityDashboardModule } from './components/city-dashboard/city-dashboard.module';
 import { GoogleMapsModule } from './components/google-maps/google-maps.module';
 import { LocationsComponent } from './locations.component';
+import { TimerModule } from '@app/shared/components/timer/timer.module';
 
 @NgModule({
   declarations: [LocationsComponent],
@@ -13,6 +14,7 @@ import { LocationsComponent } from './locations.component';
     LocationsRoutingModule,
     CityDashboardModule,
     GoogleMapsModule,
+    TimerModule,
   ],
 })
 export class LocationsModule {}

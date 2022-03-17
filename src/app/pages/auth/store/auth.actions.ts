@@ -48,9 +48,11 @@ export const loginErrorAction = createAction(
 
 export const signOutAction = createAction('[AUTH] SignOut: Start');
 export const signOutSuccessAction = createAction('[AUTH] SignOut: Success');
-export const signOutErrorAction = createAction(
-  '[AUTH] SignOut: Error',
-  props<{ error: string }>()
-);
+export const signOutErrorAction = createAction('[AUTH] SignOut: Error');
 
-export const resetErrorAction = createAction('[AUTH] Reset Error');
+// isAdmin
+
+export const isAdmin = createAction(
+  '[AUTH] Check is Admin',
+  props<{ isAdmin: boolean }>()
+);

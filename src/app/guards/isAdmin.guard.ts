@@ -9,7 +9,7 @@ import {
   UrlSegment,
   UrlTree,
 } from '@angular/router';
-import { map, Observable, switchMap } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { LocalStorageService } from '@app/shared/utils/localStorage.service';
 
@@ -39,7 +39,12 @@ export class isAdminGuard implements CanActivate, CanActivateChild, CanLoad {
         });
       }),
       map((data) => {
-        return data > -1;
+        if (data > -1) {
+          return true;
+        } else {
+          window.confirm('Admin section!');
+          return false;
+        }
       })
     );
   }

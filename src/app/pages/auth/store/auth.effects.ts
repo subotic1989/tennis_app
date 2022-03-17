@@ -4,14 +4,7 @@ import { Router } from '@angular/router';
 
 import { getAuth, sendEmailVerification } from 'firebase/auth';
 
-import {
-  doc,
-  setDoc,
-  getFirestore,
-  collection,
-  getDocs,
-  where,
-} from '@angular/fire/firestore';
+import { doc, setDoc, getFirestore, collection } from '@angular/fire/firestore';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
@@ -25,23 +18,20 @@ import { environment } from '../../../../environments/environment';
 
 import { errorOutputTransformFunction } from '@app/shared/utils/errorOutputTransform.service';
 import { NotificationService } from '@app/shared/library/indicators/snack-bar/notification.service';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { LocalStorageService } from '@app/shared/utils/localStorage.service';
-import { UserRolesInterface } from './types/usersRols.interface';
+import { CheckAdminService } from '@app/shared/utils/checkAdmin.service';
+import { Store } from '@ngrx/store';
 
 @Injectable()
 export class AuthEffect {
-  db = getFirestore();
-
   constructor(
     private actions$: Actions,
     private router: Router,
     private authService: AuthService,
     private notification: NotificationService,
-    private afs: AngularFirestore,
-    private afAuth: AngularFireAuth,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private checkAdmin: CheckAdminService,
+    private store: Store
   ) {}
 
   initUser$ = createEffect(() =>
@@ -68,26 +58,29 @@ export class AuthEffect {
         const { email, password } = data;
 
         return this.authService.registerUser(email, password).pipe(
-          tap((test) => {
+          tap(() => {
             const auth = getAuth();
+
             sendEmailVerification(
               auth.currentUser,
               environment.firebase.actionCodeSettings
             );
           }),
-          map((data: any) => {
-            const users = collection(this.db, 'users');
+          map((data) => {
+            const db = getFirestore();
+            const users = collection(db, 'users');
+
             setDoc(doc(users, data.user.uid), {
               email: data.user.email,
               uid: data.user.uid,
               role: ['user'],
             });
 
-            this.notification.success('Register Success!');
+            const uid = data?.user.uid;
 
             this.localStorageService.set('uid', data?.user.uid);
 
-            const uid = data?.user.uid;
+            this.notification.success('Register Success!');
 
             this.router.navigate(['/home']);
 
@@ -110,11 +103,15 @@ export class AuthEffect {
 
         return from(this.authService.loginUser(email, password)).pipe(
           map((data) => {
-            this.notification.success('Login Success!');
-            // this.afAuth.authState.subscribe((data) => console.log(data));
             this.localStorageService.set('uid', data?.user.uid);
 
+            this.notification.success('Login Success!');
+
             this.router.navigate(['/home']);
+
+            this.checkAdmin.check().subscribe((data) => {
+              this.store.dispatch(actions.isAdmin({ isAdmin: data }));
+            });
 
             return actions.loginSuccessAction({
               uid: data.user.uid,
@@ -136,12 +133,15 @@ export class AuthEffect {
         return from(this.authService.signOutUser()).pipe(
           map(() => {
             localStorage.removeItem('uid');
+
             this.notification.success('Signing out!');
+
             this.router.navigate(['/auth/login']);
+
             return actions.signOutSuccessAction();
           }),
-          catchError((err) => {
-            return of(actions.signOutErrorAction({ error: err }));
+          catchError(() => {
+            return of(actions.signOutErrorAction());
           })
         );
       })
