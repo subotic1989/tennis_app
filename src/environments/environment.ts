@@ -19,7 +19,7 @@ export const environment = {
       appId: '1:951307223428:web:44343ad1dbe26e1eb35dd1',
     },
     actionCodeSettings: {
-      url: 'http://localhost:60822/static/welcome',
+      url: 'http://localhost:4200/static/home',
       handleCodeInApp: true,
     },
   },

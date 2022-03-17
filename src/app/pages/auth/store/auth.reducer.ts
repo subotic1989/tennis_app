@@ -1,12 +1,13 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { UserInterface } from './types/user.interface';
 import * as actions from './auth.actions';
+import { UserRolesInterface } from './types/usersRols.interface';
 
 export interface AuthStateInterface {
   loading: boolean | null;
-  user: UserInterface | null;
+  user: string | null;
   error: string | null;
-  uid: any | null;
+  uid: string | null;
+  // userRoles: any | null;
 }
 
 export const initState: AuthStateInterface = {
@@ -14,6 +15,7 @@ export const initState: AuthStateInterface = {
   user: null,
   error: null,
   uid: null,
+  // userRoles: null,
 };
 
 const authReducer = createReducer(
@@ -35,6 +37,7 @@ const authReducer = createReducer(
       ...state,
       loading: false,
       uid: action.uid,
+      // userRoles: action.userRoles,
     })
   ),
 
@@ -61,7 +64,7 @@ const authReducer = createReducer(
     (state, action): AuthStateInterface => ({
       ...state,
       loading: false,
-      uid: action.response,
+      user: action.response,
     })
   ),
 
@@ -89,7 +92,7 @@ const authReducer = createReducer(
     (state, action): AuthStateInterface => ({
       ...state,
       loading: false,
-      uid: action.uid,
+      user: action.uid,
     })
   ),
 

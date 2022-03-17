@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { isAdminGuard } from './guards/isAdmin.guard';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
     path: 'gallery',
     loadChildren: () =>
       import('./pages/gallery/gallery.module').then((m) => m.GalleryModule),
+    canActivate: [isAdminGuard],
+    data: {
+      expectedRoles: ['admin'],
+    },
   },
   {
     path: 'locations',
