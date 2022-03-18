@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { select, Store } from '@ngrx/store';
+import { ActivatedRoute, Router } from '@angular/router';
+import { isAdminSelector } from '@app/pages/auth/store/auth.selectors';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+
+import { PlayerResponseInterface } from '../../store/types/playerResponse.interface';
 import {
   getPlayerSelector,
   loadingGetPlayersSelector,
 } from '../../store/players.selectors';
-import { PlayerResponseInterface } from '../../store/types/playerResponse.interface';
+import { PlayersService } from '../../players.service';
 
 @Component({
   selector: 'app-player-dashboard',
@@ -15,11 +18,15 @@ import { PlayerResponseInterface } from '../../store/types/playerResponse.interf
 })
 export class PlayerDashboardComponent implements OnInit {
   player: PlayerResponseInterface;
+
   loading$: Observable<boolean>;
+  isAdmin$: Observable<boolean>;
 
-  countryFlag: string = 'https://flagcdn.com/w2560/ba.png';
-
-  constructor(private route: ActivatedRoute, private store: Store) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private store: Store
+  ) {}
 
   ngOnInit(): void {
     this.initValues();
@@ -32,6 +39,11 @@ export class PlayerDashboardComponent implements OnInit {
         .subscribe((data: PlayerResponseInterface) => (this.player = data));
 
       this.loading$ = this.store.pipe(select(loadingGetPlayersSelector));
+      this.isAdmin$ = this.store.pipe(select(isAdminSelector));
     });
+  }
+
+  editPlayer() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
 }

@@ -1,9 +1,9 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
+import { PlayersService } from '../../players.service';
 import { getPlayerAction } from '../../store/players.actions';
 import { loadingGetPlayersSelector } from '../../store/players.selectors';
-import { ActiveUserService } from '../players.service';
 
 @Component({
   selector: 'app-player-sidenav',
@@ -20,10 +20,7 @@ export class PlayerSidenavComponent implements OnInit, OnDestroy {
   @Input() playerImage: string;
   @Input() active: boolean;
 
-  constructor(
-    private store: Store,
-    private activeUserService: ActiveUserService
-  ) {}
+  constructor(private store: Store, private playersService: PlayersService) {}
 
   ngOnInit(): void {
     this.initValues();
@@ -31,7 +28,7 @@ export class PlayerSidenavComponent implements OnInit, OnDestroy {
 
   initValues() {
     this.loading$ = this.store.pipe(select(loadingGetPlayersSelector));
-    this.activeUserUnsubscribe = this.activeUserService.activeUser.subscribe(
+    this.activeUserUnsubscribe = this.playersService.activeUser.subscribe(
       (activeUser) => {
         this.activeUser = activeUser;
       }

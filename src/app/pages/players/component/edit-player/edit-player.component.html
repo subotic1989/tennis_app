@@ -1,0 +1,28 @@
+<div class="app-page">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="app-page__header">
+      <h2>Edit Player</h2>
+    </div>
+
+    <div class="app-page__content">
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['email']"
+        [isInline]="false"
+      >
+        <app-input formControlName="email" [placeholder]="'Email'"></app-input>
+      </app-form-field>
+
+      <br />
+
+      <div class="button-container">
+        <app-button-primary [type]="'submit'" (click)="onSave()"
+          >Save</app-button-primary
+        >
+        <app-button-primary [type]="'submit'" (click)="onCancel()"
+          >Cancel</app-button-primary
+        >
+      </div>
+    </div>
+  </form>
+</div>

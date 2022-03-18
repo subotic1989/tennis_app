@@ -61,10 +61,10 @@ export class AuthEffect {
           tap(() => {
             const auth = getAuth();
 
-            sendEmailVerification(
-              auth.currentUser,
-              environment.firebase.actionCodeSettings
-            );
+            // sendEmailVerification(
+            //   auth.currentUser,
+            //   environment.firebase.actionCodeSettings
+            // );
           }),
           map((data) => {
             const db = getFirestore();

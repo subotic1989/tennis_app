@@ -60,4 +60,8 @@
       Sign Out
     </a>
   </div>
+
+  <div *ngIf="(isAdmin$ | async) && (isLoggedIn$ | async)">
+    <a class="app-a" style="font-size: 16px"> admin </a>
+  </div>
 </div>

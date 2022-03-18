@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { signOutAction } from '@app/pages/auth/store/auth.actions';
-import { isAuthSelector } from '@app/pages/auth/store/auth.selectors';
+import {
+  isAdminSelector,
+  isAuthSelector,
+} from '@app/pages/auth/store/auth.selectors';
 
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -13,6 +16,7 @@ import { Observable } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
+  isAdmin$: Observable<boolean>;
 
   constructor(private store: Store, private route: ActivatedRoute) {}
 
@@ -22,6 +26,7 @@ export class HeaderComponent implements OnInit {
 
   initValues() {
     this.isLoggedIn$ = this.store.pipe(select(isAuthSelector));
+    this.isAdmin$ = this.store.pipe(select(isAdminSelector));
   }
 
   signOut() {

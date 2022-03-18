@@ -81,5 +81,10 @@
     <span>{{ player?.bio }}</span>
   </div>
 
-  <app-button-primary class="btn-edit" *ngIf="true">Edit</app-button-primary>
+  <app-button-primary
+    class="btn-edit"
+    *ngIf="isAdmin$ | async"
+    (click)="editPlayer()"
+    >Edit</app-button-primary
+  >
 </div>

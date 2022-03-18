@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PlayersComponent } from './component/players.component';
+import { EditPlayerComponent } from './component/edit-player/edit-player.component';
+import { PlayersComponent } from './players.component';
 
 const routes: Routes = [
   {
     path: '',
     component: PlayersComponent,
     children: [
+      {
+        path: ':player/edit',
+        component: EditPlayerComponent,
+      },
       {
         path: ':player',
         loadChildren: () =>

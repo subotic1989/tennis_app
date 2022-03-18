@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-
-import { getPlayersAction } from '../store/players.actions';
+import { PlayersService } from './players.service';
+import { getPlayersAction } from './store/players.actions';
 import {
   getPlayersSelector,
   loadingGetPlayersSelector,
-} from '../store/players.selectors';
-import { PlayerResponseInterface } from '../store/types/playerResponse.interface';
-import { ActiveUserService } from './players.service';
+} from './store/players.selectors';
+import { PlayerResponseInterface } from './store/types/playerResponse.interface';
 
 @Component({
   selector: 'app-players',
@@ -20,10 +19,7 @@ export class PlayersComponent implements OnInit {
   loading$: Observable<boolean>;
   isChoose: boolean = true;
 
-  constructor(
-    private store: Store,
-    private activeUserService: ActiveUserService
-  ) {}
+  constructor(private store: Store, private playersService: PlayersService) {}
 
   ngOnInit(): void {
     this.initValues();
@@ -36,7 +32,7 @@ export class PlayersComponent implements OnInit {
   }
 
   onSendActiveUser(user: string) {
-    this.activeUserService.activeUser.next(user);
+    this.playersService.activeUser.next(user);
     this.isChoose = false;
   }
 }

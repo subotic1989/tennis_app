@@ -7,7 +7,10 @@ export const getUser = createSelector(authState, (state) => state.user);
 
 export const isAuthSelector = createSelector(authState, (state) => !!state.uid);
 
-export const isAdmin = createSelector(authState, (state) => state.isAdmin);
+export const isAdminSelector = createSelector(
+  authState,
+  (state) => state.isAdmin
+);
 
 export const loadingAuthSelector = createSelector(
   authState,
