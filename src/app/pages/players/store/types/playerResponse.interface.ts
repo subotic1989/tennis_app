@@ -10,4 +10,5 @@ export interface PlayerResponseInterface {
   country: string;
   phone: number;
   email: string;
+  eventId?: string;
 }

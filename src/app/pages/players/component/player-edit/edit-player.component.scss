@@ -1,0 +1,14 @@
+@import "styles.scss";
+.app-page {
+  border: none;
+  background-image: linear-gradient(147deg, #5ed893 0%, #166d3b 74%);
+  border-radius: 0;
+  margin: 0;
+  padding-bottom: 200px;
+
+  h2 {
+    color: #3d5a23;
+    font-weight: 700;
+    font-size: xx-large;
+  }
+}

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditPlayerComponent } from './component/edit-player/edit-player.component';
+import { UnsavedPlayerGourd } from '@app/guards/unsavedPlayerEdit.guard';
+import { EditPlayerComponent } from './component/player-edit/edit-player.component';
 import { PlayersComponent } from './players.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
       {
         path: ':player/edit',
         component: EditPlayerComponent,
+        canDeactivate: [UnsavedPlayerGourd],
       },
       {
         path: ':player',

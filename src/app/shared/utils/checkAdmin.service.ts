@@ -18,7 +18,6 @@ export class CheckAdminService {
     return usersObservable.pipe(
       map((users) => users.find((user) => user['uid'] == uidLocalStorage)),
       map((data: any) => {
-        console.log(data);
         return data?.['role'].includes('admin') ? true : false;
       })
     );

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Router } from '@angular/router';
 
-import { getAuth, sendEmailVerification } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 import { doc, setDoc, getFirestore, collection } from '@angular/fire/firestore';
 
@@ -24,6 +24,8 @@ import { Store } from '@ngrx/store';
 
 @Injectable()
 export class AuthEffect {
+  db = getFirestore();
+
   constructor(
     private actions$: Actions,
     private router: Router,
@@ -67,8 +69,8 @@ export class AuthEffect {
             // );
           }),
           map((data) => {
-            const db = getFirestore();
-            const users = collection(db, 'users');
+            //by registration add in fs every new user with default role user
+            const users = collection(this.db, 'users');
 
             setDoc(doc(users, data.user.uid), {
               email: data.user.email,

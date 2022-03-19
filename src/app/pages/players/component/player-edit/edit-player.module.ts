@@ -6,6 +6,8 @@ import { ButtonPrimaryModule } from '@app/shared/library/buttons/button-primary/
 import { FormFieldModule } from '@app/shared/library/controls/form-field/form-field.module';
 import { InputModule } from '@app/shared/library/controls/input/input.module';
 import { RouterModule } from '@angular/router';
+import { TextAreaModule } from '@app/shared/library/controls/text-area/text-area.module';
+import { ButtonSecondaryModule } from '@app/shared/library/buttons/button-secondary/button-secondary.module';
 
 @NgModule({
   declarations: [EditPlayerComponent],
@@ -16,6 +18,8 @@ import { RouterModule } from '@angular/router';
     InputModule,
     ButtonPrimaryModule,
     RouterModule,
+    TextAreaModule,
+    ButtonSecondaryModule,
   ],
   exports: [EditPlayerComponent],
 })

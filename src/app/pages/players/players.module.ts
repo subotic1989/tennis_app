@@ -9,9 +9,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { GetPlayersEffect } from './store/players.effects';
 import { RouterModule } from '@angular/router';
 import { LoadingTennisModule } from '@app/shared/library/indicators/loading-tennis/loading-tennis.module';
-import { ChoosePlayerModule } from './component/choose-player/choose-player.module';
+import { ChoosePlayerModule } from './component/player-choose/choose-player.module';
 import { PlayersComponent } from './players.component';
-import { EditPlayerModule } from './component/edit-player/edit-player.module';
+import { EditPlayerModule } from './component/player-edit/edit-player.module';
 
 @NgModule({
   declarations: [PlayersComponent],

@@ -3,12 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { StaticRoutingModule } from './static-routing.module';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    StaticRoutingModule
-  ]
+  imports: [CommonModule, StaticRoutingModule],
 })
-export class StaticModule { }
+export class StaticModule {}

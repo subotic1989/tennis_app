@@ -45,6 +45,7 @@ export class GoogleMapsComponent implements OnInit {
       this.map = new google.maps.Map(this.test.nativeElement, {
         center: data,
         zoom: 6,
+        disableDefaultUI: true,
       });
 
       new google.maps.Marker({

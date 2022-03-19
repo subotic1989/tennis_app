@@ -2,17 +2,17 @@
 
 .app-button-primary {
   padding: 8px 20px;
-  border: 2px solid #2a8b54;
-  background: #2a8b54;
-  color: $on-primary;
+  border: 2px solid $on-primary;
+  background: $on-primary;
+  color: $primary-dark;
   border-radius: 25px;
   transition: 0.25s;
   margin: 0 4px;
   font-family: "Fredoka-Regular";
 
   &:hover {
-    background: transparent;
-    color: #2a8b54;
-    border: 2px solid #2a8b54;
+    background: #2a8b54;
+    color: $on-primary;
+    border: 2px solid $on-primary;
   }
 }

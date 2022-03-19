@@ -27,3 +27,17 @@ export const getPlayerErrorAction = createAction(
   '[GET PLAYER] Get player: Error',
   props<{ error: string }>()
 );
+
+// edit player
+export const editPlayerAction = createAction(
+  '[EDIT PLAYER] Edit player: Start',
+  props<{ id: string; user: any }>()
+);
+export const editPlayerSuccessAction = createAction(
+  '[EDIT PLAYER] Edit player: Success',
+  props<{ response: any }>()
+);
+export const editPlayerErrorAction = createAction(
+  '[EDIT PLAYER] Edit player: Error',
+  props<{ error: string }>()
+);

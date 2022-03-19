@@ -19,6 +19,7 @@ export class PlayerSidenavComponent implements OnInit, OnDestroy {
   @Input() playerName: string;
   @Input() playerImage: string;
   @Input() active: boolean;
+  @Input() playerId: string;
 
   constructor(private store: Store, private playersService: PlayersService) {}
 
@@ -36,7 +37,7 @@ export class PlayerSidenavComponent implements OnInit, OnDestroy {
   }
 
   onGetPlayer(query: string) {
-    this.store.dispatch(getPlayerAction({ request: query }));
+    this.store.dispatch(getPlayerAction({ request: this.playerId }));
   }
 
   ngOnDestroy(): void {

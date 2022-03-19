@@ -1,0 +1,105 @@
+<div class="app-page">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="app-page__header">
+      <h2>Edit Player</h2>
+    </div>
+
+    <div class="app-page__content">
+      <!-- name -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['name']"
+        [isInline]="false"
+      >
+        <app-input formControlName="name" [placeholder]="'Name'"></app-input>
+      </app-form-field>
+
+      <!-- phone -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['phone']"
+        [isInline]="false"
+      >
+        <app-input formControlName="phone" [placeholder]="'Phone'"></app-input>
+      </app-form-field>
+
+      <!-- email -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['email']"
+        [isInline]="false"
+      >
+        <app-input formControlName="email" [placeholder]="'Email'"></app-input>
+      </app-form-field>
+
+      <!-- weight -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['weight']"
+        [isInline]="false"
+      >
+        <app-input
+          formControlName="weight"
+          [placeholder]="'Weight'"
+        ></app-input>
+      </app-form-field>
+
+      <!-- height -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['height']"
+        [isInline]="false"
+      >
+        <app-input
+          formControlName="height"
+          [placeholder]="'height'"
+        ></app-input>
+      </app-form-field>
+
+      <!-- birthplace -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['birthplace']"
+        [isInline]="false"
+      >
+        <app-input
+          formControlName="birthplace"
+          [placeholder]="'Birthplace'"
+        ></app-input>
+      </app-form-field>
+
+      <!-- sponsor -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['sponsors']"
+        [isInline]="false"
+      >
+        <app-input
+          formControlName="sponsors"
+          [placeholder]="'Sponsors'"
+        ></app-input>
+      </app-form-field>
+
+      <!-- bio -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['bio']"
+        [isInline]="false"
+      >
+        <app-text-area
+          formControlName="bio"
+          [placeholder]="'Biography'"
+        ></app-text-area>
+      </app-form-field>
+
+      <br />
+
+      <div class="button-container">
+        <app-button-secondary [type]="'submit'">Save</app-button-secondary>
+        <app-button-secondary [type]="'submit'" (click)="onCancel()"
+          >Cancel</app-button-secondary
+        >
+      </div>
+    </div>
+  </form>
+</div>

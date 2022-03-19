@@ -1,23 +1,17 @@
 import { Injectable } from '@angular/core';
 
-import { Router } from '@angular/router';
-
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
-import { catchError, delay, from, map, of, switchMap, take, tap } from 'rxjs';
+import { async, catchError, delay, map, of, switchMap, take, tap } from 'rxjs';
 
 import * as actions from './players.actions';
 import { GetPlayersService } from './players.services';
-
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable()
 export class GetPlayersEffect {
   constructor(
     private actions$: Actions,
-    private router: Router,
-    private getPlayersService: GetPlayersService,
-    private afs: AngularFirestore
+    private getPlayersService: GetPlayersService
   ) {}
 
   getPlayers$ = createEffect(() =>
@@ -25,7 +19,7 @@ export class GetPlayersEffect {
       ofType(actions.getPlayersAction),
       switchMap(() => {
         return this.getPlayersService.getPlayers().pipe(
-          delay(800),
+          delay(500),
           map((data: any) => {
             return actions.getPlayersSuccessAction({ response: data });
           }),
@@ -41,9 +35,10 @@ export class GetPlayersEffect {
       ofType(actions.getPlayerAction),
       switchMap((data) => {
         return this.getPlayersService.getPlayer(data.request).pipe(
-          delay(1000),
+          delay(500),
           map((data: any) => {
-            return actions.getPlayerSuccessAction({ response: data[0] });
+            console.log(data);
+            return actions.getPlayerSuccessAction({ response: data });
           }),
 
           catchError((err) => of(actions.getPlayerErrorAction({ error: err })))
@@ -51,10 +46,22 @@ export class GetPlayersEffect {
       })
     )
   );
-}
 
-// this.afs
-// .collection('players', (ref) => ref.where('born', '==', 1989))
-// .valueChanges()
-// .pipe(tap((data) => console.log(data)))
-// .subscribe();
+  editPlayer$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.editPlayerAction),
+      switchMap((data) => {
+        this.getPlayersService.editPlayer(data.id, data.user);
+        return this.getPlayersService.getPlayer(data.user.name).pipe(
+          map((data: any) => {
+            return actions.editPlayerSuccessAction({ response: data });
+          }),
+
+          catchError((err) => {
+            return of(actions.editPlayerErrorAction({ error: err }));
+          })
+        );
+      })
+    )
+  );
+}
