@@ -1,22 +1,13 @@
 @import "styles.scss";
 
 .wrapper {
-  position: relative;
-  background-size: cover;
-  background-position: center;
   background-image: linear-gradient(147deg, #5ed893 0%, #166d3b 74%);
   height: 100%;
   width: 100%;
-}
 
-.loading {
-  padding-top: 10%;
-  text-align: center;
-  color: $primary-dark;
-}
-
-h2 {
-  color: #3d5a23;
-  font-weight: 700;
-  font-size: xx-large;
+  .title {
+    padding-top: 10%;
+    text-align: center;
+    color: $primary-dark;
+  }
 }

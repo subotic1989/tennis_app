@@ -1,0 +1,26 @@
+{
+  "HEADER": {
+    "HOME": "Pocetna",
+    "PLAYERS": "Igraci",
+    "GALLERY": "Galerija",
+    "LOCATION": "Lokacije",
+
+    "LOGOUT": "Odjava",
+    "NEW PLAYER": "Novi igrac"
+  },
+  "NEW PLAYER": {
+    "TITLE": "Kreiraj novog igraca!",
+    "NAME": "Ime",
+    "PHONE": "Telefon",
+    "EMAIL": "Email",
+    "WEIGHT": "Tezina",
+    "HEIGHT": "Visina",
+    "BIRTHPLACE": "Mjesto rodjenja",
+    "SPONSORS": "Sponzor",
+    "PHOTO": "Slika",
+    "BIOGRAPHY": "Biografija",
+
+    "SAVE": "Sacuvati",
+    "BACK": "Nazad"
+  }
+}

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { signOutAction } from '@app/pages/auth/store/auth.actions';
 import {
   isAdminSelector,
@@ -7,6 +6,7 @@ import {
 } from '@app/pages/auth/store/auth.selectors';
 
 import { select, Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -18,7 +18,13 @@ export class HeaderComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   isAdmin$: Observable<boolean>;
 
-  constructor(private store: Store, private route: ActivatedRoute) {}
+  constructor(private store: Store, public translate: TranslateService) {
+    translate.addLangs(['en', 'de', 'hr']);
+    translate.setDefaultLang('en');
+
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|de|hr/) ? browserLang : 'en');
+  }
 
   ngOnInit(): void {
     this.initValues();

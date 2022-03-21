@@ -7,18 +7,18 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
-export interface IsFormSavedInterfaceGourd {
+export interface UnsavedPlayerEditGourd {
   canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
 }
 
 @Injectable({
   providedIn: 'root',
 })
-export class IsFormSavedGourd
-  implements CanDeactivate<IsFormSavedInterfaceGourd>
+export class UnsavedPlayerNewGuard
+  implements CanDeactivate<UnsavedPlayerEditGourd>
 {
   canDeactivate(
-    component: IsFormSavedInterfaceGourd,
+    component: UnsavedPlayerEditGourd,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot

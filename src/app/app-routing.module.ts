@@ -46,6 +46,13 @@ const routes: Routes = [
         (m) => m.LocationsModule
       ),
   },
+  {
+    path: 'new-player',
+    loadChildren: () =>
+      import('./pages/new-player/new-player.module').then(
+        (m) => m.NewPlayerModule
+      ),
+  },
 
   {
     path: '**',

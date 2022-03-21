@@ -81,11 +81,7 @@
       </app-form-field>
 
       <!-- bio -->
-      <app-form-field
-        [required]="false"
-        [control]="form.controls?.['bio']"
-        [isInline]="false"
-      >
+      <app-form-field [control]="form.controls?.['bio']" [isInline]="false">
         <app-text-area
           formControlName="bio"
           [placeholder]="'Biography'"
@@ -96,6 +92,9 @@
 
       <div class="button-container">
         <app-button-secondary [type]="'submit'">Save</app-button-secondary>
+        <app-button-secondary [type]="'submit'" (click)="onDelete()"
+          >Delete</app-button-secondary
+        >
         <app-button-secondary [type]="'submit'" (click)="onCancel()"
           >Cancel</app-button-secondary
         >

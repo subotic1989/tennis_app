@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
-import { async, catchError, delay, map, of, switchMap, take, tap } from 'rxjs';
+import { catchError, delay, map, of, switchMap } from 'rxjs';
 
 import * as actions from './players.actions';
 import { GetPlayersService } from './players.services';

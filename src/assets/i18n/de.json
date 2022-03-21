@@ -1,0 +1,26 @@
+{
+  "HEADER": {
+    "HOME": "Home",
+    "PLAYERS": "Spieler",
+    "GALLERY": "Galerie",
+    "LOCATION": "Standorte",
+
+    "LOGOUT": "Ausloggen",
+    "NEW PLAYER": "Neuer Spieler"
+  },
+  "NEW PLAYER": {
+    "TITLE": "Neuen Spieler erstellen!",
+    "NAME": "Name",
+    "PHONE": "Telefon",
+    "EMAIL": "Email",
+    "WEIGHT": "Gewicht",
+    "HEIGHT": "Höhe",
+    "BIRTHPLACE": "Geburtsort",
+    "SPONSORS": "Sponsoren",
+    "PHOTO": "Foto",
+    "BIOGRAPHY": "Biografie",
+
+    "SAVE": "Speichen",
+    "BACK": "Zurück"
+  }
+}

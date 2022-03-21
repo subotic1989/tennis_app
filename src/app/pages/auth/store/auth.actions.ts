@@ -1,6 +1,5 @@
 import { createAction, props } from '@ngrx/store';
 import { AuthRegisterRequest } from './types/authRegisterRequest.interface';
-import { UserInterface } from './types/user.interface';
 
 //init
 

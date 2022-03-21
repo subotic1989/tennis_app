@@ -3,17 +3,13 @@
 footer {
   margin-top: 3rem;
   padding: 1rem 0;
-  position: fixed;
+  // position: fixed;
   bottom: 0;
   width: 100%;
-  border-top: 1px solid $primary;
   text-align: center;
-  background-image: linear-gradient(
-    180deg,
-    #166d3b 5%,
-    #4aa571 50%,
-    #166d3b 95%
-  );
+  background-color: #546a76;
+  width: 900px;
+  margin: 0 auto;
 }
 
 .container {
@@ -25,7 +21,7 @@ footer {
 }
 
 a {
-  color: $primary;
+  color: rgb(192, 186, 186);
   text-decoration: none;
 }
 
@@ -33,6 +29,6 @@ span {
   vertical-align: middle;
   margin-left: 10px;
   font-size: 0.8rem;
-  color: $primary;
+  color: rgb(192, 186, 186);
   font-weight: 300;
 }

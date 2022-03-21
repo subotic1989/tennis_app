@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { IsFormSavedInterfaceGourd } from '@app/guards/is-form-saved.guard';
 import { markFormGroupTouched } from '@app/shared/utils/form.service';
 import { passwordsMatchValidator } from '@app/shared/utils/passwordMatch.service';
 import { regexErrors } from '@app/shared/utils/regex';
@@ -17,9 +16,7 @@ import {
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
 })
-export class RegistrationComponent
-  implements OnInit, IsFormSavedInterfaceGourd
-{
+export class RegistrationComponent implements OnInit {
   form: FormGroup;
 
   loading$: Observable<boolean>;

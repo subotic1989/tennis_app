@@ -56,8 +56,8 @@ export class AuthEffect {
   registerUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(actions.registerAction),
-      switchMap((data) => {
-        const { email, password } = data;
+      switchMap(({ email, password }) => {
+        // const { email, password } = data;
 
         return this.authService.registerUser(email, password).pipe(
           tap(() => {

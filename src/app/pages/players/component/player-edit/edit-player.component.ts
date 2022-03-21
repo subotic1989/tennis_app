@@ -1,23 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {
-  ActivatedRoute,
-  ActivatedRouteSnapshot,
-  Router,
-  RouterStateSnapshot,
-  UrlTree,
-} from '@angular/router';
-import {
-  UnsavedPlayerEditGourd,
-  UnsavedPlayerGourd,
-} from '@app/guards/unsavedPlayerEdit.guard';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UnsavedPlayerGourd } from '@app/guards/unsavedPlayerEdit.guard';
 import { NotificationService } from '@app/shared/library/indicators/snack-bar/notification.service';
 import { select, Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { editPlayerAction } from '../../store/players.actions';
 import { getPlayerSelector } from '../../store/players.selectors';
-import { GetPlayersService } from '../../store/players.services';
 import { PlayerResponseInterface } from '../../store/types/playerResponse.interface';
+import { doc, getFirestore, deleteDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-edit-player',
@@ -132,6 +123,14 @@ export class EditPlayerComponent
 
   onCancel() {
     this.router.navigate(['../'], { relativeTo: this.route });
+  }
+
+  onDelete() {
+    const db = getFirestore();
+    const docRef = doc(db, 'players', this.player?.eventId);
+    deleteDoc(docRef);
+    this.notification.error('Deleted Success!');
+    this.router.navigate(['./players']);
   }
 
   canDeactivate = () => {

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UnsavedPlayerGourd } from '@app/guards/unsavedPlayerEdit.guard';
+import { ChoosePlayerComponent } from './component/player-choose/choose-player.component';
 import { EditPlayerComponent } from './component/player-edit/edit-player.component';
 import { PlayersComponent } from './players.component';
 
@@ -9,6 +10,10 @@ const routes: Routes = [
     path: '',
     component: PlayersComponent,
     children: [
+      {
+        path: '',
+        component: ChoosePlayerComponent,
+      },
       {
         path: ':player/edit',
         component: EditPlayerComponent,

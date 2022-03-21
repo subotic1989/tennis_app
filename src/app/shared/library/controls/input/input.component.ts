@@ -1,56 +1,62 @@
-import { Component, OnInit, forwardRef, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  forwardRef,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
-    selector: 'app-input',
-    templateUrl: './input.component.html',
-    styleUrls: ['./input.component.scss'],
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => InputComponent),
-            multi: true
-        }
-    ]
+  selector: 'app-input',
+  templateUrl: './input.component.html',
+  styleUrls: ['./input.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true,
+    },
+  ],
 })
 export class InputComponent implements OnInit, ControlValueAccessor {
-    @Input() placeholder: string;
-    @Output() changed = new EventEmitter<string>();
+  @Input() placeholder: any;
+  @Output() changed = new EventEmitter<string>();
 
-    value: string;
-    isDisabled: boolean;
+  value: string;
+  isDisabled: boolean;
 
-    constructor() { }
+  constructor() {}
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {}
 
-    private propagateChange: any = () => { };
-    private propagateTouched: any = () => { };
+  private propagateChange: any = () => {};
+  private propagateTouched: any = () => {};
 
-    writeValue(value: string): void {
-        this.value = value;
-    }
+  writeValue(value: string): void {
+    this.value = value;
+  }
 
-    registerOnChange(fn: any): void {
-        this.propagateChange = fn;
-    }
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
 
-    registerOnTouched(fn: any): void {
-        this.propagateTouched = fn;
-    }
+  registerOnTouched(fn: any): void {
+    this.propagateTouched = fn;
+  }
 
-    setDisabledState(isDisabled: boolean): void {
-        this.isDisabled = isDisabled;
-    }
+  setDisabledState(isDisabled: boolean): void {
+    this.isDisabled = isDisabled;
+  }
 
-    onKeyup(value: string): void {
-        this.value = value;
-        this.propagateChange(value);
-        this.changed.emit(value);
-    }
+  onKeyup(value: string): void {
+    this.value = value;
+    this.propagateChange(value);
+    this.changed.emit(value);
+  }
 
-    onBlur(): void {
-        this.propagateTouched();
-    }
+  onBlur(): void {
+    this.propagateTouched();
+  }
 }

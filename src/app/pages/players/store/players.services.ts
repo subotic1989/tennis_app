@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { doc, getFirestore, updateDoc, getDoc } from '@angular/fire/firestore';
+import { doc, getFirestore, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({ providedIn: 'root' })
 export class GetPlayersService {

@@ -1,0 +1,129 @@
+<div class="app-page">
+  <div class="app-page__header">
+    <h2>{{ "HEADER.NEW PLAYER" | translate }}</h2>
+  </div>
+  <div class="app-page__content">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="app-page__content">
+        <!-- name -->
+        <app-form-field
+          [required]="true"
+          [control]="form.controls?.['name']"
+          [isInline]="false"
+        >
+          <app-input
+            formControlName="name"
+            placeholder="{{ 'NEW PLAYER.NAME' | translate }}"
+          ></app-input>
+        </app-form-field>
+
+        <!-- phone -->
+        <app-form-field
+          [required]="true"
+          [control]="form.controls?.['phone']"
+          [isInline]="false"
+        >
+          <app-input
+            formControlName="phone"
+            placeholder="{{ 'NEW PLAYER.PHONE' | translate }}"
+          ></app-input>
+        </app-form-field>
+
+        <!-- email -->
+        <app-form-field
+          [required]="true"
+          [control]="form.controls?.['email']"
+          [isInline]="false"
+        >
+          <app-input
+            formControlName="email"
+            placeholder="{{ 'NEW PLAYER.EMAIL' | translate }}"
+          ></app-input>
+        </app-form-field>
+
+        <!-- weight -->
+        <app-form-field
+          [required]="false"
+          [control]="form.controls?.['weight']"
+          [isInline]="false"
+        >
+          <app-input
+            formControlName="weight"
+            placeholder="{{ 'NEW PLAYER.WEIGHT' | translate }}"
+          ></app-input>
+        </app-form-field>
+
+        <!-- height -->
+        <app-form-field
+          [required]="false"
+          [control]="form.controls?.['height']"
+          [isInline]="false"
+        >
+          <app-input
+            formControlName="height"
+            placeholder="{{ 'NEW PLAYER.HEIGHT' | translate }}"
+          ></app-input>
+        </app-form-field>
+
+        <!-- birthplace -->
+        <app-form-field
+          [required]="false"
+          [control]="form.controls?.['birthplace']"
+          [isInline]="false"
+        >
+          <app-input
+            formControlName="birthplace"
+            placeholder="{{ 'NEW PLAYER.BIRTHPLACE' | translate }}"
+          ></app-input>
+        </app-form-field>
+
+        <!-- sponsor -->
+        <app-form-field
+          [required]="false"
+          [control]="form.controls?.['sponsors']"
+          [isInline]="false"
+        >
+          <app-input
+            formControlName="sponsors"
+            placeholder="{{ 'NEW PLAYER.SPONSORS' | translate }}"
+          ></app-input>
+        </app-form-field>
+
+        <!-- image -->
+        <app-form-field
+          [required]="false"
+          [control]="form.controls?.['image']"
+          [isInline]="false"
+        >
+          <app-input
+            formControlName="image"
+            placeholder="{{ 'NEW PLAYER.PHOTO' | translate }}"
+          ></app-input>
+        </app-form-field>
+
+        <!-- bio -->
+        <app-form-field
+          [required]="false"
+          [control]="form.controls?.['bio']"
+          [isInline]="false"
+        >
+          <app-text-area
+            formControlName="bio"
+            placeholder="{{ 'NEW PLAYER.BIOGRAPHY' | translate }}"
+          ></app-text-area>
+        </app-form-field>
+
+        <br />
+
+        <div class="button-container">
+          <app-button-secondary [type]="'submit'">{{
+            "NEW PLAYER.SAVE" | translate
+          }}</app-button-secondary>
+          <app-button-secondary [type]="'button'" (click)="onBack()"
+            >{{ "NEW PLAYER.BACK" | translate }} <span>&#8594;</span>
+          </app-button-secondary>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

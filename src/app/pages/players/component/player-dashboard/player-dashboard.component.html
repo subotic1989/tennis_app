@@ -6,48 +6,13 @@
   class="player"
   [ngStyle]="{
     'background-image':
-      'linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(https://flagcdn.com/w2560/' +
+      'linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,1.5)), url(https://flagcdn.com/w2560/' +
       player?.country +
       '.png)'
   }"
 >
   <div class="player__img">
-    <img src="{{ player?.image }}" alt="" />
-  </div>
-
-  <div class="player__details">
-    <h2>{{ player?.name }}</h2>
-
-    <span class="about">
-      <img src="../../../../../assets/image/email.svg" alt="email" />
-      {{ player?.email }}
-    </span>
-    <span class="about">
-      <img src="../../../../../assets/image/mobile-phone.svg" alt="phone" />
-      {{ player?.phone }}
-    </span>
-    <span class="about">
-      <img
-        src="../../../../../assets/image/body-weight-scales.svg"
-        alt="weight"
-      />
-      {{ player?.weight }}kg
-    </span>
-    <span class="about">
-      <img src="../../../../../assets/image/height.svg" alt="height" />
-      {{ player?.height }}cm
-    </span>
-    <span class="about">
-      <img
-        src="../../../../../assets/image/map-pin-point.svg"
-        alt="birthplace"
-      />
-      {{ player?.birthplace }}
-    </span>
-    <span class="about" *ngIf="player?.sponsors">
-      <img src="../../../../../assets/image/hand-shake.svg" alt="sponsors" />
-      {{ player?.sponsors }}
-    </span>
+    <img class="player__img-frame" src="{{ player?.image }}" alt="" />
 
     <div class="networks">
       <ul>
@@ -73,6 +38,49 @@
         </li>
       </ul>
     </div>
+  </div>
+
+  <div class="player__details">
+    <h2>{{ player?.name }}</h2>
+
+    <span class="about">
+      <img src="../../../../../assets/image/email.svg" alt="email" />
+      <p>
+        {{ player?.email }}
+      </p>
+    </span>
+    <span class="about">
+      <img src="../../../../../assets/image/mobile-phone.svg" alt="phone" />
+      <p>
+        {{ player?.phone }}
+      </p>
+    </span>
+    <span class="about">
+      <img
+        src="../../../../../assets/image/body-weight-scales.svg"
+        alt="weight"
+      />
+      <p>{{ player?.weight }}kg</p>
+    </span>
+    <span class="about">
+      <img src="../../../../../assets/image/height.svg" alt="height" />
+      <p>{{ player?.height }}cm</p>
+    </span>
+    <span class="about">
+      <img
+        src="../../../../../assets/image/map-pin-point.svg"
+        alt="birthplace"
+      />
+      <p>
+        {{ player?.birthplace }}
+      </p>
+    </span>
+    <span class="about" *ngIf="player?.sponsors">
+      <img src="../../../../../assets/image/hand-shake.svg" alt="sponsors" />
+      <p>
+        {{ player?.sponsors }}
+      </p>
+    </span>
   </div>
 
   <!-- bottom -->
