@@ -1,87 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgImageSliderComponent } from 'ng-image-slider';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
+  @ViewChild('nav') slider: NgImageSliderComponent;
+
   constructor() {}
 
   ngOnInit(): void {}
-  test = {
-    headline: 'Our Approach',
-    tab: [
-      {
-        title: {
-          text: 'Research',
-        },
-        open: true,
-        content: {
-          headline: 'Research & Analytics',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam consequuntur corporis reprehenderit repudiandae eveniet animi recusandae! Architecto, sequi explicabo, dignissimos id minima perspiciatis accusamus sapiente dolores voluptas magnam suscipit. Quo!',
-          url: '#',
-          destination: 'Details',
-          image:
-            'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1457119/undraw_research.svg',
-        },
-      },
-      {
-        title: {
-          text: 'Planning',
-        },
-        content: {
-          headline: 'Planning',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam consequuntur corporis reprehenderit repudiandae eveniet animi recusandae! Architecto, sequi explicabo, dignissimos id minima perspiciatis accusamus sapiente dolores voluptas magnam suscipit. Quo!',
-          url: '#',
-          destination: 'Details',
-          image:
-            'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1457119/undraw_planning.svg',
-        },
-        open: false,
-      },
-      {
-        title: {
-          text: 'Production',
-        },
-        content: {
-          headline: 'Production',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam consequuntur corporis reprehenderit repudiandae eveniet animi recusandae! Architecto, sequi explicabo, dignissimos id minima perspiciatis accusamus sapiente dolores voluptas magnam suscipit. Quo!',
-          url: '#',
-          destination: 'Details',
-          image:
-            'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1457119/undraw_production.svg',
-        },
-        open: false,
-      },
-      {
-        title: {
-          text: 'Testing',
-        },
-        content: {
-          headline: 'Testing',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam consequuntur corporis reprehenderit repudiandae eveniet animi recusandae! Architecto, sequi explicabo, dignissimos id minima perspiciatis accusamus sapiente dolores voluptas magnam suscipit. Quo!',
-          url: '#',
-          destination: 'Details',
-          image:
-            'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1457119/undraw_testing.svg',
-        },
-        open: false,
-      },
-      {
-        title: {
-          text: 'Result',
-        },
-        content: {
-          headline: 'Result',
-          text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam consequuntur corporis reprehenderit repudiandae eveniet animi recusandae! Architecto, sequi explicabo, dignissimos id minima perspiciatis accusamus sapiente dolores voluptas magnam suscipit. Quo!',
-          url: '#',
-          destination: 'Details',
-          image:
-            'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1457119/undraw_result.svg',
-        },
-        open: false,
-      },
-    ],
-  };
+
+  imageObject: Array<object> = [
+    {
+      image:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tennis_Racket_and_Balls.jpg/220px-Tennis_Racket_and_Balls.jpg',
+      thumbImage:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tennis_Racket_and_Balls.jpg/220px-Tennis_Racket_and_Balls.jpg',
+      alt: 'alt of image',
+      title: 'title of image',
+    },
+  ];
+
+  prevImageClick() {
+    this.slider.prev();
+  }
+
+  nextImageClick() {
+    this.slider.next();
+  }
 }

@@ -20,25 +20,24 @@
       class="app-a"
       [routerLink]="['auth/login']"
       routerLinkActive="app-a_active"
-      >Log in
+      >{{ "HEADER.LOGIN" | translate }}
     </a>
 
     <a
       class="app-a"
       [routerLink]="['auth/registration']"
       routerLinkActive="app-a_active"
-      >Registration
+      >{{ "HEADER.REGISTRATION" | translate }}
     </a>
   </div>
-
   <!-- UnAuth User -->
   <div *ngIf="isLoggedIn$ | async">
     <a
       class="app-a"
       routerLinkActive="app-a_active"
       [routerLink]="['static/home']"
-      >{{ "HEADER.HOME" | translate }}</a
-    >
+      >{{ "HEADER.HOME" | translate }}
+    </a>
     <a
       class="app-a"
       routerLinkActive="app-a_active"
@@ -68,13 +67,17 @@
       <a
         *ngIf="(isAdmin$ | async) && (isLoggedIn$ | async)"
         [routerLink]="['new-player']"
-        >{{ "NEW PLAYER.TITLE" | translate }}</a
+        >{{ "HEADER.NEW PLAYER" | translate }}</a
       >
       <a>Link 3</a>
     </div>
   </div>
 
-  <select #langSelect (change)="translate.use(langSelect.value)">
+  <select
+    #langSelect
+    (change)="translate.use(langSelect.value)"
+    class="langSelect"
+  >
     <option
       *ngFor="let lang of translate.getLangs()"
       [value]="lang"

@@ -10,13 +10,6 @@
   align-items: center;
   width: 900px;
   margin: 0 auto;
-
-  // background-image: linear-gradient(
-  //   180deg,
-  //   #166d3b 5%,
-  //   #5ed893 50%,
-  //   #166d3b 95%
-  // );
   background-color: #007b42;
 
   .app-a {
@@ -87,5 +80,13 @@
 
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+
+  .langSelect {
+    padding: 5px 10px;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
   }
 }

@@ -4,6 +4,8 @@
     "PLAYERS": "Players",
     "GALLERY": "Gallery",
     "LOCATION": "Location",
+    "LOGIN": "Login",
+    "REGISTRATION": "Registration",
 
     "LOGOUT": "Logout",
     "NEW PLAYER": "New User"
