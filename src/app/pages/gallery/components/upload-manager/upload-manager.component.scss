@@ -1,0 +1,23 @@
+.dropZone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  border: 2px dashed white;
+  border-radius: 7px;
+  color: white;
+  font-size: larger;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  /* font-weight: 200;
+ 
+  margin-left: 100px;
+  width: 20em;
+  line-height: 10em;
+   */
+}
+
+.dropZone.hovering {
+  border: 4px dashed gray;
+}

@@ -34,10 +34,6 @@ const routes: Routes = [
     path: 'gallery',
     loadChildren: () =>
       import('./pages/gallery/gallery.module').then((m) => m.GalleryModule),
-    canActivate: [isAdminGuard],
-    data: {
-      expectedRoles: ['admin'],
-    },
   },
   {
     path: 'locations',

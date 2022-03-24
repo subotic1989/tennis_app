@@ -7,7 +7,7 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
-  background-color: #546a76;
+  background-color: $primary;
   width: 900px;
   margin: 0 auto;
 }
@@ -21,7 +21,7 @@ footer {
 }
 
 a {
-  color: rgb(192, 186, 186);
+  color: $on-primary;
   text-decoration: none;
 }
 
@@ -29,6 +29,6 @@ span {
   vertical-align: middle;
   margin-left: 10px;
   font-size: 0.8rem;
-  color: rgb(192, 186, 186);
+  color: $on-primary;
   font-weight: 300;
 }

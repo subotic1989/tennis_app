@@ -7,10 +7,10 @@
   border-bottom: 1px solid $primary;
   transition-duration: 0.3s;
   cursor: pointer;
-  color: #3d5a23;
+  color: $primary-dark;
 
   &:hover {
-    background: #2a8b54;
+    background: $primary;
     color: #fff;
     transition-duration: 0.5s;
   }
@@ -39,7 +39,7 @@
 }
 
 .active {
-  background: #2a8b54;
+  background: $primary;
   color: white;
   transition-duration: 0.5s;
 }

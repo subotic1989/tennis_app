@@ -1,20 +1,21 @@
-<app-loading-tennis *ngIf="loading$ | async"></app-loading-tennis>
+<div class="app-page">
+  <app-loading-tennis *ngIf="loading$ | async"></app-loading-tennis>
 
-<div class="players">
-  <!-- sidenav -->
-  <div class="players__side">
-    <app-player-sidenav
-      *ngFor="let player of players$ | async"
-      [playerName]="player.name"
-      [playerImage]="player.image"
-      [playerId]="player.eventId"
-      [routerLink]="[player.name]"
-      (click)="onSendActiveUser(player.name)"
-    ></app-player-sidenav>
-  </div>
-  <!-- dashboard -->
-  <div class="players__dashboard">
-    <!-- <app-choose-player *ngIf="isChoose"></app-choose-player> -->
-    <router-outlet> </router-outlet>
+  <div class="players">
+    <!-- sidenav -->
+    <div class="players__side">
+      <app-player-sidenav
+        *ngFor="let player of players$ | async"
+        [playerName]="player.name"
+        [playerImage]="player.image"
+        [playerId]="player.eventId"
+        [routerLink]="[player.name]"
+        (click)="onSendActiveUser(player.name)"
+      ></app-player-sidenav>
+    </div>
+    <!-- dashboard -->
+    <div class="players__dashboard">
+      <router-outlet> </router-outlet>
+    </div>
   </div>
 </div>

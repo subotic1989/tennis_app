@@ -1,0 +1,24 @@
+<div
+  class="dropZone"
+  dropzone
+  (hovered)="toggleHover($event)"
+  (dropped)="onDrop($event)"
+  [class.hovering]="isHovering"
+>
+  <h3>Drag and drop Files Here to Upload</h3>
+
+  <select #langSelect class="langSelect" (change)="pickAlbum(langSelect.value)">
+    <option value="zg">Zagreb</option>
+    <option value="bl">Banja Luka</option>
+  </select>
+
+  <div class="input">
+    <input type="file" multiple (change)="onDrop($any($event).target.files)" />
+  </div>
+</div>
+
+<div *ngIf="files.length > 0"></div>
+
+<div *ngFor="let file of files">
+  <upload-task [file]="file"></upload-task>
+</div>

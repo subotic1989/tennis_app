@@ -1,6 +1,20 @@
 <div class="app-page">
-  <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
+  <!-- <app-loading-tennis *ngIf="isLoading"></app-loading-tennis> -->
 
-  <button (click)="prevImageClick()">Prev</button>
-  <button (click)="nextImageClick()">Next</button>
+  <h2 *ngIf="!isLoading && !isAddPhotos">Zagreb 2021</h2>
+
+  <ng-image-slider
+    [images]="imageObject"
+    #nav
+    *ngIf="!isLoading && !isAddPhotos"
+  ></ng-image-slider>
+
+  <router-outlet *ngIf="isAddPhotos"></router-outlet>
+
+  <app-button-primary
+    class="btn-edit"
+    *ngIf="isAdmin$ | async"
+    (click)="addPhotos()"
+    >{{ isAddPhotos ? "Cancel" : "Add Photos +" }}
+  </app-button-primary>
 </div>

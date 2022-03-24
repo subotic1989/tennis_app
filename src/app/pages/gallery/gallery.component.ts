@@ -1,33 +1,56 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgImageSliderComponent } from 'ng-image-slider';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
+import { select, Store } from '@ngrx/store';
+import { isAdminSelector } from '../auth/store/auth.selectors';
+
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
+  imageObject: Array<object> = [];
+  isLoading: boolean = true;
+  isAddPhotos: boolean;
+
+  isAdmin$: Observable<boolean>;
+
   @ViewChild('nav') slider: NgImageSliderComponent;
 
-  constructor() {}
+  constructor(private afs: AngularFirestore, private store: Store) {}
 
-  ngOnInit(): void {}
-
-  imageObject: Array<object> = [
-    {
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tennis_Racket_and_Balls.jpg/220px-Tennis_Racket_and_Balls.jpg',
-      thumbImage:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tennis_Racket_and_Balls.jpg/220px-Tennis_Racket_and_Balls.jpg',
-      alt: 'alt of image',
-      title: 'title of image',
-    },
-  ];
-
-  prevImageClick() {
-    this.slider.prev();
+  ngOnInit(): void {
+    this.initValues();
+    this.getGallery();
   }
 
-  nextImageClick() {
-    this.slider.next();
+  getGallery() {
+    return this.afs
+      .collection('gallery')
+      .valueChanges({ idField: 'eventId' })
+      .pipe(
+        map((gallery) => {
+          return gallery.forEach((img: any) => {
+            this.imageObject.push({
+              image: img.downloadURL,
+              thumbImage: img.downloadURL,
+              alt: img.eventId,
+            });
+            setTimeout(() => (this.isLoading = false), 500);
+          });
+        })
+      )
+      .subscribe();
+  }
+
+  initValues() {
+    this.isAdmin$ = this.store.pipe(select(isAdminSelector));
+  }
+
+  addPhotos() {
+    this.isAddPhotos = !this.isAddPhotos;
   }
 }

@@ -1,5 +1,6 @@
 <div class="header">
   <!-- Logo Header Starts -->
+
   <div class="header__logo">
     <img
       src="./assets/image/tennis_logo.svg"
@@ -73,17 +74,21 @@
     </div>
   </div>
 
-  <select
-    #langSelect
-    (change)="translate.use(langSelect.value)"
-    class="langSelect"
-  >
-    <option
-      *ngFor="let lang of translate.getLangs()"
-      [value]="lang"
-      [selected]="lang === translate.currentLang"
-    >
-      {{ lang }}
-    </option>
-  </select>
+  <div class="languages">
+    <img
+      src="../../../assets/image/united-kingdom.png"
+      alt="uk"
+      (click)="translate.use('en')"
+    />
+    <img
+      src="../../../assets/image/germany.png"
+      alt="de"
+      (click)="translate.use('de')"
+    />
+    <img
+      src="../../../assets/image/croatia.png"
+      alt="hr"
+      (click)="translate.use('hr')"
+    />
+  </div>
 </div>

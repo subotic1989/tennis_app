@@ -1,14 +1,19 @@
 @import "styles.scss";
 
+.app-page {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: fit-content;
+  padding: 0;
+}
+
 .players {
   display: flex;
-  max-width: 900px;
-  margin: auto;
-  height: 100vh;
+  height: 100%;
 
   &__side {
     flex: 1;
-    background-color: #8dd651a9;
+    background-color: $primary-light;
   }
 
   &__dashboard {

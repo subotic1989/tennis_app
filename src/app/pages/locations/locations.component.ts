@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./locations.component.scss'],
 })
 export class LocationsComponent implements OnInit {
+  isLoading: boolean = true;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => (this.isLoading = false), 500);
+  }
 }

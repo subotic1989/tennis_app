@@ -18,13 +18,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   isAdmin$: Observable<boolean>;
 
-  constructor(private store: Store, public translate: TranslateService) {
-    translate.addLangs(['en', 'de', 'hr']);
-    translate.setDefaultLang('en');
-
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|de|hr/) ? browserLang : 'en');
-  }
+  constructor(private store: Store, public translate: TranslateService) {}
 
   ngOnInit(): void {
     this.initValues();
@@ -33,6 +27,12 @@ export class HeaderComponent implements OnInit {
   initValues() {
     this.isLoggedIn$ = this.store.pipe(select(isAuthSelector));
     this.isAdmin$ = this.store.pipe(select(isAdminSelector));
+
+    this.translate.addLangs(['en', 'de', 'hr']);
+    this.translate.setDefaultLang('en');
+
+    const browserLang = this.translate.getBrowserLang();
+    this.translate.use(browserLang.match(/en|de|hr/) ? browserLang : 'en');
   }
 
   signOut() {
