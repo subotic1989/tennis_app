@@ -1,0 +1,40 @@
+@import "styles.scss";
+
+footer {
+  margin-top: 3rem;
+  padding: 1rem 0;
+  border-top: 1px solid $primary-dark;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: $primary;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.container {
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+a {
+  color: $on-primary;
+  text-decoration: none;
+}
+
+span {
+  vertical-align: middle;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: $on-primary;
+  font-weight: 300;
+}
+
+@media only screen and (max-width: 600px) {
+  a {
+    display: none;
+  }
+}

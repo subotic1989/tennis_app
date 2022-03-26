@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
-import { catchError, delay, map, of, switchMap } from 'rxjs';
+import { catchError, delay, map, of, switchMap, take } from 'rxjs';
 
 import * as actions from './players.actions';
 import { GetPlayersService } from './players.services';
@@ -48,11 +48,12 @@ export class GetPlayersEffect {
 
   editPlayer$ = createEffect(() =>
     this.actions$.pipe(
+      take(1),
       ofType(actions.editPlayerAction),
       switchMap((data) => {
         this.getPlayersService.editPlayer(data.id, data.user);
         return this.getPlayersService.getPlayer(data.user.name).pipe(
-          map((data: any) => {
+          map((data) => {
             return actions.editPlayerSuccessAction({ response: data });
           }),
 

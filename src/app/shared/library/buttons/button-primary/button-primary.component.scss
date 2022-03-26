@@ -2,8 +2,8 @@
 
 .app-button-primary {
   padding: 8px 20px;
-  border: 2px solid #2a8b54;
-  background: #2a8b54;
+  border: 2px solid $primary-dark;
+  background: $primary-dark;
   color: $on-primary;
   border-radius: 25px;
   transition: 0.25s;
@@ -12,7 +12,8 @@
 
   &:hover {
     background: transparent;
-    color: #2a8b54;
-    border: 2px solid #2a8b54;
+    color: $primary-dark;
+    border: 2px solid$primary-dark;
+    font-weight: 900;
   }
 }

@@ -91,13 +91,13 @@
       <br />
 
       <div class="button-container">
-        <app-button-secondary [type]="'submit'">Save</app-button-secondary>
-        <app-button-secondary [type]="'submit'" (click)="onDelete()"
-          >Delete</app-button-secondary
-        >
-        <app-button-secondary [type]="'submit'" (click)="onCancel()"
-          >Cancel</app-button-secondary
-        >
+        <app-button-primary [type]="'submit'">Save</app-button-primary>
+        <app-button-primary [type]="'submit'" (click)="onCancel()"
+          >Cancel
+        </app-button-primary>
+        <app-button-danger [type]="'submit'" (click)="onDelete()"
+          >Delete
+        </app-button-danger>
       </div>
     </div>
   </form>

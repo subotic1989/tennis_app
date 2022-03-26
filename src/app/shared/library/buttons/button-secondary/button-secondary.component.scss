@@ -11,8 +11,9 @@
   font-family: "Fredoka-Regular";
 
   &:hover {
-    background: #2a8b54;
-    color: $on-primary;
-    border: 2px solid $on-primary;
+    background: transparent;
+    color: $primary-dark;
+    border: 2px solid $primary-dark;
+    font-weight: 900;
   }
 }

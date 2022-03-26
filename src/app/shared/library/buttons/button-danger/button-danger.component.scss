@@ -1,0 +1,19 @@
+@import "styles.scss";
+
+.app-button-danger {
+  padding: 8px 20px;
+  border: 2px solid $error;
+  background: $error;
+  color: $on-error;
+  border-radius: 25px;
+  transition: 0.25s;
+  margin: 0 4px;
+  font-family: "Fredoka-Regular";
+
+  &:hover {
+    background: transparent;
+    color: $error;
+    border: 2px solid$error;
+    font-weight: 900;
+  }
+}

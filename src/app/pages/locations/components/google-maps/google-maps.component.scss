@@ -6,3 +6,9 @@
   border-radius: 5px;
   @include shadow;
 }
+
+@media only screen and (max-width: 412px) {
+  .full {
+    width: 350px;
+  }
+}

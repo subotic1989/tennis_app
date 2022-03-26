@@ -1,6 +1,6 @@
 .app-page {
   max-width: 900px;
-  margin: 16px auto;
+  margin: 0px auto;
 
   background: $base-light;
   padding: 32px;
@@ -13,6 +13,7 @@
   }
 
   &__content {
+    margin: 0px auto;
   }
 
   &__footer {
@@ -20,4 +21,10 @@
     display: flex;
     justify-content: flex-end;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  // .app-page {
+  //   width: 600px;
+  // }
 }

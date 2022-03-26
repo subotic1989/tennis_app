@@ -1,11 +1,11 @@
 {
   "HEADER": {
-    "HOME": "Home",
-    "PLAYERS": "Players",
-    "GALLERY": "Gallery",
-    "LOCATION": "Location",
-    "LOGIN": "Login",
-    "REGISTRATION": "Registration",
+    "HOME": "HOME",
+    "PLAYERS": "PLAYERS",
+    "GALLERY": "GALLERY",
+    "LOCATION": "LOCATION",
+    "LOGIN": "LOGIN",
+    "REGISTRATION": "REGISTRATION",
 
     "LOGOUT": "Logout",
     "NEW PLAYER": "New Player"
@@ -23,6 +23,6 @@
     "BIOGRAPHY": "Biography",
 
     "SAVE": "Save",
-    "BACK": "Back"
+    "BACK": "Cancel"
   }
 }

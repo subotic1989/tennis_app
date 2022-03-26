@@ -1,3 +1,5 @@
+@import "styles.scss";
+
 *:after,
 *:before {
   box-sizing: border-box;
@@ -28,8 +30,7 @@ html {
   margin-bottom: 0;
   height: 90vh;
   padding: 0;
-  background-image: url("https://www.ltc-riedau.at/wp/wp-content/uploads/iStock-136226540.jpg");
-  // background-image: url("../../../assets/image/tennis-court-form-blue_bg.jpg");
+  background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -59,13 +60,12 @@ article:before {
   color: rgba(0, 0, 0, 0.2);
   font-size: 4rem;
   font-weight: 100;
-  // position: absolute;
   bottom: 1rem;
   right: 1rem;
 }
 
 nav {
-  background: #b1e289;
+  background: $primary-light;
   width: 100%;
   height: 5rem;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
@@ -75,7 +75,7 @@ nav:after {
   content: "";
   width: 20%;
   height: 5rem;
-  background: #2a8b54;
+  background: $primary-dark;
   position: absolute;
   transition: 0.3s;
 }
@@ -146,4 +146,10 @@ label:before {
   z-index: 111;
   background: rgba(126, 124, 124, 0.424);
   backdrop-filter: blur(4px);
+}
+
+@media only screen and (max-width: 412px) {
+  .app-page {
+    margin: 0px auto !important;
+  }
 }

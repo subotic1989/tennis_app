@@ -116,11 +116,12 @@
         <br />
 
         <div class="button-container">
-          <app-button-secondary [type]="'submit'">{{
-            "NEW PLAYER.SAVE" | translate
-          }}</app-button-secondary>
+          <app-button-primary [type]="'submit'">
+            {{ "NEW PLAYER.SAVE" | translate }}
+          </app-button-primary>
+
           <app-button-secondary [type]="'button'" (click)="onBack()"
-            >{{ "NEW PLAYER.BACK" | translate }} <span>&#8594;</span>
+            >{{ "NEW PLAYER.BACK" | translate }}
           </app-button-secondary>
         </div>
       </div>

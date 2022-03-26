@@ -17,6 +17,7 @@ import { PlayerResponseInterface } from './store/types/playerResponse.interface'
 export class PlayersComponent implements OnInit {
   players$: Observable<PlayerResponseInterface[]>;
   loading$: Observable<boolean>;
+  isMobile: boolean;
 
   constructor(private store: Store, private playersService: PlayersService) {}
 
@@ -32,5 +33,6 @@ export class PlayersComponent implements OnInit {
 
   onSendActiveUser(user: string) {
     this.playersService.activeUser.next(user);
+    this.isMobile = !this.isMobile;
   }
 }

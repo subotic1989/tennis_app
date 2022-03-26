@@ -1,17 +1,32 @@
-@import "../../../../../styles.scss";
+@import "styles.scss";
 
 .app-page {
-  max-width: 500px;
-  height: fit-content;
+  height: 90vh;
+
+  &__content {
+    max-width: 500px;
+    height: fit-content;
+  }
 }
 
 h2 {
   font-weight: bold;
-  color: $primary;
+  color: $primary-dark;
 }
 
 a {
   color: #bbbbbb !important;
   font-weight: 200 !important;
   font-size: smaller;
+}
+
+.error {
+  opacity: 0;
+  font-size: 12px;
+  color: $error;
+  padding: 4px 0 16px 0;
+
+  &_active {
+    opacity: 1;
+  }
 }

@@ -71,24 +71,60 @@ strong {
 
 p {
   display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
   margin-left: 0;
   margin-right: 0;
 }
 
+h1,
+.h1 {
+  font-size: 60px;
+  color: white;
+  font-family: Libre;
+}
 h2,
 .h2 {
   font-size: 60px;
   color: white;
-  font-family: "Fredoka-Bold";
-  // text-shadow: -1px 2px 1px hsl(0, 0%, 52%), -2px 4px 1px hsl(0, 0%, 54%);
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: Libre;
 }
+
 h3,
 .h3 {
   font-size: 40px;
   color: white;
-  font-family: "Fredoka-Bold";
-  text-shadow: -1px 2px 1px hsl(0, 0%, 52%), -2px 4px 1px hsl(0, 0%, 54%);
+  font-family: Libre;
+  margin-top: 0px;
+}
+
+h4,
+.h4 {
+  font-size: 25px;
+  color: white;
+  font-family: Libre;
+}
+
+@media only screen and (max-width: 412px) {
+  h1,
+  .h1 {
+    font-size: 55px !important;
+  }
+  h2,
+  .h2 {
+    font-size: 30px;
+  }
+
+  h3,
+  .h3 {
+    font-size: 40px;
+    color: white;
+    font-family: Libre;
+    margin-top: 0px;
+  }
+
+  h4,
+  .h4 {
+    font-size: 25px;
+    color: white;
+    font-family: Libre;
+  }
 }

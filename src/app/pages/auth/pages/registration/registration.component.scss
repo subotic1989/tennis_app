@@ -1,13 +1,17 @@
 @import "../../../../../styles.scss";
 
 .app-page {
-  max-width: 500px;
-  height: fit-content;
+  height: 90vh;
+
+  &__content {
+    max-width: 500px;
+    height: fit-content;
+  }
 }
 
 h2 {
   font-weight: bold;
-  color: $primary;
+  color: $primary-dark;
 }
 
 a {

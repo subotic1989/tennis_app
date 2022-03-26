@@ -5,6 +5,11 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 import { select, Store } from '@ngrx/store';
 import { isAdminSelector } from '../auth/store/auth.selectors';
+import { galleryAction } from './store/gallery.actions';
+import {
+  getGallerySelector,
+  loadingGallerySelector,
+} from './store/gallery.selectors';
 
 @Component({
   selector: 'app-gallery',
@@ -12,42 +17,41 @@ import { isAdminSelector } from '../auth/store/auth.selectors';
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
-  imageObject: Array<object> = [];
   isLoading: boolean = true;
   isAddPhotos: boolean;
+  galleryArray: any[] = [];
 
   isAdmin$: Observable<boolean>;
 
   @ViewChild('nav') slider: NgImageSliderComponent;
 
-  constructor(private afs: AngularFirestore, private store: Store) {}
-
-  ngOnInit(): void {
-    this.initValues();
-    this.getGallery();
+  constructor(private afs: AngularFirestore, private store: Store) {
+    this.store.dispatch(galleryAction());
   }
 
-  getGallery() {
-    return this.afs
-      .collection('gallery')
-      .valueChanges({ idField: 'eventId' })
-      .pipe(
-        map((gallery) => {
-          return gallery.forEach((img: any) => {
-            this.imageObject.push({
-              image: img.downloadURL,
-              thumbImage: img.downloadURL,
-              alt: img.eventId,
-            });
-            setTimeout(() => (this.isLoading = false), 500);
-          });
-        })
-      )
-      .subscribe();
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.initValues();
+    }, 1000);
   }
 
   initValues() {
     this.isAdmin$ = this.store.pipe(select(isAdminSelector));
+
+    this.store
+      .pipe(select(getGallerySelector))
+      .pipe(
+        map((gallery) => {
+          gallery.forEach((el) => {
+            this.galleryArray.push({
+              image: el.downloadURL,
+              thumbImage: el.downloadURL,
+              alt: el.originalName,
+            });
+          });
+        })
+      )
+      .subscribe(() => (this.isLoading = false));
   }
 
   addPhotos() {

@@ -3,7 +3,7 @@
 
   <div class="players">
     <!-- sidenav -->
-    <div class="players__side">
+    <div class="players__side" [ngClass]="{ test: isMobile }">
       <app-player-sidenav
         *ngFor="let player of players$ | async"
         [playerName]="player.name"
@@ -14,7 +14,7 @@
       ></app-player-sidenav>
     </div>
     <!-- dashboard -->
-    <div class="players__dashboard">
+    <div class="players__dashboard" [ngClass]="{ test: !isMobile }">
       <router-outlet> </router-outlet>
     </div>
   </div>

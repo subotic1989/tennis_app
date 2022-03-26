@@ -1,66 +1,71 @@
 <app-loading *ngIf="loading$ | async"></app-loading>
 
 <div class="app-page">
-  <form
-    [formGroup]="form"
-    (ngSubmit)="onSubmit()"
-    (keyup.enter)="onSubmit()"
-    autocomplete="test"
-  >
-    <div class="app-page__header">
-      <h2>Sign Up</h2>
-      <a class="app-a" [routerLink]="['/auth/login']">Have an account?</a>
-    </div>
-    <div class="app-page__content">
-      <app-form-field
-        [required]="false"
-        [control]="form.controls?.['displayName']"
-        [isInline]="false"
-      >
-        <app-input
-          formControlName="displayName"
-          [placeholder]="'Name'"
-        ></app-input>
-      </app-form-field>
-
-      <app-form-field
-        [required]="false"
-        [control]="form.controls?.['email']"
-        [isInline]="false"
-      >
-        <app-input formControlName="email" [placeholder]="'Email'"></app-input>
-      </app-form-field>
-      <app-form-field
-        [required]="false"
-        [control]="form.controls?.['password']"
-        [isInline]="false"
-        [patternError]="regexErrors.password"
-      >
-        <app-password
-          formControlName="password"
-          [placeholder]="'Password'"
-        ></app-password>
-      </app-form-field>
-
-      <app-form-field
-        [required]="false"
-        [control]="form.controls?.['passwordRepeat']"
-        [isInline]="false"
-      >
-        <app-password
-          formControlName="passwordRepeat"
-          [placeholder]="'Password Repeat'"
-        ></app-password>
-      </app-form-field>
-
-      <div class="error" [class.error_active]="form.hasError('repeat')">
-        Entered passwords don't match
+  <div class="app-content">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      (keyup.enter)="onSubmit()"
+      autocomplete="test"
+    >
+      <div class="app-page__header">
+        <h2>Sign Up</h2>
+        <a class="app-a" [routerLink]="['/auth/login']">Have an account?</a>
       </div>
+      <div class="app-page__content">
+        <app-form-field
+          [required]="false"
+          [control]="form.controls?.['displayName']"
+          [isInline]="false"
+        >
+          <app-input
+            formControlName="displayName"
+            [placeholder]="'Name'"
+          ></app-input>
+        </app-form-field>
 
-      <br />
-      <div class="button-container">
-        <app-button-primary [type]="'submit'">Sign Up</app-button-primary>
+        <app-form-field
+          [required]="false"
+          [control]="form.controls?.['email']"
+          [isInline]="false"
+        >
+          <app-input
+            formControlName="email"
+            [placeholder]="'Email'"
+          ></app-input>
+        </app-form-field>
+        <app-form-field
+          [required]="false"
+          [control]="form.controls?.['password']"
+          [isInline]="false"
+          [patternError]="regexErrors.password"
+        >
+          <app-password
+            formControlName="password"
+            [placeholder]="'Password'"
+          ></app-password>
+        </app-form-field>
+
+        <app-form-field
+          [required]="false"
+          [control]="form.controls?.['passwordRepeat']"
+          [isInline]="false"
+        >
+          <app-password
+            formControlName="passwordRepeat"
+            [placeholder]="'Password Repeat'"
+          ></app-password>
+        </app-form-field>
+
+        <div class="error" [class.error_active]="form.hasError('repeat')">
+          Entered passwords don't match
+        </div>
+
+        <br />
+        <div class="button-container">
+          <app-button-primary [type]="'submit'">Sign Up</app-button-primary>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>

@@ -1,0 +1,88 @@
+<div class="header">
+  <!-- Logo Header Starts -->
+
+  <div class="header__logo">
+    <img
+      src="./assets/image/main_logo/tennis_logo.svg"
+      alt="tennis_logo"
+      [routerLink]="['home']"
+    />
+  </div>
+
+  <!-- Auth User -->
+  <div *ngIf="!(isLoggedIn$ | async)">
+    <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['home']">{{
+      "HEADER.HOME" | translate
+    }}</a>
+    <a
+      class="app-a"
+      [routerLink]="['auth/login']"
+      routerLinkActive="app-a_active"
+      >{{ "HEADER.LOGIN" | translate }}
+    </a>
+
+    <a
+      class="app-a"
+      [routerLink]="['auth/registration']"
+      routerLinkActive="app-a_active"
+      >{{ "HEADER.REGISTRATION" | translate }}
+    </a>
+  </div>
+  <!-- UnAuth User -->
+  <div *ngIf="isLoggedIn$ | async">
+    <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['home']"
+      >{{ "HEADER.HOME" | translate }}
+    </a>
+    <a
+      class="app-a"
+      routerLinkActive="app-a_active"
+      [routerLink]="['players']"
+      >{{ "HEADER.PLAYERS" | translate }}</a
+    >
+    <a
+      class="app-a"
+      routerLinkActive="app-a_active"
+      [routerLink]="['gallery']"
+      >{{ "HEADER.GALLERY" | translate }}</a
+    >
+    <a
+      class="app-a"
+      routerLinkActive="app-a_active"
+      [routerLink]="['locations']"
+      >{{ "HEADER.LOCATION" | translate }}</a
+    >
+  </div>
+
+  <div class="dropdown" *ngIf="isLoggedIn$ | async">
+    <div class="admin">
+      <a class="app-a"> Admin <span style="font-size: 16px">▼</span> </a>
+    </div>
+    <div class="dropdown-content">
+      <a (click)="signOut()">{{ "HEADER.LOGOUT" | translate }}</a>
+      <a
+        *ngIf="(isAdmin$ | async) && (isLoggedIn$ | async)"
+        [routerLink]="['new-player']"
+        >{{ "HEADER.NEW PLAYER" | translate }}</a
+      >
+      <a>Link 3</a>
+    </div>
+  </div>
+
+  <div class="languages">
+    <img
+      src="../../../assets/image/language_flags/united-kingdom.png"
+      alt="uk"
+      (click)="translate.use('en')"
+    />
+    <img
+      src="../../../assets/image/language_flags/germany.png"
+      alt="de"
+      (click)="translate.use('de')"
+    />
+    <img
+      src="../../../assets/image/language_flags/croatia.png"
+      alt="hr"
+      (click)="translate.use('hr')"
+    />
+  </div>
+</div>

@@ -1,10 +1,11 @@
 @import "styles.scss";
 
 .wrapper {
-  background-image: url("https://www.ltc-riedau.at/wp/wp-content/uploads/iStock-136226540.jpg");
+  background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
+  background-position: center;
+  background-size: cover;
   height: 100%;
   width: 100%;
-  backdrop-filter: blur(2px);
 
   .title {
     padding-top: 10%;

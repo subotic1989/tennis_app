@@ -1,12 +1,11 @@
 <div class="app-page">
-  <!-- <app-loading-tennis *ngIf="isLoading"></app-loading-tennis> -->
-
-  <h2 *ngIf="!isLoading && !isAddPhotos">Zagreb 2021</h2>
+  <app-loading-tennis *ngIf="isLoading"></app-loading-tennis>
+  <h4 *ngIf="!isAddPhotos">Zagreb 2021</h4>
 
   <ng-image-slider
-    [images]="imageObject"
+    *ngIf="!isAddPhotos"
+    [images]="galleryArray"
     #nav
-    *ngIf="!isLoading && !isAddPhotos"
   ></ng-image-slider>
 
   <router-outlet *ngIf="isAddPhotos"></router-outlet>

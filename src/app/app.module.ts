@@ -20,12 +20,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { FooterModule } from './components/footer/footer.module';
-import { HeaderModule } from './components/header/header.module';
+import { FooterModule } from './pages/footer/footer.module';
 
 import { NotificationModule } from './shared/library/indicators/snack-bar/notification.module';
 
 import { environment } from './../environments/environment';
+import { HeaderModule } from './pages/header/header.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);

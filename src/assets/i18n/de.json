@@ -1,11 +1,11 @@
 {
   "HEADER": {
-    "HOME": "Home",
-    "PLAYERS": "Spieler",
-    "GALLERY": "Galerie",
-    "LOCATION": "Standorte",
-    "LOGIN": "Einloggen",
-    "REGISTRATION": "Registrierung",
+    "HOME": "HOME",
+    "PLAYERS": "SPIELER",
+    "GALLERY": "GALERIE",
+    "LOCATION": "STANDORTE",
+    "LOGIN": "EINLOGGEN",
+    "REGISTRATION": "REGISTRIRUNG",
 
     "LOGOUT": "Ausloggen",
     "NEW PLAYER": "Neuer Spieler"

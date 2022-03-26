@@ -1,15 +1,25 @@
+@import "styles.scss";
+
 .app-page {
   margin-top: 0;
   margin-bottom: 0;
-  height: 80vh;
-  background-image: url("https://www.ltc-riedau.at/wp/wp-content/uploads/iStock-136226540.jpg");
+  height: 90vh;
+  background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
   background-position: center;
   background-size: cover;
-  // filter: opacity(90%);
+  background-repeat: no-repeat;
 }
 
 .btn-edit {
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .app-page {
+    // background-color: rgb(173, 230, 178);
+    // color: red;
+    // display: flex;
+  }
 }

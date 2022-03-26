@@ -8,9 +8,9 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'static',
+        path: 'home',
         loadChildren: () =>
-          import('./pages/static/static.module').then((m) => m.StaticModule),
+          import('./pages/welcome/welcome.module').then((m) => m.WelcomeModule),
       },
       {
         path: 'auth',
@@ -20,7 +20,7 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'static/home',
+        redirectTo: 'welcome',
       },
     ],
   },
@@ -34,6 +34,7 @@ const routes: Routes = [
     path: 'gallery',
     loadChildren: () =>
       import('./pages/gallery/gallery.module').then((m) => m.GalleryModule),
+    canLoad: [AuthGuard],
   },
   {
     path: 'locations',
@@ -41,6 +42,7 @@ const routes: Routes = [
       import('./pages/locations/locations.module').then(
         (m) => m.LocationsModule
       ),
+    canLoad: [AuthGuard],
   },
   {
     path: 'new-player',
