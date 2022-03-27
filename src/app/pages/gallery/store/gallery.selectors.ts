@@ -6,7 +6,7 @@ export const galleryState =
 
 export const getGallerySelector = createSelector(
   galleryState,
-  (state) => state.data
+  (state) => state.data ?? []
 );
 
 export const loadingGallerySelector = createSelector(

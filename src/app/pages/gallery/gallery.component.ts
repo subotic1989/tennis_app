@@ -30,28 +30,34 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.initValues();
-    }, 1000);
+    this.initValues();
   }
 
   initValues() {
     this.isAdmin$ = this.store.pipe(select(isAdminSelector));
 
     this.store
-      .pipe(select(getGallerySelector))
-      .pipe(
-        map((gallery) => {
-          gallery.forEach((el) => {
-            this.galleryArray.push({
-              image: el.downloadURL,
-              thumbImage: el.downloadURL,
-              alt: el.originalName,
-            });
-          });
-        })
-      )
-      .subscribe(() => (this.isLoading = false));
+      .select(getGallerySelector)
+      //.pipe
+      //   map((gallery) => {
+      //     gallery?.forEach((el) => {
+      //       this.galleryArray.push({
+      //         image: el.downloadURL,
+      //         thumbImage: el.downloadURL,
+      //         alt: el.originalName,
+      //       });
+      //     });
+      //   })
+      //()
+
+      .subscribe((data: any[]) => {
+        this.galleryArray = data.map((img) => ({
+          image: img.downloadURL,
+          thumbImage: img.downloadURL,
+          alt: img.originalName,
+        }));
+        this.isLoading = false;
+      });
   }
 
   addPhotos() {

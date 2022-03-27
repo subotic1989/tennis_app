@@ -16,10 +16,7 @@ export class GalleryEffect {
       take(1),
       ofType(actions.galleryAction),
       switchMap(() => {
-        return of(this.service.getGalleryService()).pipe(
-          switchMap((data) => {
-            return data;
-          }),
+        return this.service.getGalleryService().pipe(
           map((data) => {
             return actions.gallerySuccessAction({ response: data });
           }),
@@ -29,6 +26,24 @@ export class GalleryEffect {
           })
         );
       })
+    )
+  );
+
+  initUser1$ = createEffect(() =>
+    this.actions$.pipe(
+      take(1),
+      ofType(actions.galleryAction),
+      switchMap(() =>
+        this.service.getGalleryService().pipe(
+          map((data) => {
+            return actions.gallerySuccessAction({ response: data });
+          }),
+          catchError((err) => {
+            console.log(err);
+            return of(actions.galleryErrorAction({ error: err }));
+          })
+        )
+      )
     )
   );
 }

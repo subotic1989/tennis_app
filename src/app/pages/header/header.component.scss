@@ -106,8 +106,8 @@
   }
 }
 
-// @media only screen and (max-width: 412px) {
-@media only screen and (max-device-width: 375px) {
+// @media screen and (max-width: 412px) {
+@media only screen and (max-device-width: 412px) {
   .app-a {
     font-size: small !important;
   }

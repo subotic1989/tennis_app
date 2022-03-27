@@ -116,7 +116,7 @@ p {
 }
 
 // @media only screen and (max-width: 412px) {
-@media only screen and (max-device-width: 375px) {
+@media only screen and (max-device-width: 412px) {
   .player {
     padding: 40px 0px;
     height: fit-content;
@@ -152,6 +152,9 @@ p {
     }
 
     .networks {
+      width: 310px;
+      margin: 0px auto;
+
       img {
         width: 44px;
         height: 44px;
