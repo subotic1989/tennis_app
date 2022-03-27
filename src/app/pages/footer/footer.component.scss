@@ -33,7 +33,8 @@ span {
   font-weight: 300;
 }
 
-@media only screen and (max-width: 600px) {
+// @media only screen and (max-width: 412px) {
+@media only screen and (max-width: 375px) {
   a {
     display: none;
   }

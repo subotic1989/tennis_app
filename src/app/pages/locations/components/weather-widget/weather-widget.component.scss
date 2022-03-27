@@ -27,7 +27,8 @@
   font-family: Fredoka-Regular;
 }
 
-@media only screen and (max-width: 412px) {
+// @media only screen and (max-width: 412px) {
+@media only screen and (max-width: 375px) {
   .divWeatherMain {
     width: 290px;
   }

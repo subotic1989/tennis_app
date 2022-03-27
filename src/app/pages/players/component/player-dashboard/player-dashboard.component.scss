@@ -115,7 +115,8 @@ p {
   color: black;
 }
 
-@media only screen and (max-width: 412px) {
+// @media only screen and (max-width: 412px) {
+@media only screen and (max-width: 375px) {
   .player {
     padding: 40px 0px;
     height: fit-content;
