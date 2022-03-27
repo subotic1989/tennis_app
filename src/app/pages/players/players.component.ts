@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { PlayersService } from './players.service';
 import { getPlayersAction } from './store/players.actions';
 import {
@@ -23,6 +23,9 @@ export class PlayersComponent implements OnInit {
 
   ngOnInit(): void {
     this.initValues();
+    this.playersService.backToListMobileMode.subscribe(
+      (data) => (this.isMobile = data)
+    );
   }
 
   initValues() {

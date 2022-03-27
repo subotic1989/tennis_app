@@ -25,7 +25,8 @@ export class PlayerDashboardComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private store: Store
+    private store: Store,
+    private playersService: PlayersService
   ) {}
 
   ngOnInit(): void {
@@ -43,7 +44,12 @@ export class PlayerDashboardComponent implements OnInit {
     });
   }
 
-  editPlayer() {
+  onEditPlayer() {
     this.router.navigate(['edit'], { relativeTo: this.route });
+  }
+
+  onBack() {
+    this.router.navigate(['players']);
+    this.playersService.backToListMobileMode.next(false);
   }
 }

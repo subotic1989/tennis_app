@@ -2,27 +2,28 @@
 @import "styles.scss";
 
 .player {
-  grid-gap: 30px;
+  grid-gap: 20px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  max-width: 900px;
+  grid-template-columns: 1fr 3fr;
   position: relative;
-  // background-size: cover;
-  // background-position: center;
   padding: 40px;
-  height: 100vh;
+  height: -webkit-fill-available;
   position: relative;
   background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
   background-position: center;
   background-size: cover;
 
   grid-template-areas:
+    "cap cap"
     "img det"
+    "net ."
     "bio bio";
 
   &__bio {
     grid-area: bio;
     overflow: auto;
-    height: 300px !important;
+    max-height: 300px !important;
     padding-bottom: 100px !important;
     background-color: #8dc63fdb !important;
     color: #233507;
@@ -53,11 +54,12 @@
       color: white;
       font-size: 18px;
     }
+  }
 
-    h3 {
-      font-size: 40px;
-      margin-bottom: 30px;
-    }
+  h3 {
+    grid-area: cap;
+    font-size: 40px;
+    margin-bottom: 30px;
   }
 }
 
@@ -75,12 +77,12 @@
 
 .networks {
   margin-top: 20px;
+  grid-area: net;
 
   ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     list-style: none;
-    z-index: 999;
 
     li {
       transition-duration: 0.3s;
@@ -100,11 +102,66 @@
 
 .btn-edit {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 20px;
+}
+
+.btn-back {
+  display: none;
 }
 
 p {
   font-size: large;
   color: black;
+}
+
+@media only screen and (max-width: 412px) {
+  .player {
+    padding: 40px 0px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
+
+    h3 {
+      margin-top: 35px;
+      text-align: center;
+    }
+
+    &__img-frame {
+      height: 310px;
+      width: 260px;
+      border-radius: 10px;
+      margin: 0px auto;
+    }
+
+    &__details {
+      margin: 0px auto;
+      width: 260px;
+      p {
+        font-size: 24px;
+      }
+    }
+
+    &__bio {
+      margin: 0px auto;
+      width: 330px;
+      line-height: 1.2;
+      font-size: 20px;
+    }
+
+    .networks {
+      img {
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+    .btn-back {
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+    }
+  }
 }

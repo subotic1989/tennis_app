@@ -25,17 +25,12 @@
   }
 }
 
-.test {
+.test2 {
   display: none;
 }
 
 @media only screen and (max-width: 412px) {
-  .players {
-    &__side {
-    }
-
-    &__dashboard {
-      // display: none;
-    }
+  .test {
+    display: none;
   }
 }

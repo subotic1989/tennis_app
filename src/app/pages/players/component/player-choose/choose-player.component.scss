@@ -14,12 +14,10 @@
   }
 }
 
-.wrapper::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  z-index: -1;
-  filter: blur(1px);
+@media only screen and (max-width: 412px) {
+  .title {
+    padding-top: 10%;
+    text-align: center;
+    color: $primary-dark;
+  }
 }

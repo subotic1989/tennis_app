@@ -2,60 +2,15 @@
 <app-loading-tennis *ngIf="loading$ | async"></app-loading-tennis>
 
 <!-- right -->
-<!-- <div
-  class="player"
-  [ngStyle]="{
-    'background-image':
-      'linear-gradient(#FFA069, rgba(255, 160, 105,0.5)), url(https://flagcdn.com/w2560/' +
-      player?.country +
-      '.png)'
-  }"
-> -->
-<div class="player">
+
+<div class="player app-page">
+  <h3>{{ player?.name }}</h3>
+
   <div class="player__img">
     <img class="player__img-frame" src="{{ player?.image }}" alt="" />
-
-    <div class="networks">
-      <ul>
-        <li>
-          <a href="https://www.instagram.com/instagram/"
-            ><img
-              src="../../../../../assets/image/networks_icon/instagram.svg"
-              alt="in"
-          /></a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com/"
-            ><img
-              src="../../../../../assets/image/networks_icon/facebook.svg"
-              alt="fb"
-          /></a>
-        </li>
-        <li>
-          <a
-            href="https://www.google.at/webhp?gfe_rd=cr&dcr=0&ei=JgG4WukUj8Re7_yN2Ac"
-            ><img
-              src="../../../../../assets/image/networks_icon/linkedin.svg"
-              alt="ln"
-          /></a>
-        </li>
-        <li>
-          <a
-            href="https://www.google.at/webhp?gfe_rd=cr&dcr=0&ei=JgG4WukUj8Re7_yN2Ac"
-            ><img
-              src="../../../../../assets/image/players_flag/Animated-Flag-{{
-                player?.country
-              }}.gif"
-              alt=""
-          /></a>
-        </li>
-      </ul>
-    </div>
   </div>
 
   <div class="player__details">
-    <h3>{{ player?.name }}</h3>
-
     <span class="about">
       <img
         src="../../../../../assets/image/descriptions_icon/email.svg"
@@ -114,10 +69,51 @@
     <span>{{ player?.bio }}</span>
   </div>
 
+  <div class="networks">
+    <ul>
+      <li>
+        <a href="https://www.instagram.com/instagram/"
+          ><img
+            src="../../../../../assets/image/networks_icon/instagram.svg"
+            alt="in"
+        /></a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/"
+          ><img
+            src="../../../../../assets/image/networks_icon/facebook.svg"
+            alt="fb"
+        /></a>
+      </li>
+      <li>
+        <a
+          href="https://www.google.at/webhp?gfe_rd=cr&dcr=0&ei=JgG4WukUj8Re7_yN2Ac"
+          ><img
+            src="../../../../../assets/image/networks_icon/linkedin.svg"
+            alt="ln"
+        /></a>
+      </li>
+      <li>
+        <a
+          href="https://www.google.at/webhp?gfe_rd=cr&dcr=0&ei=JgG4WukUj8Re7_yN2Ac"
+          ><img
+            src="../../../../../assets/image/players_flag/Animated-Flag-{{
+              player?.country
+            }}.gif"
+            alt=""
+        /></a>
+      </li>
+    </ul>
+  </div>
+
   <app-button-primary
     class="btn-edit"
     *ngIf="isAdmin$ | async"
-    (click)="editPlayer()"
-    >Edit</app-button-primary
-  >
+    (click)="onEditPlayer()"
+    >Edit
+  </app-button-primary>
+
+  <app-button-primary class="btn-back" (click)="onBack()"
+    >&#10229;
+  </app-button-primary>
 </div>
