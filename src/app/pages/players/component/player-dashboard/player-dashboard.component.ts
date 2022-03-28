@@ -10,6 +10,7 @@ import {
   loadingGetPlayersSelector,
 } from '../../store/players.selectors';
 import { PlayersService } from '../../players.service';
+import { editPlayerAction } from '../../store/players.actions';
 
 @Component({
   selector: 'app-player-dashboard',

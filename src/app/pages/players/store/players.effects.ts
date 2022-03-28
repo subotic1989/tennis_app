@@ -48,7 +48,6 @@ export class GetPlayersEffect {
 
   editPlayer$ = createEffect(() =>
     this.actions$.pipe(
-      take(1),
       ofType(actions.editPlayerAction),
       switchMap((data) => {
         this.getPlayersService.editPlayer(data.id, data.user);

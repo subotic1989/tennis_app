@@ -17,6 +17,7 @@ import { Observable } from 'rxjs';
 export class HeaderComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   isAdmin$: Observable<boolean>;
+  test;
 
   constructor(private store: Store, public translate: TranslateService) {}
 

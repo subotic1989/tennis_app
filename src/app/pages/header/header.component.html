@@ -1,4 +1,4 @@
-<div class="header">
+<div class="header mobileMode" *ngIf="true">
   <!-- Logo Header Starts -->
 
   <div class="header__logo">
@@ -11,9 +11,10 @@
 
   <!-- Auth User -->
   <div *ngIf="!(isLoggedIn$ | async)">
-    <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['home']">{{
-      "HEADER.HOME" | translate
-    }}</a>
+    <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['home']"
+      >{{ "HEADER.HOME" | translate }}
+    </a>
+
     <a
       class="app-a"
       [routerLink]="['auth/login']"
@@ -33,24 +34,18 @@
     <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['home']"
       >{{ "HEADER.HOME" | translate }}
     </a>
-    <a
-      class="app-a"
-      routerLinkActive="app-a_active"
-      [routerLink]="['players']"
-      >{{ "HEADER.PLAYERS" | translate }}</a
-    >
-    <a
-      class="app-a"
-      routerLinkActive="app-a_active"
-      [routerLink]="['gallery']"
-      >{{ "HEADER.GALLERY" | translate }}</a
-    >
+    <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['players']"
+      >{{ "HEADER.PLAYERS" | translate }}
+    </a>
+    <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['gallery']"
+      >{{ "HEADER.GALLERY" | translate }}
+    </a>
     <a
       class="app-a"
       routerLinkActive="app-a_active"
       [routerLink]="['locations']"
-      >{{ "HEADER.LOCATION" | translate }}</a
-    >
+      >{{ "HEADER.LOCATION" | translate }}
+    </a>
   </div>
 
   <div class="dropdown" *ngIf="isLoggedIn$ | async">
@@ -86,3 +81,67 @@
     />
   </div>
 </div>
+
+<!-- hamburger menu -->
+<nav>
+  <div class="navbar">
+    <div class="container nav-container">
+      <input
+        class="checkbox"
+        type="checkbox"
+        (change)="test = !test"
+        [checked]="test"
+      />
+      <div class="hamburger-lines">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+      </div>
+
+      <div class="logo">
+        <div class="header__logo">
+          <img
+            src="./assets/image/main_logo/tennis_logo.svg"
+            alt="tennis_logo"
+            [routerLink]="['home']"
+          />
+        </div>
+      </div>
+
+      <div class="menu-items" (click)="test = !test">
+        <li>
+          <a
+            class="app-a"
+            routerLinkActive="app-a_active"
+            [routerLink]="['home']"
+            >{{ "HEADER.HOME" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            class="app-a"
+            routerLinkActive="app-a_active"
+            [routerLink]="['players']"
+            >{{ "HEADER.PLAYERS" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            class="app-a"
+            routerLinkActive="app-a_active"
+            [routerLink]="['gallery']"
+            >{{ "HEADER.GALLERY" | translate }}
+          </a>
+        </li>
+        <li>
+          <a
+            class="app-a"
+            routerLinkActive="app-a_active"
+            [routerLink]="['locations']"
+            >{{ "HEADER.LOCATION" | translate }}
+          </a>
+        </li>
+      </div>
+    </div>
+  </div>
+</nav>

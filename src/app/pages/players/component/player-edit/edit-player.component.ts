@@ -113,6 +113,7 @@ export class EditPlayerComponent
   }
 
   onSubmit() {
+    console.log(this.form.value);
     this.store.dispatch(
       editPlayerAction({ id: this.player.eventId, user: this.form.value })
     );
