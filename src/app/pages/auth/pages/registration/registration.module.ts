@@ -8,6 +8,7 @@ import { InputModule } from '@app/shared/library/controls/input/input.module';
 import { PasswordModule } from '@app/shared/library/controls/password/password.module';
 import { ErrorModule } from '@app/shared/library/indicators/error/error.module';
 import { LoadingModule } from '@app/shared/library/indicators/loading/loading.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationComponent } from './registration.component';
@@ -24,6 +25,7 @@ import { RegistrationComponent } from './registration.component';
     ButtonPrimaryModule,
     LoadingModule,
     ErrorModule,
+    TranslateModule,
   ],
 })
 export class RegistrationModule {}

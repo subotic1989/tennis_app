@@ -9,8 +9,10 @@
       autocomplete="test"
     >
       <div class="app-page__header">
-        <h2>Sign Up</h2>
-        <a class="app-a" [routerLink]="['/auth/login']">Have an account?</a>
+        <h2>{{ "AUTH.SIGN_UP" | translate }}</h2>
+        <a class="app-a" [routerLink]="['/auth/login']">{{
+          "AUTH.HAVE_ACCOUNT" | translate
+        }}</a>
       </div>
       <div class="app-page__content">
         <app-form-field
@@ -63,7 +65,9 @@
 
         <br />
         <div class="button-container">
-          <app-button-primary [type]="'submit'">Sign Up</app-button-primary>
+          <app-button-primary [type]="'submit'">{{
+            "AUTH.SIGN_UP" | translate
+          }}</app-button-primary>
         </div>
       </div>
     </form>

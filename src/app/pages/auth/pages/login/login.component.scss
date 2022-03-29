@@ -1,7 +1,7 @@
 @import "styles.scss";
 
 .app-page {
-  height: 90vh;
+  height: 80vh;
 
   &__content {
     max-width: 500px;
@@ -17,7 +17,7 @@ h2 {
 a {
   color: #bbbbbb !important;
   font-weight: 200 !important;
-  font-size: smaller;
+  font-size: small;
 }
 
 .error {

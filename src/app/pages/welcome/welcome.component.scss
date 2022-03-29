@@ -2,7 +2,7 @@
 
 .app-page {
   margin: 0 auto;
-  height: 90vh;
+  height: 80vh;
   background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
   background-position: center;
   background-size: cover;
@@ -10,21 +10,13 @@
 
   &__left {
     padding-top: 20px;
-    // max-width: 55%;
     text-align: center;
-
-    h1 {
-      color: white;
-      font-size: 78px;
-      font-family: serif;
-    }
   }
 }
 
 p {
-  font-family: Fredoka-Regular;
   font-size: larger;
-  color: antiquewhite;
+  color: $on-primary;
   text-align: justify;
 }
 
@@ -39,5 +31,6 @@ p {
 
 @media only screen and (max-device-width: 412px) {
   h1 {
+    font-size: 40px;
   }
 }

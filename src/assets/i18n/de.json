@@ -24,5 +24,17 @@
 
     "SAVE": "Speichen",
     "BACK": "Zurück"
+  },
+  "AUTH": {
+    "LOGIN": "Einlogen",
+    "NEED_ACCOUNT": "Brauchen Sie ein Account?",
+    "SIGN_UP": "Registrirung",
+    "HAVE_ACCOUNT": "Haben Sie ein Account?"
+  },
+  "HOME": {
+    "WELCOME": "Willkommen!"
+  },
+  "PLAYERS": {
+    "CHOOSE_PLAYER": "Wähle einen Spieler!"
   }
 }

@@ -11,6 +11,7 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () =>
           import('./pages/welcome/welcome.module').then((m) => m.WelcomeModule),
+        canLoad: [AuthGuard],
       },
       {
         path: 'auth',

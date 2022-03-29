@@ -1,8 +1,7 @@
 @import "styles.scss";
 
 footer {
-  margin-top: 3rem;
-  padding: 1rem 0;
+  height: 8vh;
   border-top: 1px solid $primary-dark;
   bottom: 0;
   width: 100%;
@@ -10,14 +9,13 @@ footer {
   background-color: $primary;
   max-width: 900px;
   margin: 0 auto;
+  display: flex;
 }
 
 .container {
-  vertical-align: middle;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 }
 
 a {

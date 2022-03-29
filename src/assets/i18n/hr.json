@@ -1,11 +1,11 @@
 {
   "HEADER": {
-    "HOME": "Pocetna",
-    "PLAYERS": "Igraci",
-    "GALLERY": "Galerija",
-    "LOCATION": "Lokacije",
-    "LOGIN": "Logovanje",
-    "REGISTRATION": "Registracija",
+    "HOME": "POCETNA",
+    "PLAYERS": "IGRACI",
+    "GALLERY": "GALERIJA",
+    "LOCATION": "LOKACIJE",
+    "LOGIN": "LOGOVANJE",
+    "REGISTRATION": "REGISTRACIJA",
 
     "LOGOUT": "Odjava",
     "NEW PLAYER": "Novi igrac"
@@ -24,5 +24,18 @@
 
     "SAVE": "Sacuvati",
     "BACK": "Nazad"
+  },
+
+  "AUTH": {
+    "LOGIN": "Logovanje",
+    "NEED_ACCOUNT": "Trebate novi Account?",
+    "SIGN_UP": "Registrovanje",
+    "HAVE_ACCOUNT": "Imate Account?"
+  },
+  "HOME": {
+    "WELCOME": "Dobro došli!"
+  },
+  "PLAYERS": {
+    "CHOOSE_PLAYER": "Izaberi igrača!"
   }
 }

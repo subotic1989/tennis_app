@@ -1,6 +1,6 @@
-<div class="header mobileMode" *ngIf="true">
-  <!-- Logo Header Starts -->
-
+<!--  NAVBAR -->
+<div class="header mobileMode">
+  <!-- Logo -->
   <div class="header__logo">
     <img
       src="./assets/image/main_logo/tennis_logo.svg"
@@ -9,12 +9,8 @@
     />
   </div>
 
-  <!-- Auth User -->
+  <!-- UnAuth User -->
   <div *ngIf="!(isLoggedIn$ | async)">
-    <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['home']"
-      >{{ "HEADER.HOME" | translate }}
-    </a>
-
     <a
       class="app-a"
       [routerLink]="['auth/login']"
@@ -29,7 +25,8 @@
       >{{ "HEADER.REGISTRATION" | translate }}
     </a>
   </div>
-  <!-- UnAuth User -->
+
+  <!-- Auth User -->
   <div *ngIf="isLoggedIn$ | async">
     <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['home']"
       >{{ "HEADER.HOME" | translate }}
@@ -48,6 +45,7 @@
     </a>
   </div>
 
+  <!-- Dropdown menu -->
   <div class="dropdown" *ngIf="isLoggedIn$ | async">
     <div class="admin">
       <a class="app-a"> Admin <span style="font-size: 16px">▼</span> </a>
@@ -59,10 +57,10 @@
         [routerLink]="['new-player']"
         >{{ "HEADER.NEW PLAYER" | translate }}
       </a>
-      <a>Link 3</a>
     </div>
   </div>
 
+  <!-- Languages -->
   <div class="languages">
     <img
       src="../../../assets/image/language_flags/united-kingdom.png"
@@ -82,8 +80,8 @@
   </div>
 </div>
 
-<!-- hamburger menu -->
-<nav>
+<!-- HAMBURGER MENU -->
+<nav class="burger-menu">
   <div class="navbar">
     <div class="container nav-container">
       <input
@@ -108,39 +106,91 @@
         </div>
       </div>
 
-      <div class="menu-items" (click)="test = !test">
-        <li>
+      <div class="menu-items">
+        <!-- Auth User -->
+        <div *ngIf="isLoggedIn$ | async">
+          <li (click)="test = !test">
+            <a
+              class="app-a"
+              routerLinkActive="app-a_active"
+              [routerLink]="['home']"
+              >{{ "HEADER.HOME" | translate }}</a
+            >
+          </li>
+          <li (click)="test = !test">
+            <a
+              class="app-a"
+              routerLinkActive="app-a_active"
+              [routerLink]="['players']"
+              >{{ "HEADER.PLAYERS" | translate }}
+            </a>
+          </li>
+          <li (click)="test = !test">
+            <a
+              class="app-a"
+              routerLinkActive="app-a_active"
+              [routerLink]="['gallery']"
+              >{{ "HEADER.GALLERY" | translate }}
+            </a>
+          </li>
+          <li (click)="test = !test">
+            <a
+              class="app-a"
+              routerLinkActive="app-a_active"
+              [routerLink]="['locations']"
+              >{{ "HEADER.LOCATION" | translate }}
+            </a>
+          </li>
+
+          <li (click)="test = !test">
+            <a class="app-a" [routerLink]="['new-player']"
+              >{{ "HEADER.NEW PLAYER" | translate }}
+            </a>
+          </li>
+          <li (click)="test = !test">
+            <a class="app-a" (click)="signOut()">{{
+              "HEADER.LOGOUT" | translate
+            }}</a>
+          </li>
+        </div>
+
+        <!-- UnAuth User -->
+        <div *ngIf="!(isLoggedIn$ | async)">
           <a
+            (click)="test = !test"
             class="app-a"
+            [routerLink]="['auth/login']"
             routerLinkActive="app-a_active"
-            [routerLink]="['home']"
-            >{{ "HEADER.HOME" | translate }}</a
-          >
-        </li>
-        <li>
-          <a
-            class="app-a"
-            routerLinkActive="app-a_active"
-            [routerLink]="['players']"
-            >{{ "HEADER.PLAYERS" | translate }}
+            >{{ "HEADER.LOGIN" | translate }}
           </a>
-        </li>
-        <li>
+
           <a
+            (click)="test = !test"
             class="app-a"
+            [routerLink]="['auth/registration']"
             routerLinkActive="app-a_active"
-            [routerLink]="['gallery']"
-            >{{ "HEADER.GALLERY" | translate }}
+            >{{ "HEADER.REGISTRATION" | translate }}
           </a>
-        </li>
-        <li>
-          <a
-            class="app-a"
-            routerLinkActive="app-a_active"
-            [routerLink]="['locations']"
-            >{{ "HEADER.LOCATION" | translate }}
-          </a>
-        </li>
+        </div>
+        <!-- Languages -->
+        <div class="languages">
+          <img
+            src="../../../assets/image/language_flags/united-kingdom.png"
+            alt="uk"
+            (click)="translate.use('en')"
+          />
+          <img
+            src="../../../assets/image/language_flags/germany.png"
+            alt="de"
+            (click)="translate.use('de')"
+          />
+          <img
+            src="../../../assets/image/language_flags/croatia.png"
+            alt="hr"
+            (click)="translate.use('hr')"
+          />
+        </div>
+        <!-- end -->
       </div>
     </div>
   </div>

@@ -10,6 +10,7 @@
     "LOGOUT": "Logout",
     "NEW PLAYER": "New Player"
   },
+
   "NEW PLAYER": {
     "TITLE": "Create new player!",
     "NAME": "Name",
@@ -24,5 +25,18 @@
 
     "SAVE": "Save",
     "BACK": "Cancel"
+  },
+
+  "AUTH": {
+    "LOGIN": "Login",
+    "NEED_ACCOUNT": "Need an Account?",
+    "SIGN_UP": "Sign Up",
+    "HAVE_ACCOUNT": "Have an Account?"
+  },
+  "HOME": {
+    "WELCOME": "Welcome!"
+  },
+  "PLAYERS": {
+    "CHOOSE_PLAYER": "Choose a Player!"
   }
 }

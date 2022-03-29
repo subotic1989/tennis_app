@@ -7,6 +7,7 @@ import { InputModule } from '@app/shared/library/controls/input/input.module';
 import { PasswordModule } from '@app/shared/library/controls/password/password.module';
 import { ErrorModule } from '@app/shared/library/indicators/error/error.module';
 import { LoadingTennisModule } from '@app/shared/library/indicators/loading-tennis/loading-tennis.module';
+import { TranslateModule } from '@ngx-translate/core';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 
@@ -22,6 +23,7 @@ import { LoginComponent } from './login.component';
     ButtonPrimaryModule,
     ErrorModule,
     LoadingTennisModule,
+    TranslateModule,
   ],
 })
 export class LoginModule {}

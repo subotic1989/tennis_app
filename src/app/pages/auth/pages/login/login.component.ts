@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { markFormGroupTouched } from '@app/shared/utils/form.service';
 import { regex, regexErrors } from '@app/shared/utils/regex';
 import { select, Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { loginAction } from '../../store/auth.actions';
 import {

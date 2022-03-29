@@ -12,9 +12,7 @@
     <option value="bl">Banja Luka</option>
   </select>
 
-  <div class="input">
-    <input type="file" multiple (change)="onDrop($any($event).target.files)" />
-  </div>
+  <input type="file" multiple (change)="onDrop($any($event).target.files)" />
 </div>
 
 <div *ngIf="files.length > 0"></div>

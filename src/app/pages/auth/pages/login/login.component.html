@@ -4,10 +4,10 @@
   <div class="app-content">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="app-page__header">
-        <h2>Log In</h2>
+        <h2>{{ "AUTH.LOGIN" | translate }}</h2>
 
         <a class="app-a" [routerLink]="['/auth/registration']">
-          Need an account?
+          {{ "AUTH.NEED_ACCOUNT" | translate }}
         </a>
       </div>
 
@@ -39,7 +39,9 @@
         <br />
 
         <div class="button-container">
-          <app-button-primary [type]="'submit'">Login</app-button-primary>
+          <app-button-primary [type]="'submit'">
+            {{ "AUTH.LOGIN" | translate }}
+          </app-button-primary>
         </div>
       </div>
     </form>
