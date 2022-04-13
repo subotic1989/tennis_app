@@ -25,12 +25,8 @@
   }
 }
 
-.test2 {
-  display: none;
-}
-
 @media only screen and (max-device-width: 412px) {
-  .test {
+  .mobileMode {
     display: none;
   }
 }

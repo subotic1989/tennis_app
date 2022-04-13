@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { markFormGroupTouched } from '@app/shared/utils/form.service';
-import { regex, regexErrors } from '@app/shared/utils/regex';
-import { select, Store } from '@ngrx/store';
-import { TranslateService } from '@ngx-translate/core';
+import { regexErrors, regex } from '@app/shared/utils/regex';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { loginAction } from '../../store/auth.actions';
 import {
-  errorAuthSelector,
   loadingAuthSelector,
+  errorAuthSelector,
 } from '../../store/auth.selectors';
 
 @Component({
@@ -23,6 +22,7 @@ export class LoginComponent implements OnInit {
   errorMsg$: Observable<string>;
 
   regexErrors = regexErrors;
+
   isFormSubmitted: boolean = false;
 
   constructor(private fb: FormBuilder, private store: Store) {}
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
       email: [
         null,
         {
-          updateOn: 'blur',
+          updateOn: 'change',
           validators: [
             Validators.required,
             Validators.maxLength(128),

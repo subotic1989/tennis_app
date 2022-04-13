@@ -7,5 +7,6 @@ import { Subject } from 'rxjs';
 export class PlayersService {
   activeUser = new Subject<null | string>();
   backToListMobileMode = new Subject<boolean>();
+
   constructor() {}
 }

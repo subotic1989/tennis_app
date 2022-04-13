@@ -10,29 +10,18 @@ footer {
   max-width: 900px;
   margin: 0 auto;
   display: flex;
-}
 
-.container {
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-}
+  .container {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
 
-a {
-  color: $on-primary;
-  text-decoration: none;
-}
-
-span {
-  vertical-align: middle;
-  margin-left: 10px;
-  font-size: 0.8rem;
-  color: $on-primary;
-  font-weight: 300;
-}
-
-@media only screen and (max-device-width: 412px) {
-  a {
-    display: none;
+  span {
+    vertical-align: middle;
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: $on-primary;
+    font-weight: 300;
   }
 }

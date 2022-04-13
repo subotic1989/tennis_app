@@ -12,26 +12,11 @@
     padding-top: 20px;
     text-align: center;
   }
-}
 
-p {
-  font-size: larger;
-  color: $on-primary;
-  text-align: justify;
-}
-
-.marketing {
-  position: absolute;
-  height: fit-content;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  padding: 10px;
-}
-
-@media only screen and (max-device-width: 412px) {
-  h1 {
-    font-size: 40px;
+  p {
+    font-size: larger;
+    color: $on-primary;
+    text-align: justify;
   }
 }
 
@@ -39,8 +24,13 @@ p {
   h1 {
     font-size: 55px;
   }
-
-  .app-page__content[_ngcontent-eip-c47] {
+  .app-page__content {
     width: 95%;
+  }
+}
+
+@media only screen and (max-device-width: 412px) {
+  h1 {
+    font-size: 40px;
   }
 }

@@ -1,11 +1,11 @@
 <!-- loading -->
 <app-loading *ngIf="loading$ | async"></app-loading>
 
-<!-- login section -->
+<!-- register section -->
 <section class="app-page">
   <div class="app-content">
     <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
-      <!-- chapter login -->
+      <!-- title -->
       <div class="app-page__header">
         <h2>{{ "AUTH.SIGN_UP" | translate }}</h2>
         <a class="app-a" [routerLink]="['/auth/login']">
@@ -58,7 +58,7 @@
 
         <br />
 
-        <!-- button login -->
+        <!-- button  -->
         <div class="button-container">
           <app-button-primary [type]="'submit'" class="btn">
             {{ "AUTH.SIGN_UP" | translate }}

@@ -2,7 +2,6 @@ import { createAction, props } from '@ngrx/store';
 import { AuthRegisterRequest } from './types/authRegisterRequest.interface';
 
 //init
-
 export const initAction = createAction('[INIT] Init user: Start');
 export const initSuccessAction = createAction(
   '[INIT] Init user: Success',
@@ -14,7 +13,6 @@ export const initErrorAction = createAction(
 );
 
 //register
-
 export const registerAction = createAction(
   '[AUTH] Register with email: Start',
   props<{ email: string; password: string }>()
@@ -29,7 +27,6 @@ export const registerErrorAction = createAction(
 );
 
 //login
-
 export const loginAction = createAction(
   '[AUTH] Login with email: Start',
   props<{ request: AuthRegisterRequest }>()
@@ -44,13 +41,11 @@ export const loginErrorAction = createAction(
 );
 
 //sign out
-
 export const signOutAction = createAction('[AUTH] SignOut: Start');
 export const signOutSuccessAction = createAction('[AUTH] SignOut: Success');
 export const signOutErrorAction = createAction('[AUTH] SignOut: Error');
 
 // isAdmin
-
 export const isAdmin = createAction(
   '[AUTH] Check is Admin',
   props<{ isAdmin: boolean }>()

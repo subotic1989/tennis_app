@@ -1,4 +1,3 @@
-import { act } from '@ngrx/effects';
 import { createReducer, on, Action } from '@ngrx/store';
 import * as actions from './auth.actions';
 
@@ -48,6 +47,7 @@ const authReducer = createReducer(
       error: action.error,
     })
   ),
+
   //register
   on(
     actions.registerAction,
@@ -77,7 +77,6 @@ const authReducer = createReducer(
   ),
 
   //login
-
   on(
     actions.loginAction,
     (state): AuthStateInterface => ({
@@ -105,7 +104,6 @@ const authReducer = createReducer(
   ),
 
   //signOut
-
   on(
     actions.signOutAction,
     (state): AuthStateInterface => ({
@@ -130,7 +128,6 @@ const authReducer = createReducer(
   ),
 
   // isAdmin
-
   on(
     actions.isAdmin,
     (state, action): AuthStateInterface => ({

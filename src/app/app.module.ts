@@ -25,7 +25,6 @@ import { FooterModule } from './pages/footer/footer.module';
 import { NotificationModule } from './shared/library/indicators/snack-bar/notification.module';
 
 import { environment } from './../environments/environment';
-import { HeaderModule } from './pages/header/header.module';
 import { Header2Module } from './pages/header2/header2.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,7 +35,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HeaderModule,
     Header2Module,
     FooterModule,
     BrowserAnimationsModule,

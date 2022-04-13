@@ -57,12 +57,9 @@ export class AuthEffect {
     this.actions$.pipe(
       ofType(actions.registerAction),
       switchMap(({ email, password }) => {
-        // const { email, password } = data;
-
         return this.authService.registerUser(email, password).pipe(
           tap(() => {
             const auth = getAuth();
-
             // sendEmailVerification(
             //   auth.currentUser,
             //   environment.firebase.actionCodeSettings

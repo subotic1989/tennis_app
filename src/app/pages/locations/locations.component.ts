@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationsComponent implements OnInit {
   isLoading: boolean = true;
+
   constructor() {}
 
   ngOnInit(): void {

@@ -11,9 +11,9 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 20;
-  cursor: pointer;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .dialog {
@@ -82,7 +82,6 @@ button {
   }
 }
 
-// media query 412px
 @media only screen and (max-device-width: 412px) {
   .dialog {
     height: 20%;

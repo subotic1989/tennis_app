@@ -3,12 +3,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { markFormGroupTouched } from '@app/shared/utils/form.service';
 import { passwordsMatchValidator } from '@app/shared/utils/passwordMatch.service';
 import { regexErrors } from '@app/shared/utils/regex';
-import { select, Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { registerAction } from '../../store/auth.actions';
 import {
-  errorAuthSelector,
   loadingAuthSelector,
+  errorAuthSelector,
 } from '../../store/auth.selectors';
 
 @Component({
@@ -23,6 +23,7 @@ export class RegistrationComponent implements OnInit {
   errorMsg$: Observable<string>;
 
   regexErrors = regexErrors;
+
   isFormSubmitted: boolean = false;
 
   constructor(private fb: FormBuilder, private store: Store) {}
@@ -30,7 +31,6 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.initValues();
-    console.log(this.form);
   }
 
   initValues() {
@@ -70,12 +70,7 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       const { email, password } = this.form.value;
-      this.store.dispatch(
-        registerAction({
-          email: email,
-          password: password,
-        })
-      );
+      this.store.dispatch(registerAction({ email: email, password: password }));
       this.isFormSubmitted = true;
     } else {
       markFormGroupTouched(this.form);

@@ -15,6 +15,7 @@ export class NewPlayerComponent implements OnInit {
   form: FormGroup;
   player: PlayerResponseInterface;
   isFormSubmitted: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -113,10 +114,6 @@ export class NewPlayerComponent implements OnInit {
     } else {
       markFormGroupTouched(this.form);
     }
-  }
-
-  onBack() {
-    this.router.navigate(['players']);
   }
 
   canDeactivate = () => {

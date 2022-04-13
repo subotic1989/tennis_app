@@ -115,13 +115,13 @@
         </app-form-field>
 
         <br />
-
+        <!-- buttons -->
         <div class="button-container">
           <app-button-primary [type]="'submit'">
             {{ "NEW PLAYER.SAVE" | translate }}
           </app-button-primary>
 
-          <app-button-secondary [type]="'button'" (click)="onBack()"
+          <app-button-secondary [type]="'button'" [routerLink]="'/home'"
             >{{ "NEW PLAYER.BACK" | translate }}
           </app-button-secondary>
         </div>

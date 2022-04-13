@@ -1,31 +1,30 @@
 import { Directive, HostListener, Output, EventEmitter } from '@angular/core';
 
 @Directive({
-    selector: '[dropzone]'
+  selector: '[dropzone]',
 })
 export class DropzoneDirective {
+  @Output() dropped = new EventEmitter<FileList>();
+  @Output() hovered = new EventEmitter<boolean>();
 
-    constructor() { }
+  constructor() {}
 
-    @Output() dropped = new EventEmitter<FileList>();
-    @Output() hovered = new EventEmitter<boolean>();
+  @HostListener('drop', ['$event'])
+  onDrop($event) {
+    $event.preventDefault();
+    this.dropped.emit($event.dataTransfer.files);
+    this.hovered.emit(false);
+  }
 
-    @HostListener('drop', ['$event'])
-    onDrop($event) {
-        $event.preventDefault();
-        this.dropped.emit($event.dataTransfer.files);
-        this.hovered.emit(false);
-    }
+  @HostListener('dragover', ['$event'])
+  onDragOver($event) {
+    $event.preventDefault();
+    this.hovered.emit(true);
+  }
 
-    @HostListener('dragover', ['$event'])
-    onDragOver($event) {
-        $event.preventDefault();
-        this.hovered.emit(true);
-    }
-
-    @HostListener('dragleave', ['$event'])
-    onDragLeave($event) {
-        $event.preventDefault();
-        this.hovered.emit(false);
-    }
+  @HostListener('dragleave', ['$event'])
+  onDragLeave($event) {
+    $event.preventDefault();
+    this.hovered.emit(false);
+  }
 }
