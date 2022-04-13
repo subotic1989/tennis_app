@@ -105,11 +105,11 @@
   }
 }
 
-.burger-menu {
+.hamburger-menu {
   display: none;
 }
 
-//burger menu
+//hamburger menu
 
 .container {
   max-width: 900px;
@@ -246,7 +246,13 @@
   transform: rotate(-45deg);
 }
 
-// @media screen and (max-width: 412px) {
+@media only screen and (max-width: 820px) {
+  .header {
+    height: 12vh;
+    width: 820px !important;
+  }
+}
+
 @media only screen and (max-device-width: 412px) {
   .app-a {
     font-size: 40px !important;
@@ -254,8 +260,20 @@
     text-transform: uppercase;
   }
 
-  .burger-menu {
+  .hamburger-menu {
     display: block;
+  }
+
+  .navbar .menu-items {
+    position: fixed;
+    top: 0;
+    height: 100%;
+  }
+
+  .checkbox {
+    position: absolute;
+    right: 40px;
+    top: 60px;
   }
 
   .mobileMode {
@@ -265,7 +283,7 @@
   .languages {
     position: absolute;
     right: 40px;
-    bottom: 20px;
+    bottom: 60px;
     display: flex;
 
     img {

@@ -1,5 +1,4 @@
-<!--  NAVBAR -->
-<div class="header mobileMode">
+<div class="header mobileMode" *ngIf="false">
   <!-- Logo -->
   <div class="header__logo">
     <img
@@ -27,7 +26,12 @@
   </div>
 
   <!-- Auth User -->
-  <div *ngIf="isLoggedIn$ | async">
+  <div
+    *ngIf="isLoggedIn$ | async"
+    class="test"
+    [ngClass]="{ closeMenu: isCloseMenu }"
+  >
+    <!-- <span class="close" (click)="closeMenu()">x</span>  -->
     <a class="app-a" routerLinkActive="app-a_active" [routerLink]="['home']"
       >{{ "HEADER.HOME" | translate }}
     </a>
@@ -81,9 +85,10 @@
 </div>
 
 <!-- HAMBURGER MENU -->
-<nav class="burger-menu">
+<nav class="hamburger-menu">
   <div class="navbar">
     <div class="container nav-container">
+      <!-- hamburger menu header -->
       <input
         class="checkbox"
         type="checkbox"

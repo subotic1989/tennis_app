@@ -41,13 +41,6 @@ export class RegistrationComponent implements OnInit {
   initForm() {
     this.form = this.fb.group(
       {
-        displayName: [
-          null,
-          {
-            updateOn: 'blur',
-            validators: [Validators.required, Validators.maxLength(128)],
-          },
-        ],
         email: [
           null,
           {

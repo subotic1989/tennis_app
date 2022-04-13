@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { TextAreaModule } from '@app/shared/library/controls/text-area/text-area.module';
 import { ButtonSecondaryModule } from '@app/shared/library/buttons/button-secondary/button-secondary.module';
 import { ButtonDangerModule } from '@app/shared/library/buttons/button-danger/button-danger.module';
+import { DialogModule } from '@app/shared/components/dialog/dialog.module';
 
 @NgModule({
   declarations: [EditPlayerComponent],
@@ -22,6 +23,7 @@ import { ButtonDangerModule } from '@app/shared/library/buttons/button-danger/bu
     ButtonPrimaryModule,
     ButtonSecondaryModule,
     ButtonDangerModule,
+    DialogModule,
   ],
   exports: [EditPlayerComponent],
 })

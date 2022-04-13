@@ -1,14 +1,10 @@
 <div class="city">
-  <!-- <div class="city__left"></div> -->
+  <app-timer [time]="time"></app-timer>
 
-  <div class="city__right">
-    <app-timer [time]="time"></app-timer>
+  <app-weather-widget
+    class="weather"
+    [cityQuery]="cityQuery"
+  ></app-weather-widget>
 
-    <app-weather-widget
-      class="weather"
-      [cityQuery]="cityQuery"
-    ></app-weather-widget>
-
-    <app-google-maps [cityQuery]="cityQuery"></app-google-maps>
-  </div>
+  <app-google-maps [cityQuery]="cityQuery"></app-google-maps>
 </div>

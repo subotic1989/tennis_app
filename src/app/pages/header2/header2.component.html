@@ -1,0 +1,120 @@
+<section class="nav">
+  <!-- logo -->
+  <img
+    src="../../../assets/image/main_logo/tennis_logo.svg"
+    alt="logo"
+    class="nav__logo"
+    [routerLink]="['/home']"
+  />
+  <!-- nav -->
+  <ul class="nav__navbar" [ngClass]="{ mobileModeActive: toggleMobileMenu }">
+    <img
+      src="../../../assets/image/main_logo/close.svg"
+      alt="close"
+      class="btn-close mobile-mode"
+      (click)="toggleMobileMenu = false"
+    />
+
+    <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
+      <a [routerLink]="['/home']" routerLinkActive="active"
+        >{{ "HEADER.HOME" | translate }}
+      </a>
+    </li>
+    <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
+      <a [routerLink]="['/players']" routerLinkActive="active"
+        >{{ "HEADER.PLAYERS" | translate }}
+      </a>
+    </li>
+    <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
+      <a [routerLink]="['/gallery']" routerLinkActive="active">
+        {{ "HEADER.GALLERY" | translate }}
+      </a>
+    </li>
+    <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
+      <a [routerLink]="['/locations']" routerLinkActive="active"
+        >{{ "HEADER.LOCATION" | translate }}
+      </a>
+    </li>
+
+    <!-- ADDED IN MOBIL-MODE -->
+    <section class="mobile-mode">
+      <li
+        (click)="toggleMenu = !toggleMenu"
+        (click)="toggleMobileMenu = false"
+        [routerLink]="['new-player']"
+      >
+        <a>{{ "HEADER.NEW PLAYER" | translate }}</a>
+      </li>
+      <li
+        (click)="toggleMenu = !toggleMenu"
+        (click)="toggleMobileMenu = false"
+        (click)="signOut()"
+      >
+        <a>{{ "HEADER.LOGOUT" | translate }}</a>
+      </li>
+      <div class="languages">
+        <img
+          src="../../../assets/image/language_flags/united-kingdom.png"
+          alt="uk"
+          (click)="translate.use('en')"
+        />
+        <img
+          src="../../../assets/image/language_flags/germany.png"
+          alt="de"
+          (click)="translate.use('de')"
+        />
+        <img
+          src="../../../assets/image/language_flags/croatia.png"
+          alt="hr"
+          (click)="translate.use('hr')"
+        />
+      </div>
+    </section>
+  </ul>
+
+  <div class="test mobile-mode" *ngIf="isLoggedIn$ | async">
+    <img
+      src="../../../assets/image/main_logo/grid-view.svg"
+      alt="menu"
+      class="nav__menu"
+      (click)="onToggleMobileMenu()"
+    />
+  </div>
+
+  <!-- dropdown -->
+  <div class="dropdown desktop-mode">
+    <img
+      src="../../../assets/image/main_logo/grid-view.svg"
+      alt="menu"
+      class="nav__menu"
+      (click)="onToggleMenu()"
+    />
+    <ul class="dropdown__content" *ngIf="toggleMenu">
+      <li (click)="toggleMenu = !toggleMenu" [routerLink]="['new-player']">
+        <a>{{ "HEADER.NEW PLAYER" | translate }}</a>
+      </li>
+      <li (click)="toggleMenu = !toggleMenu" (click)="signOut()">
+        <a>{{ "HEADER.LOGOUT" | translate }}</a>
+      </li>
+
+      <!-- Languages -->
+      <div class="languages">
+        <img
+          src="../../../assets/image/language_flags/united-kingdom.png"
+          alt="uk"
+          (click)="translate.use('en')"
+        />
+        <img
+          src="../../../assets/image/language_flags/germany.png"
+          alt="de"
+          (click)="translate.use('de')"
+        />
+        <img
+          src="../../../assets/image/language_flags/croatia.png"
+          alt="hr"
+          (click)="translate.use('hr')"
+        />
+      </div>
+    </ul>
+  </div>
+</section>

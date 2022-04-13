@@ -9,10 +9,10 @@
 
   &__content {
     margin: 0 auto;
+    width: 80%;
   }
 }
 
-// @media only screen and (max-width: 412px) {
 @media only screen and (max-device-width: 412px) {
   .app-page {
     margin: 0 auto;
@@ -22,5 +22,10 @@
       min-width: 250px !important;
       max-width: 350px !important;
     }
+  }
+}
+@media only screen and (max-device-width: 820px) {
+  .app-page__content {
+    width: 100%;
   }
 }

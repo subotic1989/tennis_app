@@ -105,15 +105,11 @@
       </li>
     </ul>
   </div>
+  <div class="navigate-buttons">
+    <app-button-primary *ngIf="isAdmin$ | async" (click)="onEditPlayer()"
+      >Edit
+    </app-button-primary>
 
-  <app-button-primary
-    class="btn-edit"
-    *ngIf="isAdmin$ | async"
-    (click)="onEditPlayer()"
-    >Edit
-  </app-button-primary>
-
-  <app-button-primary class="btn-back" (click)="onBack()"
-    >&#10229;
-  </app-button-primary>
+    <app-button-primary (click)="onBack()">Back</app-button-primary>
+  </div>
 </div>

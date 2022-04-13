@@ -1,32 +1,40 @@
-@import "../../../../../styles.scss";
+@import "styles.scss";
 
 .app-page {
-  height: 80vh;
+  min-height: 75vh;
+
+  &__header {
+    h2 {
+      font-weight: bold;
+      color: $primary-dark;
+    }
+
+    a {
+      color: #bbbbbb;
+      font-weight: 200;
+      font-size: small;
+      cursor: pointer;
+    }
+  }
 
   &__content {
     max-width: 500px;
     height: fit-content;
+
+    .btn {
+      display: block;
+      float: right;
+    }
   }
-}
 
-h2 {
-  font-weight: bold;
-  color: $primary-dark;
-}
+  .error {
+    opacity: 0;
+    font-size: 12px;
+    color: $error;
+    padding: 4px 0 16px 0;
 
-a {
-  color: #bbbbbb !important;
-  font-weight: 200 !important;
-  font-size: small;
-}
-
-.error {
-  opacity: 0;
-  font-size: 12px;
-  color: $error;
-  padding: 4px 0 16px 0;
-
-  &_active {
-    opacity: 1;
+    &_active {
+      opacity: 1;
+    }
   }
 }

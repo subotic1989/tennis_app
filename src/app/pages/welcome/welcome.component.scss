@@ -2,7 +2,7 @@
 
 .app-page {
   margin: 0 auto;
-  height: 80vh;
+  min-height: 75vh;
   background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
   background-position: center;
   background-size: cover;
@@ -32,5 +32,15 @@ p {
 @media only screen and (max-device-width: 412px) {
   h1 {
     font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  h1 {
+    font-size: 55px;
+  }
+
+  .app-page__content[_ngcontent-eip-c47] {
+    width: 95%;
   }
 }

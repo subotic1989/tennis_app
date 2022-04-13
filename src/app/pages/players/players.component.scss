@@ -9,7 +9,7 @@
 
 .players {
   display: flex;
-  min-height: 80vh;
+  min-height: 75vh;
 
   &__side {
     flex: 1;
@@ -29,10 +29,14 @@
   display: none;
 }
 
-// @media only screen and (max-width: 412px) {
-
 @media only screen and (max-device-width: 412px) {
   .test {
     display: none;
+  }
+}
+
+@media only screen and (max-device-width: 820px) {
+  .players__side {
+    flex: 2;
   }
 }

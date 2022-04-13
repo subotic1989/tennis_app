@@ -28,7 +28,7 @@ html {
 .app-page {
   margin-top: 0;
   margin-bottom: 0;
-  min-height: 80vh;
+  min-height: 75vh;
   padding: 0;
   background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
   background-position: center;
@@ -148,8 +148,17 @@ label:before {
   backdrop-filter: blur(4px);
 }
 
-// @media only screen and (max-width: 412px) {
 @media only screen and (max-device-width: 412px) {
+  .app-page {
+    margin: 0px auto !important;
+  }
+
+  label img {
+    height: 60px;
+    width: 55px;
+  }
+}
+@media only screen and (max-device-width: 820px) {
   .app-page {
     margin: 0px auto !important;
   }

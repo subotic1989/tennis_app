@@ -1,9 +1,11 @@
 @import "styles/mixins";
 
 .full {
-  width: 404px;
-  height: 220px;
+  width: 90%;
+  height: 320px;
   border-radius: 5px;
+  margin: auto;
+  margin-bottom: 40px;
   @include shadow;
 }
 

@@ -3,8 +3,9 @@
 .divWeatherMain {
   display: block;
   border-radius: 10px;
-  width: 404px;
+  width: 90%;
   height: 220px;
+  margin: auto;
   background: rgb(0, 0, 0);
   background: linear-gradient(
     180deg,
@@ -27,9 +28,14 @@
   font-family: Fredoka-Regular;
 }
 
-// @media only screen and (max-width: 412px) {
 @media only screen and (max-device-width: 412px) {
   .divWeatherMain {
     width: 290px;
+  }
+}
+
+@media only screen and (max-device-width: 820px) {
+  .divWeatherMain {
+    margin: auto;
   }
 }

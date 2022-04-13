@@ -19,7 +19,7 @@ export class GetPlayersEffect {
       ofType(actions.getPlayersAction),
       switchMap(() => {
         return this.getPlayersService.getPlayers().pipe(
-          delay(500),
+          // delay(500),
           map((data: any) => {
             return actions.getPlayersSuccessAction({ response: data });
           }),
@@ -35,7 +35,7 @@ export class GetPlayersEffect {
       ofType(actions.getPlayerAction),
       switchMap((data) => {
         return this.getPlayersService.getPlayer(data.request).pipe(
-          delay(500),
+          delay(300),
           map((data: any) => {
             return actions.getPlayerSuccessAction({ response: data });
           }),

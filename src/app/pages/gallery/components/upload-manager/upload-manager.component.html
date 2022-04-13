@@ -7,10 +7,10 @@
 >
   <h3>Drag and drop Files Here to Upload</h3>
 
-  <select #langSelect class="langSelect" (change)="pickAlbum(langSelect.value)">
+  <!-- <select #langSelect class="langSelect" (change)="pickAlbum(langSelect.value)">
     <option value="zg">Zagreb</option>
     <option value="bl">Banja Luka</option>
-  </select>
+  </select> -->
 
   <input type="file" multiple (change)="onDrop($any($event).target.files)" />
 </div>

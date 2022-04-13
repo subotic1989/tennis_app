@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       const request = {
-        email: this.form.value.email,
+        email: this.form.value.email.toLowerCase().trim(),
         password: this.form.value.password,
       };
       this.store.dispatch(loginAction({ request: request }));

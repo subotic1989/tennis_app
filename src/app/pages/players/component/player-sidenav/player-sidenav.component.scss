@@ -43,3 +43,15 @@
   color: white;
   transition-duration: 0.5s;
 }
+
+@media only screen and (max-device-width: 820px) {
+  .player {
+    padding: 15px 20px;
+    font-size: 20px;
+  }
+
+  .player img {
+    height: 60px;
+    width: 60px;
+  }
+}

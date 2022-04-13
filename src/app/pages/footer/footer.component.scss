@@ -1,7 +1,7 @@
 @import "styles.scss";
 
 footer {
-  height: 8vh;
+  min-height: 10vh;
   border-top: 1px solid $primary-dark;
   bottom: 0;
   width: 100%;
@@ -31,7 +31,6 @@ span {
   font-weight: 300;
 }
 
-// @media only screen and (max-width: 412px) {
 @media only screen and (max-device-width: 412px) {
   a {
     display: none;

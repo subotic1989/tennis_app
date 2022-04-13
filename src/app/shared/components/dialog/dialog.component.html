@@ -1,0 +1,21 @@
+<div
+  id="overlay"
+  (click)="cancel($event)"
+  [ngStyle]="{ display: !isDialog ? 'flex' : 'none' }"
+>
+  <div class="dialog">
+    <!-- action -->
+    <ng-container *ngIf="dialogPurpose === 'action'">
+      <h6 class="question">Are you sure you want to delete?</h6>
+      <div class="div">
+        <button class="delete" (click)="confirm($event)">Delete</button>
+        <button class="cancel" (click)="cancel($event)">Cancel</button>
+      </div>
+    </ng-container>
+
+    <!-- message -->
+    <ng-container *ngIf="dialogPurpose === 'message'">
+      <h5>You added successfully!</h5>
+    </ng-container>
+  </div>
+</div>

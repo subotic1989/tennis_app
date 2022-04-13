@@ -1,3 +1,9 @@
+<app-dialog
+  (deleteItemEvent)="confirmDelete()"
+  (cancelEvent)="cancelDelete()"
+  [isDialog]="isDialog"
+></app-dialog>
+
 <div class="app-page">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="app-page__header">
@@ -95,7 +101,7 @@
         <app-button-primary [type]="'submit'" (click)="onCancel()"
           >Cancel
         </app-button-primary>
-        <app-button-danger [type]="'submit'" (click)="onDelete()"
+        <app-button-danger [type]="'button'" (click)="onDelete()"
           >Delete
         </app-button-danger>
       </div>

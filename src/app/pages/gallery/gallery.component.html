@@ -8,12 +8,11 @@
     #nav
   ></ng-image-slider>
 
-  <router-outlet *ngIf="isAddPhotos"></router-outlet>
+  <div class="center">
+    <router-outlet *ngIf="isAddPhotos"></router-outlet>
+  </div>
 
-  <app-button-primary
-    class="btn-edit"
-    *ngIf="isAdmin$ | async"
-    (click)="addPhotos()"
+  <app-button-primary class="btn" *ngIf="isAdmin$ | async" (click)="addPhotos()"
     >{{ isAddPhotos ? "Cancel" : "Add Photos +" }}
   </app-button-primary>
 </div>

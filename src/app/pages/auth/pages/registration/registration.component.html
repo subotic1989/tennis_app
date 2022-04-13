@@ -1,31 +1,20 @@
+<!-- loading -->
 <app-loading *ngIf="loading$ | async"></app-loading>
 
-<div class="app-page">
+<!-- login section -->
+<section class="app-page">
   <div class="app-content">
-    <form
-      [formGroup]="form"
-      (ngSubmit)="onSubmit()"
-      (keyup.enter)="onSubmit()"
-      autocomplete="test"
-    >
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+      <!-- chapter login -->
       <div class="app-page__header">
         <h2>{{ "AUTH.SIGN_UP" | translate }}</h2>
-        <a class="app-a" [routerLink]="['/auth/login']">{{
-          "AUTH.HAVE_ACCOUNT" | translate
-        }}</a>
+        <a class="app-a" [routerLink]="['/auth/login']">
+          {{ "AUTH.HAVE_ACCOUNT" | translate }}
+        </a>
       </div>
-      <div class="app-page__content">
-        <app-form-field
-          [required]="false"
-          [control]="form.controls?.['displayName']"
-          [isInline]="false"
-        >
-          <app-input
-            formControlName="displayName"
-            [placeholder]="'Name'"
-          ></app-input>
-        </app-form-field>
 
+      <div class="app-page__content">
+        <!-- input email -->
         <app-form-field
           [required]="false"
           [control]="form.controls?.['email']"
@@ -36,6 +25,8 @@
             [placeholder]="'Email'"
           ></app-input>
         </app-form-field>
+
+        <!-- input password -->
         <app-form-field
           [required]="false"
           [control]="form.controls?.['password']"
@@ -48,6 +39,7 @@
           ></app-password>
         </app-form-field>
 
+        <!-- input password repeat-->
         <app-form-field
           [required]="false"
           [control]="form.controls?.['passwordRepeat']"
@@ -59,17 +51,20 @@
           ></app-password>
         </app-form-field>
 
+        <!-- error passwords don't match -->
         <div class="error" [class.error_active]="form.hasError('repeat')">
           Entered passwords don't match
         </div>
 
         <br />
+
+        <!-- button login -->
         <div class="button-container">
-          <app-button-primary [type]="'submit'">{{
-            "AUTH.SIGN_UP" | translate
-          }}</app-button-primary>
+          <app-button-primary [type]="'submit'" class="btn">
+            {{ "AUTH.SIGN_UP" | translate }}
+          </app-button-primary>
         </div>
       </div>
     </form>
   </div>
-</div>
+</section>

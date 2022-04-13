@@ -22,6 +22,7 @@ export class EditPlayerComponent
   unsubscribePlayer: Subscription;
   player: PlayerResponseInterface;
   isFormSubmitted: boolean = false;
+  isDialog: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -42,6 +43,18 @@ export class EditPlayerComponent
       .subscribe((data) => {
         this.player = data;
       });
+  }
+
+  confirmDelete() {
+    const db = getFirestore();
+    const docRef = doc(db, 'players', this.player?.eventId);
+    deleteDoc(docRef);
+    this.notification.error('Deleted Success!');
+    this.router.navigate(['./players']);
+    this.isDialog = true;
+  }
+  cancelDelete() {
+    this.isDialog = true;
   }
 
   initForm() {
@@ -127,11 +140,7 @@ export class EditPlayerComponent
   }
 
   onDelete() {
-    const db = getFirestore();
-    const docRef = doc(db, 'players', this.player?.eventId);
-    deleteDoc(docRef);
-    this.notification.error('Deleted Success!');
-    this.router.navigate(['./players']);
+    this.isDialog = false;
   }
 
   canDeactivate = () => {

@@ -1,24 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { signOutAction } from '@app/pages/auth/store/auth.actions';
-import {
-  isAdminSelector,
-  isAuthSelector,
-} from '@app/pages/auth/store/auth.selectors';
-
 import { select, Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
+import { signOutAction } from '../auth/store/auth.actions';
+import { isAuthSelector } from '../auth/store/auth.selectors';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'app-header2',
+  templateUrl: './header2.component.html',
+  styleUrls: ['./header2.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class Header2Component implements OnInit {
   isLoggedIn$: Observable<boolean>;
-  isAdmin$: Observable<boolean>;
-  test;
-  isCloseMenu: boolean;
+
+  toggleMenu: boolean = false;
+  toggleMobileMenu: boolean = false;
 
   constructor(private store: Store, public translate: TranslateService) {}
 
@@ -28,7 +24,6 @@ export class HeaderComponent implements OnInit {
 
   initValues() {
     this.isLoggedIn$ = this.store.pipe(select(isAuthSelector));
-    this.isAdmin$ = this.store.pipe(select(isAdminSelector));
 
     this.translate.addLangs(['en', 'de', 'hr']);
     this.translate.setDefaultLang('en');
@@ -37,15 +32,15 @@ export class HeaderComponent implements OnInit {
     this.translate.use(browserLang.match(/en|de|hr/) ? browserLang : 'en');
   }
 
+  onToggleMenu() {
+    this.toggleMenu = !this.toggleMenu;
+  }
+
+  onToggleMobileMenu() {
+    this.toggleMobileMenu = !this.toggleMobileMenu;
+  }
+
   signOut() {
     this.store.dispatch(signOutAction());
-  }
-
-  closeMenu() {
-    this.isCloseMenu = true;
-  }
-
-  openMenu() {
-    this.isCloseMenu = false;
   }
 }
