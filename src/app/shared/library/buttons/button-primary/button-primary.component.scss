@@ -9,11 +9,18 @@
   transition: 0.25s;
   margin: 0 4px;
   font-family: "Fredoka-Regular";
-
   &:hover {
     background: transparent;
     color: $primary-dark;
-    border: 2px solid$primary-dark;
+    border: 2px solid $primary-dark;
     font-weight: 900;
+  }
+}
+
+// media query 412
+@media only screen and (max-device-width: 360px) {
+  .app-button-primary {
+    margin-bottom: 10px;
+    width: 100%;
   }
 }

@@ -13,7 +13,15 @@
   &:hover {
     background: transparent;
     color: $error;
-    border: 2px solid$error;
+    border: 2px solid $error;
     font-weight: 900;
+  }
+}
+
+// media query 412
+@media only screen and (max-device-width: 360px) {
+  .app-button-danger {
+    margin-bottom: 10px;
+    width: 100%;
   }
 }

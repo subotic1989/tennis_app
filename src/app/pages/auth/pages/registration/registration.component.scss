@@ -38,3 +38,9 @@
     }
   }
 }
+
+@media only screen and (max-device-width: 360px) {
+  .app-page__content .btn {
+    float: unset;
+  }
+}

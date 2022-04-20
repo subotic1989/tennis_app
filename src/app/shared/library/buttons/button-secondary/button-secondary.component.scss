@@ -17,3 +17,10 @@
     font-weight: 900;
   }
 }
+
+@media only screen and (max-device-width: 360px) {
+  .app-button-primary {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
