@@ -4,6 +4,7 @@ import { markFormGroupTouched } from '@app/shared/utils/form.service';
 import { regexErrors, regex } from '@app/shared/utils/regex';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AuthServiceNav } from '../../auth.service';
 import { loginAction } from '../../store/auth.actions';
 import {
   loadingAuthSelector,
@@ -25,7 +26,11 @@ export class LoginComponent implements OnInit {
 
   isFormSubmitted: boolean = false;
 
-  constructor(private fb: FormBuilder, private store: Store) {}
+  constructor(
+    private fb: FormBuilder,
+    private store: Store,
+    private authService: AuthServiceNav
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -38,19 +43,6 @@ export class LoginComponent implements OnInit {
   }
 
   canDeactivate = () => !this.form?.dirty || this.isFormSubmitted;
-
-  onSubmit() {
-    if (this.form.valid) {
-      const request = {
-        email: this.form.value.email.toLowerCase().trim(),
-        password: this.form.value.password,
-      };
-      this.store.dispatch(loginAction({ request: request }));
-      this.isFormSubmitted = true;
-    } else {
-      markFormGroupTouched(this.form);
-    }
-  }
 
   initForm() {
     this.form = this.fb.group({
@@ -73,5 +65,19 @@ export class LoginComponent implements OnInit {
         },
       ],
     });
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      const request = {
+        email: this.form.value.email.toLowerCase().trim(),
+        password: this.form.value.password,
+      };
+      this.store.dispatch(loginAction({ request: request }));
+      this.isFormSubmitted = true;
+      this.authService.isLoggedIn.next(true);
+    } else {
+      markFormGroupTouched(this.form);
+    }
   }
 }

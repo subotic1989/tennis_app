@@ -1,0 +1,94 @@
+@import "styles.scss";
+
+.app-page {
+  margin: 0 auto;
+  min-height: 75vh;
+  background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
+  background-position: center;
+  background-size: cover;
+
+  &__content {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  h4 {
+    text-align: left;
+  }
+
+  h3 {
+    margin-top: 30px;
+  }
+
+  .res {
+    overflow-x: auto;
+  }
+
+  #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    max-width: 100%;
+  }
+
+  #customers td,
+  #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 18px;
+  }
+
+  #customers tr {
+    background-color: #f2f2f2;
+  }
+
+  #customers tr td:hover {
+    background-color: #ddd;
+  }
+
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: $primary-dark;
+    color: $on-primary;
+  }
+
+  table > tr > td:first-child {
+    color: $primary-dark;
+    background-color: $primary;
+    width: 150px;
+
+    &:hover {
+      background-color: $primary !important;
+    }
+  }
+
+  li {
+    color: #f2f2f2 !important;
+    text-align: left;
+    margin-left: 30px;
+    font-size: 18px;
+  }
+
+  .list-decimal {
+    li {
+      list-style-type: decimal;
+    }
+  }
+
+  .matches {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .img-kl {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-device-width: 412px) {
+  .app-page {
+    padding: 15px;
+  }
+}

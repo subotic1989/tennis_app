@@ -4,3 +4,12 @@
   margin: 0px auto;
   width: fit-content;
 }
+
+@media only screen and (max-device-width: 412px) {
+  .time {
+    font-size: xx-large;
+    padding: 20px;
+    margin: 0px auto;
+    width: fit-content;
+  }
+}

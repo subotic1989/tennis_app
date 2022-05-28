@@ -51,6 +51,13 @@ const routes: Routes = [
         (m) => m.NewPlayerModule
       ),
   },
+  {
+    path: 'table-game',
+    loadChildren: () =>
+      import('./pages/table-game/table-game.module').then(
+        (m) => m.TableGameModule
+      ),
+  },
 
   {
     path: '**',

@@ -18,15 +18,13 @@
     color: $on-primary;
     text-align: justify;
   }
-}
 
-.test {
-  width: 100vw;
-  height: 100vh;
-  background-color: #fff;
+  h4 {
+    margin-bottom: 0;
+  }
 
   h1 {
-    color: black;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
   }
 }
 
@@ -42,5 +40,10 @@
 @media only screen and (max-device-width: 412px) {
   h1 {
     font-size: 40px;
+    line-height: normal;
+  }
+  h4 {
+    font-size: 19px;
+    margin-bottom: none;
   }
 }

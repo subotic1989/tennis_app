@@ -7,7 +7,11 @@
     [routerLink]="['/home']"
   />
   <!-- nav -->
-  <ul class="nav__navbar" [ngClass]="{ mobileModeActive: toggleMobileMenu }">
+  <ul
+    class="nav__navbar"
+    [ngClass]="{ mobileModeActive: toggleMobileMenu }"
+    *ngIf="removeNavbarMobile"
+  >
     <img
       src="../../../assets/image/main_logo/close.svg"
       alt="close"
@@ -23,6 +27,11 @@
     <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
       <a [routerLink]="['/players']" routerLinkActive="active"
         >{{ "HEADER.PLAYERS" | translate }}
+      </a>
+    </li>
+    <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
+      <a [routerLink]="['/table-game']" routerLinkActive="active"
+        >{{ "HEADER.SCHEDULE" | translate }}
       </a>
     </li>
     <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
@@ -93,7 +102,7 @@
       <li (click)="toggleMenu = !toggleMenu" [routerLink]="['new-player']">
         <a>{{ "HEADER.NEW PLAYER" | translate }}</a>
       </li>
-      <li (click)="toggleMenu = !toggleMenu" (click)="signOut()">
+      <li (click)="signOut()" (click)="toggleMenu = !toggleMenu">
         <a>{{ "HEADER.LOGOUT" | translate }}</a>
       </li>
 

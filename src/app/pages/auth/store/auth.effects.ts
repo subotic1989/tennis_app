@@ -14,8 +14,6 @@ import { AuthService } from './auth.services';
 
 import * as actions from './auth.actions';
 
-import { environment } from '../../../../environments/environment';
-
 import { errorOutputTransformFunction } from '@app/shared/utils/errorOutputTransform.service';
 import { NotificationService } from '@app/shared/library/indicators/snack-bar/notification.service';
 import { LocalStorageService } from '@app/shared/utils/localStorage.service';
