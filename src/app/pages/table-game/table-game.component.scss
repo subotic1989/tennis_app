@@ -14,6 +14,7 @@
 
   h4 {
     text-align: left;
+    // color: $primary-dark;
   }
 
   h3 {
@@ -35,28 +36,52 @@
     border: 1px solid #ddd;
     padding: 8px;
     font-size: 18px;
+    text-align: center !important;
   }
 
   #customers tr {
     background-color: #f2f2f2;
   }
 
-  #customers tr td:hover {
-    // background-color: #ddd;
-  }
-
   #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: center;
     color: $on-primary;
     background-color: $primary-dark;
+  }
+
+  .rank {
+    max-width: 50% !important;
+    margin: 0 auto;
+
+    tr > td:first-child {
+      width: 60px;
+    }
+    tr > td:last-child {
+      width: 90px;
+    }
+    td {
+      padding: 10px 20px !important;
+    }
+    th {
+      padding: 20px 15px !important;
+    }
+    tr:hover {
+      background-color: $primary-dark !important;
+      color: $on-primary !important;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    tr > td:nth-child(2) {
+      text-align: left !important;
+    }
   }
 
   table > tr > td:first-child {
     background-color: $primary;
     color: $primary-dark;
     width: 150px;
+    text-align: center !important;
 
     &:hover {
       background-color: $primary !important;
@@ -86,11 +111,66 @@
     height: auto;
   }
 
-  .win {
-    background-color: rgb(182, 255, 172);
+  // panel
+
+  div.panel {
+    max-width: 85%;
+    margin: auto;
+    margin-top: calc(5% - 0px);
+
+    h4 {
+      color: $primary-dark;
+    }
   }
-  .lose {
-    background-color: rgb(255, 172, 172);
+  details {
+    background: $primary;
+    font-size: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+    display: flex;
+    text-align: left;
+  }
+
+  details div.content {
+    padding: 24px 24px 40px 24px;
+    background-color: $primary-light;
+  }
+
+  details[open] {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 2px;
+  }
+  details[open]:first-child {
+    margin-top: 0;
+    margin-bottom: 16px;
+    border: none;
+  }
+  details[open]:last-child {
+    margin-top: 16px;
+    margin-bottom: 0px;
+    border: none;
+  }
+
+  summary {
+    outline: none;
+    cursor: pointer;
+    padding: 16px 24px;
+    color: #ffffff;
+    // color: $primary-dark;
+    position: relative;
+    font-size: 22px;
+    padding: 20px;
+    font-family: sans-serif;
+  }
+  summary:hover {
+    background: $primary-dark;
+  }
+
+  .datum {
+    font-size: smaller;
+    float: right;
   }
 }
 
@@ -100,5 +180,11 @@
   }
   .app-page .matches {
     justify-content: space-between;
+  }
+  .app-page .rank {
+    max-width: 100% !important;
+  }
+  .app-page div.panel {
+    max-width: 100%;
   }
 }
