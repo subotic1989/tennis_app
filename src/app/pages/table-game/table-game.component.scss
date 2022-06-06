@@ -42,20 +42,20 @@
   }
 
   #customers tr td:hover {
-    background-color: #ddd;
+    // background-color: #ddd;
   }
 
   #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: $primary-dark;
     color: $on-primary;
+    background-color: $primary-dark;
   }
 
   table > tr > td:first-child {
-    color: $primary-dark;
     background-color: $primary;
+    color: $primary-dark;
     width: 150px;
 
     &:hover {
@@ -85,10 +85,20 @@
     width: 100%;
     height: auto;
   }
+
+  .win {
+    background-color: rgb(182, 255, 172);
+  }
+  .lose {
+    background-color: rgb(255, 172, 172);
+  }
 }
 
 @media only screen and (max-device-width: 412px) {
   .app-page {
     padding: 15px;
+  }
+  .app-page .matches {
+    justify-content: space-between;
   }
 }

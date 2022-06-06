@@ -58,6 +58,11 @@ const routes: Routes = [
         (m) => m.TableGameModule
       ),
   },
+  {
+    path: 'rules',
+    loadChildren: () =>
+      import('./pages/rules/rules.module').then((m) => m.RulesModule),
+  },
 
   {
     path: '**',

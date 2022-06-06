@@ -35,6 +35,9 @@
       </a>
     </li>
     <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
+      <a [routerLink]="['/rules']" routerLinkActive="active">RULES </a>
+    </li>
+    <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
       <a [routerLink]="['/gallery']" routerLinkActive="active">
         {{ "HEADER.GALLERY" | translate }}
       </a>
