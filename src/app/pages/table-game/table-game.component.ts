@@ -23,6 +23,20 @@ export class TableGameComponent implements OnInit {
     { name: 'Dino Kardum', points: 20 },
   ];
 
+  colors = [
+    '#57bb8a',
+    '#73b87e',
+    '#94bd77',
+    '#b0be6e',
+    '#d4c86a',
+    '#f5ce62',
+    '#e9b861',
+    '#ecac67',
+    '#e79a69',
+    '#e2886c',
+    '#dd776e',
+  ];
+
   ngOnInit(): void {
     this.addColorToTable();
     this.fillRankList();

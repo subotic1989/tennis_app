@@ -1,18 +1,33 @@
 <div class="app-page">
   <app-loading-tennis *ngIf="isLoading"></app-loading-tennis>
-  <h4 *ngIf="!isAddPhotos">Zagreb 2021</h4>
+  <!-- <h4 *ngIf="!isAddPhotos">Zagreb 2021</h4> -->
 
-  <ng-image-slider
-    *ngIf="!isAddPhotos"
-    [images]="galleryArray"
-    #nav
-  ></ng-image-slider>
+  <details>
+    <summary>Zagreb &nbsp;<span class="datum">09.10.2021 </span></summary>
+    <div class="content">
+      <ng-image-slider
+        *ngIf="!isAddPhotos"
+        [images]="galleryArray"
+        #nav
+      ></ng-image-slider>
+    </div>
+  </details>
+  <details>
+    <summary>Graz &nbsp;<span class="datum">04.06.2022 </span></summary>
+    <div class="content">
+      <ng-image-slider
+        *ngIf="!isAddPhotos"
+        [images]="galleryArray"
+        #nav
+      ></ng-image-slider>
+    </div>
+  </details>
 
   <div class="center">
     <router-outlet *ngIf="isAddPhotos"></router-outlet>
   </div>
 
-  <app-button-primary class="btn" *ngIf="isAdmin$ | async" (click)="addPhotos()"
+  <!-- <app-button-primary class="btn" *ngIf="isAdmin$ | async" (click)="addPhotos()"
     >{{ isAddPhotos ? "Cancel" : "Add Photos +" }}
-  </app-button-primary>
+  </app-button-primary> -->
 </div>

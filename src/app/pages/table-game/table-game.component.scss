@@ -14,7 +14,6 @@
 
   h4 {
     text-align: left;
-    // color: $primary-dark;
   }
 
   h3 {
@@ -23,6 +22,14 @@
 
   .res {
     overflow-x: auto;
+
+    ul li {
+      color: $primary-dark !important;
+    }
+
+    span {
+      font-weight: 900;
+    }
   }
 
   #customers {
