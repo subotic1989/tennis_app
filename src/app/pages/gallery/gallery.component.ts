@@ -15,13 +15,9 @@ import { Subject, takeUntil } from 'rxjs';
 export class GalleryComponent implements OnInit, OnDestroy {
   public isLoading: boolean = true;
   public isAddPhotos: boolean;
-
   public galleryArray: any[] = [];
-
   public isAdmin$: Observable<boolean>;
-
   onDestroy$ = new Subject();
-
   @ViewChild('nav') slider: NgImageSliderComponent;
 
   constructor(private store: Store) {
@@ -30,6 +26,25 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initValues();
+    this.openGallery();
+  }
+
+  openGallery() {
+    const detailsElements = document.querySelectorAll('details');
+
+    detailsElements.forEach((detail) => {
+      detail.addEventListener('toggle', () => {
+        if (detail.open && detail.id === 'zg') {
+          detailsElements.forEach((det) => {
+            if (det !== detail) det.removeAttribute('open');
+          });
+        } else if (detail.open && detail.id === 'gr') {
+          detailsElements.forEach((det) => {
+            if (det !== detail) det.removeAttribute('open');
+          });
+        }
+      });
+    });
   }
 
   initValues() {
@@ -52,12 +67,12 @@ export class GalleryComponent implements OnInit, OnDestroy {
       //()
 
       .subscribe((data: any[]) => {
-        console.log(data);
         this.galleryArray = data.map((img) => ({
           image: img.downloadURL,
           thumbImage: img.downloadURL,
           alt: img.originalName,
         }));
+        console.log(this.galleryArray);
         this.isLoading = false;
       });
   }

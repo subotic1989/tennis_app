@@ -34,9 +34,7 @@
         >{{ "HEADER.SCHEDULE" | translate }}
       </a>
     </li>
-    <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
-      <a [routerLink]="['/rules']" routerLinkActive="active">RULES </a>
-    </li>
+
     <li (click)="toggleMenu = false" (click)="toggleMobileMenu = false">
       <a [routerLink]="['/gallery']" routerLinkActive="active">
         {{ "HEADER.GALLERY" | translate }}
@@ -104,6 +102,9 @@
     <ul class="dropdown__content" *ngIf="toggleMenu">
       <li (click)="toggleMenu = !toggleMenu" [routerLink]="['new-player']">
         <a>{{ "HEADER.NEW PLAYER" | translate }}</a>
+      </li>
+      <li (click)="toggleMenu = !toggleMenu">
+        <a [routerLink]="['/rules']">{{ "HEADER.RULES" | translate }} </a>
       </li>
       <li (click)="signOut()" (click)="toggleMenu = !toggleMenu">
         <a>{{ "HEADER.LOGOUT" | translate }}</a>

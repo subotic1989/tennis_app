@@ -8,6 +8,7 @@
     "LOGIN": "LOGIN",
     "REGISTRATION": "REGISTRATION",
 
+    "RULES": "Rules",
     "LOGOUT": "Logout",
     "NEW PLAYER": "New Player"
   },
