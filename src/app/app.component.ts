@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   initApp() {
     this.store.dispatch(initAction());
-    this.router.navigate(['gallery']);
+    this.router.navigate(['home']);
 
     this.checkAdmin.check().subscribe((data) => {
       this.store.dispatch(isAdmin({ isAdmin: data }));

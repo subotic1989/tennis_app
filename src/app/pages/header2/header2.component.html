@@ -46,7 +46,7 @@
       </a>
     </li>
 
-    <!-- ADDED IN MOBIL-MODE -->
+    <!-- ADD IN MOBIL-MODE -->
     <section class="mobile-mode">
       <li
         (click)="toggleMenu = !toggleMenu"
@@ -54,6 +54,9 @@
         [routerLink]="['new-player']"
       >
         <a>{{ "HEADER.NEW PLAYER" | translate }}</a>
+      </li>
+      <li (click)="toggleMenu = !toggleMenu" (click)="toggleMobileMenu = false">
+        <a [routerLink]="['/rules']"> {{ "HEADER.RULES" | translate }} </a>
       </li>
       <li
         (click)="toggleMenu = !toggleMenu"
