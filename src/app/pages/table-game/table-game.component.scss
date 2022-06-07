@@ -129,6 +129,7 @@
       color: $primary-dark;
     }
   }
+
   details {
     background: $primary;
     font-size: 16px;
@@ -165,19 +166,14 @@
     cursor: pointer;
     padding: 16px 24px;
     color: #ffffff;
-    // color: $primary-dark;
     position: relative;
     font-size: 22px;
     padding: 20px;
     font-family: sans-serif;
-  }
-  summary:hover {
-    background: $primary-dark;
-  }
 
-  .datum {
-    font-size: smaller;
-    float: right;
+    &:hover {
+      background: $primary-dark;
+    }
   }
 }
 

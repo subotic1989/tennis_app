@@ -25,7 +25,6 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.initValues();
     this.openGallery();
   }
 
@@ -35,10 +34,12 @@ export class GalleryComponent implements OnInit, OnDestroy {
     detailsElements.forEach((detail) => {
       detail.addEventListener('toggle', () => {
         if (detail.open && detail.id === 'zg') {
+          this.getPhotos('zagr');
           detailsElements.forEach((det) => {
             if (det !== detail) det.removeAttribute('open');
           });
         } else if (detail.open && detail.id === 'gr') {
+          this.getPhotos('graz');
           detailsElements.forEach((det) => {
             if (det !== detail) det.removeAttribute('open');
           });
@@ -47,7 +48,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
     });
   }
 
-  initValues() {
+  getPhotos(album) {
     this.isAdmin$ = this.store.pipe(select(isAdminSelector));
 
     this.store
@@ -67,12 +68,17 @@ export class GalleryComponent implements OnInit, OnDestroy {
       //()
 
       .subscribe((data: any[]) => {
-        this.galleryArray = data.map((img) => ({
-          image: img.downloadURL,
-          thumbImage: img.downloadURL,
-          alt: img.originalName,
-        }));
-        console.log(this.galleryArray);
+        this.galleryArray = data
+          .filter((img) => {
+            if (img.storagePath.slice(0, 4) == album) {
+              return img;
+            }
+          })
+          .map((img) => ({
+            image: img.downloadURL,
+            name: img.originalName,
+            alt: img.storagePath,
+          }));
         this.isLoading = false;
       });
   }
