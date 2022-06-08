@@ -313,7 +313,12 @@
       </tr>
       <tr *ngFor="let player of players | pipeRankingList; let index = index">
         <td>{{ index + 1 }}.</td>
-        <td>{{ player.name }}</td>
+        <td
+          (click)="onGetPlayer(player.eventId)"
+          [routerLink]="['/players', player.name]"
+        >
+          {{ player.name }}
+        </td>
         <td>{{ player.points }}</td>
       </tr>
     </table>

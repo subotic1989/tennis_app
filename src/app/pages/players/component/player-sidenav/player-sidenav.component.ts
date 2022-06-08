@@ -36,7 +36,7 @@ export class PlayerSidenavComponent implements OnInit, OnDestroy {
     );
   }
 
-  onGetPlayer(query: string) {
+  onGetPlayer() {
     this.store.dispatch(getPlayerAction({ request: this.playerId }));
   }
 

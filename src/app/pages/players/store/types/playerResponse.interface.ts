@@ -11,4 +11,5 @@ export interface PlayerResponseInterface {
   phone: number;
   email: string;
   eventId?: string;
+  points: number;
 }

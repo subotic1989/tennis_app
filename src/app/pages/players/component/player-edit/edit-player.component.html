@@ -86,6 +86,18 @@
         ></app-input>
       </app-form-field>
 
+      <!-- points -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['points']"
+        [isInline]="false"
+      >
+        <app-input
+          formControlName="points"
+          [placeholder]="'Points'"
+        ></app-input>
+      </app-form-field>
+
       <!-- bio -->
       <app-form-field [control]="form.controls?.['bio']" [isInline]="false">
         <app-text-area

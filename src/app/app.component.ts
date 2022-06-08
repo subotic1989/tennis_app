@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   initApp() {
     this.store.dispatch(initAction());
-    this.router.navigate(['home']);
+    this.router.navigate(['table-game']);
 
     this.checkAdmin.check().subscribe((data) => {
       this.store.dispatch(isAdmin({ isAdmin: data }));

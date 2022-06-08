@@ -37,6 +37,7 @@ export class GetPlayersEffect {
         return this.getPlayersService.getPlayer(data.request).pipe(
           delay(300),
           map((data: any) => {
+            console.log(data);
             return actions.getPlayerSuccessAction({ response: data });
           }),
 

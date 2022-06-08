@@ -61,6 +61,15 @@
         {{ player?.sponsors }}
       </p>
     </span>
+    <span class="about" *ngIf="player?.sponsors">
+      <img
+        src="../../../../../assets/image/descriptions_icon/success.svg"
+        alt="success"
+      />
+      <p>
+        {{ player?.points }}
+      </p>
+    </span>
   </div>
 
   <!-- bottom -->

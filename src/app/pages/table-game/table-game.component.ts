@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayerRankInterface } from './models/player-rank.interface';
+import { select, Store } from '@ngrx/store';
+import {
+  getPlayerAction,
+  getPlayersAction,
+} from '../players/store/players.actions';
+import { getPlayersSelector } from '../players/store/players.selectors';
+import { PlayerResponseInterface } from '../players/store/types/playerResponse.interface';
 
 @Component({
   selector: 'app-table-game',
@@ -7,37 +13,12 @@ import { PlayerRankInterface } from './models/player-rank.interface';
   styleUrls: ['./table-game.component.scss'],
 })
 export class TableGameComponent implements OnInit {
-  constructor() {}
+  constructor(private store: Store) {}
 
-  players: PlayerRankInterface[] = [
-    { name: 'Tomica Ples', points: 100 },
-    { name: 'Dejan Subotic', points: 110 },
-    { name: 'Ivan Pandza', points: 90 },
-    { name: 'Stjepan Popek', points: 80 },
-    { name: 'Nikola Mudric', points: 70 },
-    { name: 'Zvonimir Perica', points: 60 },
-    { name: 'Ilija Kotarac', points: 50 },
-    { name: 'Robert Pandza', points: 10 },
-    { name: 'Stanko Mario Popek', points: 40 },
-    { name: 'Ante Ivanko', points: 30 },
-    { name: 'Dino Kardum', points: 20 },
-  ];
-
-  colors = [
-    '#57bb8a',
-    '#73b87e',
-    '#94bd77',
-    '#b0be6e',
-    '#d4c86a',
-    '#f5ce62',
-    '#e9b861',
-    '#ecac67',
-    '#e79a69',
-    '#e2886c',
-    '#dd776e',
-  ];
+  players: PlayerResponseInterface[] = [];
 
   ngOnInit(): void {
+    this.store.dispatch(getPlayersAction());
     this.addColorToTable();
     this.fillRankList();
   }
@@ -56,5 +37,14 @@ export class TableGameComponent implements OnInit {
     });
   }
 
-  fillRankList() {}
+  fillRankList() {
+    this.store.pipe(select(getPlayersSelector)).subscribe((players) => {
+      this.players = players;
+    });
+  }
+
+  onGetPlayer(id) {
+    console.log(id);
+    this.store.dispatch(getPlayerAction({ request: id }));
+  }
 }

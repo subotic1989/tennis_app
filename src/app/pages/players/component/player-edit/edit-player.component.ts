@@ -114,6 +114,14 @@ export class EditPlayerComponent
           validators: [Validators.required, Validators.maxLength(128)],
         },
       ],
+      points: [
+        this.player?.points,
+
+        {
+          updateOn: 'blur',
+          validators: [Validators.required, Validators.maxLength(128)],
+        },
+      ],
       bio: [
         this.player?.bio,
 
@@ -126,7 +134,6 @@ export class EditPlayerComponent
   }
 
   onSubmit() {
-    console.log(this.form.value);
     this.store.dispatch(
       editPlayerAction({ id: this.player.eventId, user: this.form.value })
     );

@@ -175,6 +175,11 @@
       background: $primary-dark;
     }
   }
+
+  .datum {
+    font-size: smaller;
+    float: right;
+  }
 }
 
 @media only screen and (max-device-width: 412px) {

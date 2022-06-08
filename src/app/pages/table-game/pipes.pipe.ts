@@ -1,13 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PlayerRankInterface } from './models/player-rank.interface';
+import { PlayerResponseInterface } from '../players/store/types/playerResponse.interface';
 
 @Pipe({
   name: 'pipeRankingList',
 })
 export class RankingListPipe implements PipeTransform {
-  transform(players: PlayerRankInterface[]): any {
-    return players.sort(function (a: any, b: any) {
-      return b.points - a.points;
-    });
+  transform(players: PlayerResponseInterface[]): PlayerResponseInterface[] {
+    return players
+      ?.slice()
+      .sort(function (a: PlayerResponseInterface, b: PlayerResponseInterface) {
+        return b.points - a.points;
+      });
   }
 }
