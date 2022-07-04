@@ -10,30 +10,28 @@
 .app-page {
   margin-top: 0;
   margin-bottom: 0;
-  min-height: 75vh;
-  padding: 0;
-  background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
-  background-position: center;
-  background-size: cover;
+  padding: 0 !important;
 }
 
-section {
-  width: 80vw;
-  width: 100%;
-  min-width: 360px;
-  height: 100%;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-  margin: auto;
-}
+// section {
+//   width: 100%;
+//   min-width: 360px;
+//   box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+//   margin: auto;
+// }
 
 article {
+  height: 100%;
+  margin: auto;
   position: absolute;
+  width: 70%;
   left: 0;
   top: 5rem;
   right: 0;
   bottom: 0;
+  overflow: hidden;
+
   padding: 1rem 2rem 0;
-  overflow: auto;
   transition: 0.7s;
   transform: scale(0);
   transform-origin: center right;
@@ -140,18 +138,8 @@ label:before {
   backdrop-filter: blur(4px);
 }
 
-@media only screen and (max-device-width: 412px) {
-  .app-page {
-    margin: 0px auto !important;
-  }
-  label img {
-    height: 60px;
-    width: 55px;
-  }
-}
-
-@media only screen and (max-device-width: 820px) {
-  .app-page {
-    margin: 0px auto !important;
+@media (max-width: 808px) {
+  article {
+    width: 100% !important;
   }
 }

@@ -1,27 +1,25 @@
 @import "styles.scss";
 
 footer {
-  min-height: 10vh;
-  border-top: 1px solid $primary-dark;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+  max-width: 1680px;
+  width: 95%;
+  padding: 35px;
   background-color: $primary;
-  max-width: 900px;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
-
-  .container {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-  }
+  align-items: center;
+  justify-content: center;
 
   span {
-    vertical-align: middle;
-    margin-left: 10px;
-    font-size: 0.8rem;
+    display: block;
+    font-size: 1rem;
     color: $on-primary;
     font-weight: 300;
+  }
+}
+
+@media (max-width: 1680px) {
+  footer {
+    width: 100% !important;
   }
 }

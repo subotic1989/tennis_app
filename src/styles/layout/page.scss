@@ -1,6 +1,13 @@
 .app-page {
-  max-width: 900px;
-  margin: 0px auto;
+  max-width: 1680px;
+  width: 95%;
+  margin: auto;
+  padding: 80px 0px !important;
+  min-height: 75vh;
+  background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg") !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 
   background: $base-light;
   padding: 32px;
@@ -23,8 +30,8 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
-  // .app-page {
-  //   width: 600px;
-  // }
+@media (max-width: 1680px) {
+  .app-page {
+    width: 100% !important;
+  }
 }

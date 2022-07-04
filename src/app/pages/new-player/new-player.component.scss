@@ -1,32 +1,20 @@
 @import "styles.scss";
 
 .app-page {
-  margin: 0 auto;
+  h2 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
 
-  background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
-  background-position: center;
-  background-size: cover;
-
-  &__content {
-    margin: 0 auto;
-    width: 80%;
+  .container {
+    margin: auto;
+    max-width: 700px;
+    width: 70%;
   }
 }
 
-@media only screen and (max-device-width: 412px) {
-  .app-page {
-    margin: 0 auto;
-
-    &__content {
-      margin: 0 auto;
-      min-width: 250px !important;
-      max-width: 350px !important;
-    }
-  }
-}
-
-@media only screen and (max-device-width: 820px) {
-  .app-page__content {
-    width: 100%;
+@media (max-width: 420px) {
+  .container {
+    width: 95% !important;
   }
 }

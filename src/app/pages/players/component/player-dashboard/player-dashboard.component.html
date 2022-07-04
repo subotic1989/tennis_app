@@ -2,16 +2,22 @@
 <app-loading-tennis *ngIf="loading$ | async"></app-loading-tennis>
 
 <!-- right -->
-
-<div class="player app-page">
-  <h3>{{ player?.name }}</h3>
-
-  <div class="player__img">
-    <img class="player__img-frame" src="{{ player?.image }}" alt="" />
+<div class="container">
+  <!-- title -->
+  <div class="title">
+    <h2>{{ player?.name }}</h2>
   </div>
 
-  <div class="player__details">
-    <span class="about">
+  <!-- img -->
+  <div class="img">
+    <div class="player__img">
+      <img class="player__img-frame" src="{{ player?.image }}" alt="" />
+    </div>
+  </div>
+
+  <!-- data -->
+  <div class="data">
+    <span class="box">
       <img
         src="../../../../../assets/image/descriptions_icon/email.svg"
         alt="email"
@@ -20,7 +26,7 @@
         {{ player?.email }}
       </p>
     </span>
-    <span class="about">
+    <span class="box">
       <img
         src="../../../../../assets/image/descriptions_icon/phone.svg"
         alt="phone"
@@ -29,21 +35,21 @@
         {{ player?.phone }}
       </p>
     </span>
-    <span class="about">
+    <span class="box">
       <img
         src="../../../../../assets/image/descriptions_icon/weight.svg"
         alt="weight"
       />
       <p>{{ player?.weight }}kg</p>
     </span>
-    <span class="about">
+    <span class="box">
       <img
         src="../../../../../assets/image/descriptions_icon/height.svg"
         alt="height"
       />
       <p>{{ player?.height }}cm</p>
     </span>
-    <span class="about">
+    <span class="box">
       <img
         src="../../../../../assets/image/descriptions_icon/map.svg"
         alt="birthplace"
@@ -52,7 +58,7 @@
         {{ player?.birthplace }}
       </p>
     </span>
-    <span class="about" *ngIf="player?.sponsors">
+    <span class="box" *ngIf="player?.sponsors">
       <img
         src="../../../../../assets/image/descriptions_icon/hands.svg"
         alt="sponsors"
@@ -61,7 +67,7 @@
         {{ player?.sponsors }}
       </p>
     </span>
-    <span class="about" *ngIf="player?.sponsors">
+    <span class="box" *ngIf="player?.sponsors">
       <img
         src="../../../../../assets/image/descriptions_icon/success.svg"
         alt="success"
@@ -72,48 +78,38 @@
     </span>
   </div>
 
-  <!-- bottom -->
-  <div class="player__bio">
-    <h4>Biography:</h4>
-    <span>{{ player?.bio }}</span>
+  <!-- network -->
+  <div class="network">
+    <img
+      src="../../../../../assets/image/networks_icon/instagram.svg"
+      alt="in"
+    />
+    <img
+      src="../../../../../assets/image/networks_icon/facebook.svg"
+      alt="fb"
+    />
+    <img
+      src="../../../../../assets/image/networks_icon/linkedin.svg"
+      alt="ln"
+    />
+    <img
+      src="../../../../../assets/image/players_flag/Animated-Flag-{{
+        player?.country
+      }}.gif"
+      alt="flag"
+    />
   </div>
 
-  <div class="networks">
-    <ul>
-      <li>
-        <a href="https://www.instagram.com/instagram/"
-          ><img
-            src="../../../../../assets/image/networks_icon/instagram.svg"
-            alt="in"
-        /></a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com/"
-          ><img
-            src="../../../../../assets/image/networks_icon/facebook.svg"
-            alt="fb"
-        /></a>
-      </li>
-      <li>
-        <a
-          href="https://www.google.at/webhp?gfe_rd=cr&dcr=0&ei=JgG4WukUj8Re7_yN2Ac"
-          ><img
-            src="../../../../../assets/image/networks_icon/linkedin.svg"
-            alt="ln"
-        /></a>
-      </li>
-      <li>
-        <a
-          href="https://www.google.at/webhp?gfe_rd=cr&dcr=0&ei=JgG4WukUj8Re7_yN2Ac"
-          ><img
-            src="../../../../../assets/image/players_flag/Animated-Flag-{{
-              player?.country
-            }}.gif"
-            alt=""
-        /></a>
-      </li>
-    </ul>
+  <!-- empty -->
+  <div class="empty"></div>
+
+  <!-- bio -->
+  <div class="bio">
+    <h3>Biography:</h3>
+    <p>{{ player?.bio }}</p>
   </div>
+
+  <!-- btn -->
   <div class="navigate-buttons">
     <app-button-primary *ngIf="isAdmin$ | async" (click)="onEditPlayer()"
       >Edit

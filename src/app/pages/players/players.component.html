@@ -1,4 +1,4 @@
-<div class="app-page">
+<div class="container">
   <app-loading-tennis *ngIf="loading$ | async"></app-loading-tennis>
 
   <div class="players">
@@ -13,6 +13,7 @@
         (click)="onSendActiveUser(player.name)"
       ></app-player-sidenav>
     </div>
+
     <!-- dashboard -->
     <div
       class="players__dashboard mobileMode"

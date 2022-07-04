@@ -1,12 +1,11 @@
 @import "styles.scss";
 
 .app-page {
-  min-height: 75vh;
-
   &__header {
     h2 {
-      font-weight: bold;
+      font-weight: 900;
       color: $primary-dark;
+      margin-bottom: 30px;
     }
 
     a {
@@ -19,17 +18,11 @@
 
   &__content {
     max-width: 500px;
-    height: fit-content;
+    width: 90%;
 
     .btn {
       display: block;
       float: right;
     }
-  }
-}
-
-@media only screen and (max-device-width: 360px) {
-  .app-page__content .btn {
-    float: unset;
   }
 }

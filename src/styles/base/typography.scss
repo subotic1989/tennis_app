@@ -4,64 +4,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Rubik", sans-serif;
-}
-
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: "Rubik", sans-serif;
-}
-
-h1,
-.h1 {
-  font-weight: 300;
-  font-size: 2em;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-}
-
-h2,
-.h2 {
-  font-weight: 300;
-  font-size: 2.5em;
-  margin-top: 0.83em;
-  margin-bottom: 0.83em;
-}
-
-h3,
-.h3 {
-  font-weight: 400;
-  font-size: 1.17em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-h4,
-.h4 {
-  font-weight: 400;
-  font-size: 1em;
-  margin-top: 1.33em;
-  margin-bottom: 1.33em;
-}
-
-h5,
-.h5 {
-  font-weight: 500;
-  font-size: 0.83em;
-  margin-top: 1.67em;
-  margin-bottom: 1.67em;
-}
-
-h6,
-.h6 {
-  font-weight: 500;
-  font-size: 0.67em;
-  margin-top: 2.33em;
-  margin-bottom: 2.33em;
+  color: white;
+  font-family: Libre !important;
 }
 
 b,
@@ -76,51 +20,23 @@ p {
   font-family: Fredoka-Regular;
 }
 
-h1,
-.h1 {
-  font-size: 70px;
-  color: white;
-  font-family: Libre !important;
-}
-h2,
-.h2 {
-  font-size: 60px;
-  color: white;
-  font-family: Libre;
+h1 {
+  font-size: clamp(40px, 7vw, 72px);
 }
 
-h3,
-.h3 {
-  font-size: 40px;
-  color: white;
-  font-family: Libre;
-  margin-top: 0px;
+h2 {
+  font-size: clamp(30px, 6vw, 56px);
+  line-height: 1.2;
 }
 
-h4,
-.h4 {
-  font-size: 25px;
-  color: white;
-  font-family: Libre;
+h3 {
+  font-size: clamp(25px, 5vw, 40px);
 }
 
-@media only screen and (max-width: 412px) {
-  h1,
-  .h1 {
-    font-size: 55px;
-  }
-  h2,
-  .h2 {
-    font-size: 30px;
-  }
+h4 {
+  font-size: clamp(20px, 4vw, 24px);
+}
 
-  h3,
-  .h3 {
-    font-size: 40px;
-  }
-
-  h4,
-  .h4 {
-    font-size: 25px;
-  }
+h5 {
+  font-size: clamp(16px, 2vw, 20px);
 }

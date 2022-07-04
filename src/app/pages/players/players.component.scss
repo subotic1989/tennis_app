@@ -1,38 +1,46 @@
 @import "styles.scss";
 
-.app-page {
-  margin-top: 0;
-  margin-bottom: 0;
-  height: fit-content;
-  padding: 0;
+.container {
+  max-width: 1680px;
+  width: 95%;
+  margin: auto;
+
+  .players {
+    display: flex;
+    min-height: 75vh;
+
+    &__side {
+      flex: 1;
+      background-color: $primary-light;
+    }
+
+    &__dashboard {
+      flex: 3;
+    }
+
+    .active {
+      font-weight: 900;
+    }
+  }
 }
 
-.players {
-  display: flex;
-  min-height: 75vh;
-
-  &__side {
-    flex: 1;
-    background-color: $primary-light;
-  }
-
-  &__dashboard {
-    flex: 3;
-  }
-
-  .active {
-    font-weight: 900;
+@media (max-width: 1680px) {
+  .container {
+    width: 100% !important;
   }
 }
 
-@media only screen and (max-device-width: 412px) {
+@media (max-width: 808px) {
+  .players__side {
+    flex: 2 !important;
+  }
   .mobileMode {
     display: none;
   }
 }
 
-@media only screen and (max-device-width: 820px) {
-  .players__side {
-    flex: 2;
+@media (max-width: 412px) {
+  .mobileMode {
+    display: none;
   }
 }

@@ -1,70 +1,64 @@
 <!-- loading -->
 <app-loading *ngIf="loading$ | async"></app-loading>
 
-<!-- register section -->
+<!-- register -->
 <section class="app-page">
-  <div class="app-content">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
-      <!-- title -->
-      <div class="app-page__header">
-        <h2>{{ "AUTH.SIGN_UP" | translate }}</h2>
-        <a class="app-a" [routerLink]="['/auth/login']">
-          {{ "AUTH.HAVE_ACCOUNT" | translate }}
-        </a>
-      </div>
-
-      <div class="app-page__content">
-        <!-- input email -->
-        <app-form-field
-          [required]="false"
-          [control]="form.controls?.['email']"
-          [isInline]="false"
-        >
-          <app-input
-            formControlName="email"
-            [placeholder]="'Email'"
-          ></app-input>
-        </app-form-field>
-
-        <!-- input password -->
-        <app-form-field
-          [required]="false"
-          [control]="form.controls?.['password']"
-          [isInline]="false"
-          [patternError]="regexErrors.password"
-        >
-          <app-password
-            formControlName="password"
-            [placeholder]="'Password'"
-          ></app-password>
-        </app-form-field>
-
-        <!-- input password repeat-->
-        <app-form-field
-          [required]="false"
-          [control]="form.controls?.['passwordRepeat']"
-          [isInline]="false"
-        >
-          <app-password
-            formControlName="passwordRepeat"
-            [placeholder]="'Password Repeat'"
-          ></app-password>
-        </app-form-field>
-
-        <!-- error passwords don't match -->
-        <div class="error" [class.error_active]="form.hasError('repeat')">
-          Entered passwords don't match
-        </div>
-
-        <br />
-
-        <!-- button  -->
-        <div class="button-container">
-          <app-button-primary [type]="'submit'" class="btn">
-            {{ "AUTH.SIGN_UP" | translate }}
-          </app-button-primary>
-        </div>
-      </div>
-    </form>
+  <!-- header -->
+  <div class="app-page__header">
+    <h2>{{ "AUTH.SIGN_UP" | translate }}</h2>
+    <a class="app-a" [routerLink]="['/auth/login']">
+      {{ "AUTH.HAVE_ACCOUNT" | translate }}
+    </a>
   </div>
+
+  <!-- form -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <div class="app-page__content">
+      <!-- input email -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['email']"
+        [isInline]="false"
+      >
+        <app-input formControlName="email" [placeholder]="'Email'"></app-input>
+      </app-form-field>
+
+      <!-- input password -->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['password']"
+        [isInline]="false"
+        [patternError]="regexErrors.password"
+      >
+        <app-password
+          formControlName="password"
+          [placeholder]="'Password'"
+        ></app-password>
+      </app-form-field>
+
+      <!-- input password repeat-->
+      <app-form-field
+        [required]="false"
+        [control]="form.controls?.['passwordRepeat']"
+        [isInline]="false"
+      >
+        <app-password
+          formControlName="passwordRepeat"
+          [placeholder]="'Password Repeat'"
+        ></app-password>
+      </app-form-field>
+
+      <!-- error passwords don't match -->
+      <div class="error" [class.error_active]="form.hasError('repeat')">
+        Entered passwords don't match
+      </div>
+
+      <!-- button  -->
+      <div class="button-container">
+        <app-button-primary [type]="'submit'" class="btn">
+          {{ "AUTH.SIGN_UP" | translate }}
+        </app-button-primary>
+      </div>
+    </div>
+  </form>
 </section>

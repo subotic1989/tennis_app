@@ -1,46 +1,44 @@
 <div class="app-page">
-  <!-- <app-loading-tennis *ngIf="isLoading"></app-loading-tennis> -->
+  <h2>GALLERY</h2>
 
-  <div class="app-page__header">
-    <h2>GALLERY</h2>
-  </div>
-  <!-- zagreb 2021 -->
-  <details id="zg">
-    <summary>Zagreb &nbsp;<span class="datum">06.10.2021 </span></summary>
-    <div class="content">
-      <div class="gallery" *ngFor="let pic of galleryArray; let last = last">
-        <a target="_blank" href="{{ pic?.image }}">
-          <img
-            src="{{ pic?.image }}"
-            alt="{{ pic?.alt }}"
-            [ngClass]="{ lastImg: last }"
-          />
-        </a>
+  <div class="container">
+    <!-- zagreb 2021 -->
+    <details id="zg">
+      <summary>Zagreb &nbsp;<span class="datum">06.10.2021 </span></summary>
+      <div class="content">
+        <div class="gallery" *ngFor="let pic of galleryArray; let last = last">
+          <a target="_blank" href="{{ pic?.image }}">
+            <img
+              src="{{ pic?.image }}"
+              alt="{{ pic?.alt }}"
+              [ngClass]="{ lastImg: last }"
+            />
+          </a>
+        </div>
       </div>
-    </div>
-  </details>
+    </details>
 
-  <!-- graz 2022 -->
-  <details id="gr">
-    <summary>Graz &nbsp;<span class="datum">04.06.2022 </span></summary>
-    <div class="content">
-      <div class="gallery" *ngFor="let pic of galleryArray; let last = last">
-        <a target="_blank" href="{{ pic?.image }}">
-          <img
-            src="{{ pic?.image }}"
-            alt="{{ pic?.alt }}"
-            [ngClass]="{ lastImg: last }"
-          />
-        </a>
+    <!-- graz 2022 -->
+    <details id="gr">
+      <summary>Graz &nbsp;<span class="datum">04.06.2022 </span></summary>
+      <div class="content">
+        <div class="gallery" *ngFor="let pic of galleryArray; let last = last">
+          <a target="_blank" href="{{ pic?.image }}">
+            <img
+              src="{{ pic?.image }}"
+              alt="{{ pic?.alt }}"
+              [ngClass]="{ lastImg: last }"
+            />
+          </a>
+        </div>
       </div>
+    </details>
+
+    <!-- <div>
+      <router-outlet *ngIf="isAddPhotos"></router-outlet>
     </div>
-  </details>
-
-  <div class="center">
-    <router-outlet *ngIf="isAddPhotos"></router-outlet>
+    <app-button-primary (click)="addPhotos()"
+      >{{ isAddPhotos ? "Cancel" : "Add Photos +" }}
+    </app-button-primary> -->
   </div>
-
-  <!-- <app-button-primary class="btn" *ngIf="isAdmin$ | async" (click)="addPhotos()"
-    >{{ isAddPhotos ? "Cancel" : "Add Photos +" }}
-  </app-button-primary> -->
 </div>

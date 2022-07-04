@@ -1,20 +1,18 @@
 @import "styles.scss";
 
 .app-page {
-  margin: 0 auto;
-  min-height: 75vh;
-  background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
-  background-position: center;
-  background-size: cover;
-
-  h3 {
+  h2 {
     text-align: center;
-    margin-top: 30px;
+    margin-bottom: 50px;
   }
 
-  li {
-    color: white !important;
-  }
+  .container {
+    width: 80%;
+    margin: auto;
 
-  font-size: 18px;
+    li {
+      color: white !important;
+      font-size: 20px;
+    }
+  }
 }

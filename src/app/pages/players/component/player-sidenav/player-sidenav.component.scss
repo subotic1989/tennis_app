@@ -22,7 +22,8 @@
 
   &__name {
     flex: 2;
-    font-size: larger;
+    font-size: clamp(20px, 4vw, 24px);
+    line-height: 1.1;
     font-family: Fredoka-Regular;
   }
 

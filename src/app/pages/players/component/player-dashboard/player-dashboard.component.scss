@@ -1,174 +1,117 @@
 @import "styles/mixins";
 @import "styles.scss";
 
-.player {
-  grid-gap: 20px;
+.container {
+  position: relative;
+  background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg") !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  padding: 60px;
   display: grid;
-  max-width: 900px;
-  grid-template-columns: 1fr 3fr;
-  position: relative;
-  min-height: 75vh;
-  height: 100%;
-  position: relative;
-  background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
-  background-position: center;
-  background-size: cover;
-
+  gap: 30px;
   grid-template-areas:
-    "cap cap"
-    "img det"
-    "net ."
+    "title title"
+    "img data"
+    "network empty"
     "bio bio";
+}
 
-  &__bio {
-    grid-area: bio;
-    overflow: auto;
-    max-height: 300px !important;
-    padding-bottom: 100px !important;
-    background-color: #8dc63fdb !important;
-    color: #233507;
-    @include shadow;
-    @include card;
+// title
+.title {
+  grid-area: title;
+  margin-bottom: 30px;
+}
 
-    h4 {
-      font-size: 25px;
-      color: #172205;
-    }
+// img
+.img {
+  grid-area: img;
+  border-radius: 5px;
+
+  img {
+    width: 100%;
+    height: auto;
   }
+}
 
-  &__img {
-    grid-area: img;
-    text-align: center;
+// data
+.data {
+  grid-area: data;
+  .box {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 25px;
 
-    &-frame {
-      height: 260px;
-      width: 200px;
-      border-radius: 5px;
+    img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
     }
-  }
-
-  &__details {
-    grid-area: det;
 
     p {
-      color: white;
-      font-size: 18px;
+      font-size: 24px;
+      color: #fff;
     }
   }
+}
+
+// network
+.network {
+  grid-area: network;
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    max-width: 50px;
+    height: auto;
+    transition-duration: 0.3s;
+
+    &:hover {
+      transform: translateY(-3px);
+      transition-duration: 0.3s;
+    }
+  }
+}
+
+// empty
+.empty {
+  grid-area: empty;
+}
+
+// bio
+.bio {
+  grid-area: bio;
+  background-color: #8dc63fdb !important;
+  color: #233507;
+  padding: 20px;
+  @include shadow;
+  @include card;
 
   h3 {
-    grid-area: cap;
-    font-size: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.4;
   }
 }
 
-.about {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 10px;
-
-  img {
-    width: 23px;
-    height: 23px;
-    margin-right: 8px;
-  }
-}
-
-.networks {
-  margin-top: 20px;
-  grid-area: net;
-
-  ul {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-
-    li {
-      transition-duration: 0.3s;
-
-      &:hover {
-        transform: translateY(-3px);
-        transition-duration: 0.3s;
-      }
-    }
+@media (max-width: 1024px) {
+  .container {
+    gap: 30px 0px !important;
+    grid-template-areas:
+      "title"
+      "img"
+      "data"
+      "bio"
+      "network";
   }
 
-  img {
-    width: 33px;
-    height: 33px;
-  }
-}
-
-.navigate-buttons {
-  float: right;
-  width: 100%;
-  margin: auto;
-  display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-p {
-  font-size: large;
-  color: black;
-}
-
-@media only screen and (max-device-width: 412px) {
-  .player {
-    padding: 40px 0px;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    grid-gap: 20px;
-
-    h3 {
-      margin-top: 35px;
-      text-align: center;
-    }
-
-    &__img-frame {
-      height: 310px;
-      width: 260px;
-      border-radius: 10px;
-      margin: 0px auto;
-    }
-
-    &__details {
-      margin: 0px auto;
-      width: 260px;
-      p {
-        font-size: 24px;
-      }
-    }
-
-    &__bio {
-      margin: 0px auto;
-      width: 330px;
-      line-height: 1.2;
-      font-size: 20px;
-    }
-
-    .networks {
-      width: 310px;
-      margin: 0px auto;
-
-      img {
-        width: 44px;
-        height: 44px;
-      }
-    }
-
-    .btn-back {
-      display: block;
-      position: absolute;
-      top: 10px;
-      left: 20px;
-    }
-    .navigate-buttons {
-      right: 40px;
-    }
+  .navigate-buttons {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 }

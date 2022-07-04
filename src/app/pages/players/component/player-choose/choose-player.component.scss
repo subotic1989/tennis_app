@@ -5,21 +5,10 @@
   background-position: center;
   background-size: cover;
   height: 100%;
-  width: 100%;
-  min-height: 75vh;
 
-  .title {
+  h2 {
     padding-top: 10%;
     text-align: center;
-    color: $primary-dark;
-  }
-}
-
-// @media only screen and (max-width: 412px) {
-@media only screen and (max-device-width: 412px) {
-  .title {
-    padding-top: 10%;
-    text-align: center;
-    color: $primary-dark;
+    color: $on-primary;
   }
 }

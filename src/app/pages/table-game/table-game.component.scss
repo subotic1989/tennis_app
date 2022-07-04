@@ -1,23 +1,24 @@
 @import "styles.scss";
 
 .app-page {
-  margin: 0 auto;
+  margin: auto;
   min-height: 75vh;
   background-image: url("https://t4.ftcdn.net/jpg/02/04/19/73/360_F_204197377_mGHloO1S47PXmlfP1iLpB4JDUgnyC5zp.jpg");
   background-position: center;
   background-size: cover;
 
-  &__content {
-    margin: 0 auto;
-    width: 80%;
+  .container {
+    width: 50%;
+    margin: auto;
+  }
+
+  h2 {
+    margin-bottom: 50px;
+    text-align: center;
   }
 
   h4 {
-    text-align: left;
-  }
-
-  h3 {
-    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .res {
@@ -57,10 +58,68 @@
     background-color: $primary-dark;
   }
 
-  .rank {
-    max-width: 50% !important;
-    margin: 0 auto;
+  // TOURNAMENTS
+  .panel {
+    h4 {
+      color: $primary-dark;
+    }
 
+    details {
+      background: $primary;
+      font-size: 16px;
+      border-bottom: 1px solid #e0e0e0;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+      display: flex;
+      text-align: left;
+    }
+
+    details div.content {
+      padding: 24px 24px 40px 24px;
+      background-color: $primary-light;
+    }
+
+    details[open] {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      border: none;
+      border-radius: 2px;
+    }
+
+    details[open]:first-child {
+      margin-top: 0;
+      margin-bottom: 16px;
+      border: none;
+    }
+
+    details[open]:last-child {
+      margin-top: 16px;
+      margin-bottom: 0px;
+      border: none;
+    }
+
+    summary {
+      outline: none;
+      cursor: pointer;
+      padding: 16px 24px;
+      color: #ffffff;
+      position: relative;
+      font-size: 22px;
+      padding: 20px;
+      font-family: sans-serif;
+
+      &:hover {
+        background: $primary-dark;
+      }
+    }
+
+    .datum {
+      font-size: smaller;
+      float: right;
+    }
+  }
+
+  // TABLE
+  .rank {
     tr > td:first-child {
       width: 60px;
     }
@@ -117,85 +176,10 @@
     width: 100%;
     height: auto;
   }
-
-  // panel
-
-  div.panel {
-    max-width: 85%;
-    margin: auto;
-    margin-top: calc(5% - 0px);
-
-    h4 {
-      color: $primary-dark;
-    }
-  }
-
-  details {
-    background: $primary;
-    font-size: 16px;
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-    display: flex;
-    text-align: left;
-  }
-
-  details div.content {
-    padding: 24px 24px 40px 24px;
-    background-color: $primary-light;
-  }
-
-  details[open] {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    border: none;
-    border-radius: 2px;
-  }
-  details[open]:first-child {
-    margin-top: 0;
-    margin-bottom: 16px;
-    border: none;
-  }
-  details[open]:last-child {
-    margin-top: 16px;
-    margin-bottom: 0px;
-    border: none;
-  }
-
-  summary {
-    outline: none;
-    cursor: pointer;
-    padding: 16px 24px;
-    color: #ffffff;
-    position: relative;
-    font-size: 22px;
-    padding: 20px;
-    font-family: sans-serif;
-
-    &:hover {
-      background: $primary-dark;
-    }
-  }
-
-  .datum {
-    font-size: smaller;
-    float: right;
-  }
 }
 
-@media only screen and (max-device-width: 412px) {
-  .app-page {
-    padding: 15px;
-  }
-  .app-page .matches {
-    justify-content: space-between;
-  }
-  .app-page .rank {
-    max-width: 100% !important;
-  }
-  .app-page div.panel {
-    max-width: 100%;
-  }
-  .app-page details div.content {
-    padding: 24px 10px 40px 10px;
+@media (max-width: 808px) {
+  .container {
+    width: 90% !important;
   }
 }
